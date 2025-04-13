@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>x0n1 Dropzone - Whoami</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+  <style>
+    .section-block {
+      background-color: rgba(255, 255, 255, 0.03);
+      padding: 30px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 45, 85, 0.1);
+      box-shadow: 0 0 10px rgba(255, 45, 85, 0.05);
+      margin-bottom: 30px;
+    }
+
+    .typed-terminal::after {
+      content: '_';
+      animation: blink 0.8s infinite step-start;
+      margin-left: 4px;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .typed-title {
+      font-size: 2.5em;
+      color: #ff2d55;
+      margin-bottom: 10px;
+    }
+
+    .hero-subtext {
+      font-size: 1em;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .btn-primary {
+      background: #ff2d55;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 10px #ff2d55aa;
+      transform: scale(1.05);
+    }
+
+    .stats-bar {
+      display: flex;
+      gap: 30px;
+      font-family: 'Fira Code', monospace;
+      color: #fff;
+      margin: 30px 0;
+      font-size: 1em;
+    }
+
+    .stat-box {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 10px 15px;
+      border-radius: 8px;
+    }
+
+    .start-here-box {
+      background-color: rgba(255, 255, 255, 0.03);
+      padding: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+
+    .start-here-box h3 {
+      color: #ff9f0a;
+      margin-bottom: 10px;
+    }
+
+    .start-here-box ul {
+      padding-left: 20px;
+    }
+
+    .start-here-box ul li a {
+      color: #8ecaff;
+      text-decoration: none;
+    }
+
+    .start-here-box ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-quote {
+      opacity: 0.4;
+      font-style: italic;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .tag-sidebar {
+      padding: 20px;
+      font-family: 'Fira Code', monospace;
+    }
+
+    .filter-group {
+      margin-bottom: 12px;
+    }
+
+    .filter-toggle {
+      color: orange;
+      font-weight: bold;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px 0;
+      text-align: left;
+      width: 100%;
+    }
+
+    .filter-group .filter-toggle::after {
+      content: '▸';
+      float: right;
+      transition: transform 0.2s;
+    }
+
+    .filter-group.active .filter-toggle::after {
+      transform: rotate(90deg);
+    }
+
+    .filter-options {
+      display: none;
+      margin-top: 10px;
+      padding-left: 16px;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .filter-group.active .filter-options {
+      display: flex;
+    }
+
+    .filter-options label {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.9em;
+    }
+
+    input[type="checkbox"] {
+      appearance: none;
+      width: 14px;
+      height: 14px;
+      border: 2px solid #ff2d55;
+      border-radius: 3px;
+      background-color: transparent;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    input[type="checkbox"]:hover {
+      box-shadow: 0 0 3px #ff2d55aa;
+      transform: scale(1.05);
+    }
+
+    input[type="checkbox"]:checked {
+      background-color: #ff2d55;
+      border-color: #ff2d55;
+    }
+
+    .active-menu {
+      color: #ff2d55 !important;
+      font-weight: bold;
+    }
+
+    .menu li a .count {
+      font-size: 0.8em;
+      opacity: 0.6;
+      margin-left: 5px;
+    }
+
+    .dropdown-btn::after {
+      content: '▸';
+      float: right;
+      transition: transform 0.3s;
+    }
+
+    .dropdown-btn.open::after {
+      transform: rotate(90deg);
+    }
+
+    .menu li a:hover {
+      background: rgba(255, 45, 85, 0.1);
+      border-left: 4px solid #ff2d55;
+      padding-left: 6px;
+    }
+
+    .menu .dropdown-content {
+      padding-left: 24px;
+      margin-top: 10px;
+      margin-bottom: 12px;
+      gap: 6px;
+    }
+
+    .menu .dropdown-content li {
+      margin-bottom: 6px;
+    }
+
+    strong {
+      color: #ff5e7e;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="logo"><a href="index.html" style="color: #ff2d55; text-decoration: none;"><span
+            class="typed-terminal"></span></a></div>
+      <ul class="menu">
+        <li><button class="dropdown-btn">🖊️ Writeups</button>
+          <ul class="dropdown-content">
+            <li><a href="htb.html">HackTheBox <span class="count">(0)</span></a>
+              <ul id="submenu-htb" class="dropdown-content"></ul>
+            </li>
+            <li><a href="tryhackme.html">TryHackMe <span class="count">(1)</span></a>
+              <ul id="submenu-thm" class="dropdown-content"></ul>
+            </li>
+            <li><a href="vulnhub.html">VulnHub <span class="count">(0)</span></a>
+              <ul id="submenu-vulnhub" class="dropdown-content"></ul>
+            </li>
+          </ul>
+        </li>
+        <li><button class="dropdown-btn">🧪 Reviews</button>
+          <ul class="dropdown-content">
+            <li><a href="exams.html">Certifications <span class="count">(1)</span></a>
+              <ul id="submenu-exams" class="dropdown-content"></ul>
+            </li>
+            <li><a href="courses.html">Courses <span class="count">(0)</span></a>
+              <ul id="submenu-courses" class="dropdown-content"></ul>
+            </li>
+            <li><a href="labs.html">Labs <span class="count">(1)</span></a>
+              <ul id="submenu-labs" class="dropdown-content"></ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="articles.html" style="color: #ff2d55; text-decoration: none;">📚 Articles <span
+              class="count">(0)</span></a></li>
+        <li><a href="about.html" style="color: #ff2d55; text-decoration: none;">🧐 Whoami</a></li>
+      </ul>
+    </aside>
+
+    <div class="content-area">
+      <main class="main-content centered-layout">
+        <h1 class="section-title" data-aos="fade-up">Whoami</h1>
+        <div class="section-block" data-aos="fade-up" data-aos-delay="100">
+          <p>Hey! I’m x0n1 — but honestly, names are optional in this game, right? What really matters is the passion
+            behind the keyboard.</p>
+          <p>I’m part of a red team, and I work as a penetration tester — which basically means I get paid to think like
+            an attacker, find the cracks in the system, and help businesses fix them before someone else takes
+            advantage. It’s a job that constantly throws new puzzles my way, and I wouldn’t have it any other way.</p>
+          <p>Off the clock, I’m all about Capture The Flag competitions and offensive security research. There’s just
+            something about diving into a weird box at 2 AM, trying 37 payloads that don’t work, and finally finding
+            that one tiny misconfiguration that opens the door — pure dopamine. I co-founded a CTF team called
+            <strong>Nameless Hunters</strong>, where we team up to tackle challenges, learn from each other, and
+            occasionally scream at firewalls together. Good times.
+          </p>
+          <p>Outside of cybersecurity, I’m a bit of a tinkerer. I love messing with electronics — soldering wires,
+            breaking microcontrollers, and building weird little tools that solve problems nobody else has. Whether it’s
+            a custom USB implant or a Raspberry Pi gadget taped to a drone, I like building things that blur the line
+            between software and hardware.</p>
+          <p>One thing about me: I never sit still for too long. I’m always chasing the next challenge, the next
+            technique, the next exploit to master. That mindset led me to earn a few certifications along the way:
+            <strong>eJPT</strong> to get my hands dirty, <strong>eWPT</strong> to level up in web exploitation, and most
+            recently the <strong>CPTS</strong>, which was a true grind and a massive step forward in my red teaming
+            journey.
+          </p>
+          <p>So yeah, if you’re into breaking stuff, building cool tools, or just love the thrill of the hunt — we’ll
+            probably get along just fine. Hit me up on HackTheBox, TryHackMe or Medium. Or just dive into my writeups
+            and see what I’ve been up to.</p>
+          <p>And remember: if you’re not learning, you’re probably doing it wrong. 🔍</p>
+        </div>
+
+        <h2 class="section-title" data-aos="fade-up">Where I Lurk</h2>
+        <div class="section-block" data-aos="fade-up" data-aos-delay="100">
+          <p>I’m not hard to find — just follow the trail of root shells and payloads. If you want to keep up with my
+            latest writeups, walkthroughs, random tech ramblings, or see what the <strong>Nameless Hunters</strong> are
+            up to, here’s where I hang out:</p>
+          <p style="margin-top: 10px;">
+            <a href="https://www.instagram.com/nameless.hunters/" style="color: #ff2d55;">Instagram</a> |
+            <a href="https://medium.com/@TheOniOne" style="color: #ff2d55;">Medium</a> |
+            <a href="https://app.hackthebox.com/profile/1393522" style="color: #ff2d55;">HackTheBox</a> |
+            <a href="https://tryhackme.com/p/x0N1" style="color: #ff2d55;">TryHackMe</a>
+          </p>
+        </div>
+
+        <script src="assets/script.js"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+</body>
+
+</html>

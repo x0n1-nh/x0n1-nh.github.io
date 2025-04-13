@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>x0n1 Dropzone - THM</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+  <style>
+    .typed-terminal::after {
+      content: '_';
+      animation: blink 0.8s infinite step-start;
+      margin-left: 4px;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .active-menu {
+      color: #ff2d55 !important;
+      font-weight: bold;
+    }
+
+    .menu li a .count {
+      font-size: 0.8em;
+      opacity: 0.6;
+      margin-left: 5px;
+    }
+
+    .dropdown-btn::after {
+      content: '▸';
+      float: right;
+      transition: transform 0.3s;
+    }
+
+    .dropdown-btn.open::after {
+      transform: rotate(90deg);
+    }
+
+    .menu li a:hover {
+      background: rgba(255, 45, 85, 0.1);
+      border-left: 4px solid #ff2d55;
+      padding-left: 6px;
+    }
+
+    .menu .dropdown-content {
+      padding-left: 20px;
+      margin-top: 6px;
+      margin-bottom: 10px;
+    }
+
+    .category-banner {
+      display: flex;
+      gap: 15px;
+      font-size: 0.9em;
+      margin-bottom: 10px;
+      animation: scrollBanner 10s linear infinite;
+      overflow: hidden;
+    }
+
+    .category-banner span {
+      background-color: #1c1c1e;
+      padding: 4px 10px;
+      border-radius: 4px;
+      color: #ff9f0a;
+    }
+
+    @keyframes scrollBanner {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    .breadcrumb {
+      color: #aaa;
+      font-size: 0.9em;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="logo"><a href="index.html" style="color: #ff2d55; text-decoration: none;"><span
+            class="typed-terminal"></span></a></div>
+      <ul class="menu">
+        <li><button class="dropdown-btn open">🖊️ Writeups</button>
+          <ul class="dropdown-content" style="display: block;">
+            <li><a href="htb.html">HackTheBox <span class="count">(0)</span></a>
+              <ul id="submenu-htb" class="dropdown-content"></ul>
+            </li>
+            <li><a href="tryhackme.html" class="active-menu">TryHackMe <span class="count">(1)</span></a>
+              <ul id="submenu-thm" class="dropdown-content"></ul>
+            </li>
+            <li><a href="vulnhub.html">VulnHub <span class="count">(0)</span></a>
+              <ul id="submenu-vulnhub" class="dropdown-content"></ul>
+            </li>
+          </ul>
+        </li>
+        <li><button class="dropdown-btn">🧪 Reviews</button>
+          <ul class="dropdown-content">
+            <li><a href="exams.html">Certifications <span class="count">(1)</span></a>
+              <ul id="submenu-exams" class="dropdown-content"></ul>
+            </li>
+            <li><a href="courses.html">Courses <span class="count">(0)</span></a>
+              <ul id="submenu-courses" class="dropdown-content"></ul>
+            </li>
+            <li><a href="labs.html">Labs <span class="count">(1)</span></a>
+              <ul id="submenu-labs" class="dropdown-content"></ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="articles.html" style="color: #ff2d55; text-decoration: none;">📚 Articles <span
+              class="count">(0)</span></a></li>
+        <li><a href="about.html" style="color: #ff2d55; text-decoration: none;">🧐 Whoami</a></li>
+      </ul>
+    </aside>
+
+    <div class="content-area">
+      <main class="main-content">
+        <div class="centered-column" data-aos="fade-up" data-aos-delay="200">
+          <div class="breadcrumb" data-aos="fade-up" data-aos-delay="100">📂 Writeups / TryHackMe</div>
+          <h1 style="color: #ff2d55;">TryHackMe Writeups</h1>
+          <div class="search-bar" style="position: relative;" data-aos="fade-up" data-aos-delay="300">
+            <input type="text" id="searchBar" placeholder=" Search articles or tags..."
+              style="border-radius: 20px; padding-left: 45px; transition: width 0.3s ease; width: 100%; height: 40px;">
+            <i class="search-icon"
+              style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: #ff2d55; font-size: 18px;">🔍</i>
+          </div>
+          <section id="articles" data-aos="fade-up" data-aos-delay="400"></section>
+        </div>
+      </main>
+
+      <aside class="tag-sidebar">
+        <div class="filter-group">
+          <h3 style="color: #ff2d55; margin-bottom: 10px;">Filter by Tags</h3>
+          <button class="filter-toggle">🧰 Tools</button>
+          <div class="filter-options">
+            <label><input type="checkbox" value="wireshark"> Wireshark</label>
+            <label><input type="checkbox" value="binary ninja"> Binary Ninja</label>
+          </div>
+        </div>
+        <div class="filter-group">
+          <button class="filter-toggle">📋 OS</button>
+          <div class="filter-options">
+            <label><input type="checkbox" value="linux"> Linux</label>
+            <label><input type="checkbox" value="windows"> Windows</label>
+          </div>
+        </div>
+        <div class="filter-group">
+          <button class="filter-toggle">🎯 Difficulty</button>
+          <div class="filter-options">
+            <label><input type="checkbox" value="easy"> Easy</label>
+            <label><input type="checkbox" value="medium"> Medium</label>
+            <label><input type="checkbox" value="hard"> Hard</label>
+            <label><input type="checkbox" value="insane"> Insane</label>
+          </div>
+        </div>
+        <div class="filter-group">
+          <button class="filter-toggle">⚙️ Technology</button>
+          <div class="filter-options">
+            <label><input type="checkbox" value="php"> PHP</label>
+            <label><input type="checkbox" value="apache"> Apache</label>
+          </div>
+        </div>
+        <div class="filter-group">
+          <button class="filter-toggle">🧠 Technique</button>
+          <div class="filter-options">
+            <label><input type="checkbox" value="malware analysis"> Malware Analysis</label>
+            <label><input type="checkbox" value="reverse engineering"> Reverse Engineering</label>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script src="assets/script.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+</body>
+
+</html>
