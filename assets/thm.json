@@ -1,0 +1,9 @@
+[
+    {
+        "title": "[Writeup] Advent of Cyber 2024 Side Quest 1",
+        "description": "A Wireshark Traffic Analysis Room.",
+        "url": "writeups/tryhackme/aoc-sq-1.html",
+        "tags": ["THM", "Wireshark", "Binary Ninja", "Malware Analysis", "Hard", "Reverse Engineering"],
+        "date": "2025-03-02"
+    }
+]
