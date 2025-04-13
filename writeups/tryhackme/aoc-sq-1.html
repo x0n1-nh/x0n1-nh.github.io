@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>x0n1 Dropzone - Labs Reviews</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/style.css">
+    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <style>
+        .typed-terminal::after {
+            content: '_';
+            animation: blink 0.8s infinite step-start;
+            margin-left: 4px;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .active-menu {
+            color: #ff2d55 !important;
+            font-weight: bold;
+        }
+
+        .menu li a .count {
+            font-size: 0.8em;
+            opacity: 0.6;
+            margin-left: 5px;
+        }
+
+        .dropdown-btn::after {
+            content: '▸';
+            float: right;
+            transition: transform 0.3s;
+        }
+
+        .dropdown-btn.open::after {
+            transform: rotate(90deg);
+        }
+
+        .menu li a:hover {
+            background: rgba(255, 45, 85, 0.1);
+            border-left: 4px solid #ff2d55;
+            padding-left: 6px;
+        }
+
+        .menu .dropdown-content {
+            padding-left: 20px;
+            margin-top: 6px;
+            margin-bottom: 10px;
+        }
+
+        .category-banner {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            animation: scrollBanner 10s linear infinite;
+            overflow: hidden;
+        }
+
+        .category-banner span {
+            background-color: #1c1c1e;
+            padding: 4px 10px;
+            border-radius: 4px;
+            color: #ff9f0a;
+        }
+
+        @keyframes scrollBanner {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .breadcrumb {
+            color: #aaa;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .main-content {
+            padding-top: 60px;
+        }
+
+        .tag-sidebar .toc-list {
+            font-size: 0.9em;
+            line-height: 1.6em;
+            padding-left: 0;
+        }
+
+        .tag-sidebar .toc-list li {
+            margin-bottom: 6px;
+            list-style: none;
+        }
+
+        .tag-sidebar .sub-toc-list {
+            margin-top: 5px;
+            margin-bottom: 8px;
+            margin-left: 14px;
+            padding-left: 12px;
+            border-left: 1px solid #444;
+            font-size: 0.88em;
+            color: #999;
+        }
+
+        .tag-sidebar .sub-toc-list li {
+            margin-bottom: 4px;
+        }
+
+        .toc-link:hover {
+            color: #ff9f0a;
+            transform: translateX(2px);
+        }
+
+        .tag-sidebar .filter-options ul {
+            list-style: none;
+            padding-left: 20px;
+            margin-top: 4px;
+        }
+
+        .tag-sidebar .filter-options ul li {
+            margin-left: 8px;
+        }
+
+        .tag-sidebar .filter-options ul li a::before {
+            content: "▶";
+            color: orange;
+            margin-right: 6px;
+        }
+
+        .toc-link.active-toc {
+            font-weight: bold;
+            color: orange !important;
+        }
+
+        .section-block h2 {
+            margin-top: 60px;
+            margin-bottom: 10px;
+            scroll-margin-top: 120px;
+        }
+
+        .section-block h3 {
+            margin-top: 10px;
+            margin-bottom: 6px;
+            scroll-margin-top: 120px;
+        }
+
+        .toc-link:hover .toc-icon {
+            transform: scale(1.15);
+            transition: transform 0.2s ease;
+        }
+
+        .toc-link:hover {
+            background: rgba(255, 157, 10, 0.1);
+            color: #ff9f0a !important;
+            transform: translateX(3px);
+            transition: all 0.2s ease;
+        }
+
+        .section-block p,
+        .section-block ul,
+        .section-block ol {
+            margin-bottom: 20px;
+        }
+
+
+        code,
+        pre {
+            font-family: 'Fira Code', monospace;
+        }
+
+
+        .article-certificate {
+            display: block;
+            margin: 40px auto;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.01);
+            padding: 12px 16px;
+            border: 1px solid rgba(255, 45, 85, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 45, 85, 0.08);
+            width: fit-content;
+        }
+
+
+
+        .article-certificate img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin: 0 auto;
+        }
+
+        .article-certificate figcaption {
+            font-size: 0.75em;
+            color: #ccc;
+            margin-top: 6px;
+            text-align: center;
+            font-family: 'Fira Code', monospace;
+            opacity: 0.6;
+            line-height: 1.2;
+        }
+
+
+        .article-certificate:hover {
+            transform: scale(1.015);
+        }
+
+        .toc-link {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 8px;
+            border-radius: 6px;
+            margin: 2px 0;
+            font-size: 0.82em;
+            transition: background 0.2s, color 0.2s;
+            text-decoration: none;
+            color: #ff2d55;
+            transition: color 0.2s;
+        }
+
+        strong {
+            color: #ff5e7e;
+            font-weight: bold;
+        }
+
+        blockquote {
+            border-left: 4px solid #ff2d55;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            color: #dddddd;
+            font-family: "Fira Code", monospace;
+            background-color: rgba(255, 255, 255, 0.03);
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo"><a href="/index.html" style="color: #ff2d55; text-decoration: none;"><span
+                        class="typed-terminal"></span></a></div>
+            <ul class="menu">
+                <li><button class="dropdown-btn open">🖊️ Writeups</button>
+                    <ul class="dropdown-content" style="display: block;">
+                        <li><a href="/htb.html">HackTheBox <span class="count">(0)</span></a>
+                            <ul id="submenu-htb" class="dropdown-content"></ul>
+                        </li>
+                        <li><a href="/tryhackme.html" class="active-menu">TryHackMe <span class="count">(1)</span></a>
+                            <ul id="submenu-thm" class="dropdown-content"></ul>
+                        </li>
+                        <li><a href="/vulnhub.html">VulnHub <span class="count">(0)</span></a>
+                            <ul id="submenu-vulnhub" class="dropdown-content"></ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><button class="dropdown-btn">🧪 Reviews</button>
+                    <ul class="dropdown-content">
+                        <li><a href="/exams.html">Certifications <span class="count">(1)</span></a>
+                            <ul id="submenu-exams" class="dropdown-content"></ul>
+                        </li>
+                        <li><a href="/courses.html">Courses <span class="count">(0)</span></a>
+                            <ul id="submenu-courses" class="dropdown-content"></ul>
+                        </li>
+                        <li><a href="/labs.html">Labs <span class="count">(1)</span></a>
+                            <ul id="submenu-labs" class="dropdown-content"></ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="/articles.html" style="color: #ff2d55; text-decoration: none;">📚 Articles <span
+                            class="count">(0)</span></a></li>
+                <li><a href="/about.html" style="color: #ff2d55; text-decoration: none;">🧐 Whoami</a></li>
+            </ul>
+        </aside>
+
+        <div class="content-area">
+            <main class="main-content">
+                <div class="breadcrumb" data-aos="fade-up">📂 Writeups / TryHackMe / Advent of Cyber 2024 Side Quest 1
+                </div>
+                <h1 class="section-title" data-aos="fade-up">Advent of Cyber 2024 Side Quest 1</h1>
+                <div class="section-block" data-aos="fade-up" data-aos-delay="200">
+                    <h2 id="introduction" style="color: orange;">Introduction</h2>
+                    <p>In <strong>Operation Tiny Frostbite</strong>, the mission was simple: track down and capture the
+                        elusive cybercriminal <strong>Tiny Frostbite</strong>. Of course, nothing is ever that easy.
+                        This article will take you through the exact steps I followed to complete the challenge — no
+                        wild goose chases, no wasted time. Just a straight-to-the-point breakdown of the techniques that
+                        led to success.</p>
+                    <p>Tiny Frostbite, being the dramatic villain she is, left us with a little message:</p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/tiny_frostbite.webp" alt="Tiny Frostbite" class="medium-style-zoom">
+                        <figcaption></figcaption>
+                    </figure>
+                    <blockquote>
+                        <p>“By the time you read this, you’ve already been attacked. I’m in your machine, and you won’t
+                            get it back. You must be aware that the more you delay, the more information will be stolen
+                            away. Your SOC is so weak, I’ll lend them a hand. Here’s a PCAP of the attack, you can’t
+                            beat this band! If your machine you want to recover, the password I stole you’ll need to
+                            discover.”</p>
+                    </blockquote>
+                    <p>Challenge accepted. Let’s get to work.</p>
+                    <h2 id="key-to-hunt" style="color: orange;">The Key to the Hunt</h2>
+                    <p>Before diving into the real chase, I first had to get past the front door. And, as expected, it
+                        wasn’t just wide open. The key to accessing <strong>Operation Tiny Frostbite</strong> was
+                        hidden, waiting to be uncovered.</p>
+                    <p>First, I looked at this hint:</p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/00_hint_t1_key.png" alt="Key Hint" class="medium-style-zoom">
+                        <figcaption>Key Hint</figcaption>
+                    </figure>
+                    <p>I began by following the instructions from the <strong>Advent of Cyber Main Quest (Day
+                            1)</strong>, which led me to the <strong>GitHub repository of Mayor Malware</strong>.</p>
+                    <p>A quick search for <i>"Created by the one and only M.M"</i> revealed that our friend
+                        <strong>Mayor Malware</strong> had been exchanging comments with someone named
+                        <strong>BloatWare-Wareville</strong>.
+                    </p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/01_Bloatware_hint.png" alt="Github Hint" class="medium-style-zoom">
+                        <figcaption>BloatWare Comment</figcaption>
+                    </figure>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/02_Bloatware_hint.png" alt="Github Hint" class="medium-style-zoom">
+                        <figcaption>BloatWare Comment</figcaption>
+                    </figure>
+                    <p>That name alone screamed “up to no good,” so I decided to investigate further.</p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/03_Bloatware.png" alt="Bloatware Github" class="medium-style-zoom">
+                        <figcaption>BloatWare Github</figcaption>
+                    </figure>
+                    <p>Digging through the code on BloatWare-Wareville’s profile, I found something interesting — a
+                        <strong>C2 (Command and Control) server</strong> running on port <strong>8000</strong>.
+                    </p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/04_C2_server.png" alt="C2 Server" class="medium-style-zoom">
+                        <figcaption>C2 Server</figcaption>
+                    </figure>
+                    <p>You can see the C2's code in detail, in the image below:</p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/05_app_py.png" alt="C2 Server" class="medium-style-zoom">
+                        <figcaption>C2 Server's Details</figcaption>
+                    </figure>
+                    <p>That was enough of a lead, so I checked out what was lurking there. Sure enough, a <strong>login
+                            form</strong> was waiting for me. In fact, browsing
+                        <strong><i>http://machine_ip:8000</i></strong> results in what I expected
+                    </p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/06_C2.png" alt="C2's Login" class="medium-style-zoom">
+                        <figcaption>C2's Login Page</figcaption>
+                    </figure>
+                    <p>Now, brute-forcing credentials would have been too easy (and ineffective, as I quickly found
+                        out). But looking at the code, I noticed that the application was built with
+                        <strong>Flask</strong>. After some research, I discovered a trick on <a
+                            href="https://hacktricks.boitatech.com.br/pentesting/pentesting-web/flask" target="_blank"
+                            rel="noopener" style="color: #ff2d55;">HackTricks</a> — I could
+                        generate a <strong>Flask session cookie</strong> to bypass the login entirely. No need for a
+                        username or password. Classic.
+                    </p>
+                    <p>With that in mind, I downloaded <strong>flask-unsign</strong>:</p>
+                    <div class="terminal-block">
+                        <div class="terminal-header">root@x0n1:~$</div>
+                        <pre><code><span class="typed-terminal-line" data-text="pip3 install flask-unsign"></span></code></pre>
+                    </div>
+                    <p>I calculated the necessary session cookie using the secret found previously in the code:</p>
+                    <div class="terminal-block">
+                        <div class="terminal-header">root@x0n1:~$</div>
+                        <pre><code><span class="typed-terminal-line" data-text="flask-unsign --sign --cookie &quot;{&#39;logged_in&#39;: True}&quot; --secret &#39;@09JKD0934jd712?djD&quot;&#39;"></span></code></pre>
+                    </div>
+                    <p>This command generated a value like this (unique for each session):</p>
+                    <div class="terminal-block">
+                        <pre><code><span class="typed-terminal-line" data-text="eyJsb2dnZWRfaW4iOnRydWV9.Z8Od8Q.i3BS-86KSi8I2aeomNSmB6QK7BI"></span></code></pre>
+                    </div>
+                    <p>Then, using <strong>DevTools</strong> on my browser, I manually created a cookie with the name
+                        <code>session</code> and set its value to the output of <code>flask-unsign</code>, and its path
+                        to <code>/data</code>, which, according to the code, was the page I should land on after a
+                        successful login.
+                    </p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/07_cookie_editor.png" alt="Cookie Editor" class="medium-style-zoom">
+                        <figcaption>Cookie Editing</figcaption>
+                    </figure>
+                    <p>And just like that, I was in.</p>
+                    <p>Inside, waiting for me like a golden ticket, was exactly what I needed — <strong>the
+                            key</strong>. The hunt was officially on.</p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/08_key.png" alt="Key" class="medium-style-zoom">
+                        <figcaption>Key</figcaption>
+                    </figure>
+                    <p style="text-align: center;" class="divider-fancy">✴️ Hunt Starts Here</p>
+                    <h2 id="hunt-begins" style="color: orange;">The Hunt Begins</h2>
+                    <p>With the key in hand, it was time to get to work. The first clue led me to a <strong>ZIP
+                            file</strong> hosted at <code>http://MACHINE_IP/aoc_sq_1.zip</code>. Downloading it was the
+                        easy part—extracting it required the key I had previously found.</p>
+                    <p>Once unzipped, it showed a <strong>PCAP file</strong>, the kind of thing that makes Wireshark
+                        users either groan or get excited. Lucky for me, I was in the second category.</p>
+                    <h3 id="follow-attack-trail" style="color: #ffc107;">Following the Attacker’s Trail</h3>
+                    <p>The first challenge was simple: <strong><i>“What is the password the attacker used to register on
+                                the site?”</i></strong></p>
+                    <p>Since account registrations typically happen via <strong>HTTP POST requests</strong>, I applied a
+                        filter in Wireshark to show only those. A quick look at the request to
+                        <code>/register.php</code> revealed the attacker's <strong>chosen password</strong> right there
+                        in the request body. One down.
+                    </p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/09_flag1_password.png" alt="Attacker's Password"
+                            class="medium-style-zoom">
+                        <figcaption>Attacker's Password</figcaption>
+                    </figure>
+                    <p>The next question: <strong><i>“What is the password that the attacker captured?”</i></strong></p>
+                    <p>Sticking to <strong>HTTP POST requests</strong>, I dug deeper and found another interesting one —
+                        this time to <code>/admin/login.php</code>. Inside the request body was the <strong>stolen
+                            password</strong>, likely intercepted from an unsuspecting victim. Two for two.</p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/10_flag2_password.png" alt="Stolen Password" class="medium-style-zoom">
+                        <figcaption>Stolen Password</figcaption>
+                    </figure>
+                    <h3 id="cracking-zip" style="color: #ffc107;">The Hard Part: Cracking the ZIP Password</h3>
+                    <p>The third question was trickier: <strong><i>“What is the password of the ZIP file transferred by
+                                the attacker?”</i></strong></p>
+                    <p>Since I had no idea where the file was in the network capture, I had to get creative. First, I
+                        searched online for the <strong>magic bytes</strong> of ZIP files (<code>50 4B 03 04</code>)—the
+                        unique signature that marks the start of such a file.</p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/11_zip_magic_bytes.png" alt="Magic Bytes" class="medium-style-zoom">
+                        <figcaption>ZIP's Magic Bytes</figcaption>
+                    </figure>
+                    <p>Using this, I pinpointed the exact location in Wireshark where the ZIP file transfer began, with
+                        a query which returned only packets with that signature (<strong>offset 158339</strong>).</p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/11_zip_start.png" alt="Zip Start" class="medium-style-zoom">
+                        <figcaption>ZIP File Start</figcaption>
+                    </figure>
+                    <p>Right-clicking the data and selecting “<strong>Export Packet Bytes</strong>” gave me a complete
+                        ZIP file (which I saved as <code>export.zip</code>). Step one complete.</p>
+                    <p>But I still needed the <strong>password</strong>.</p>
+                    <p>Looking at the context of the packet, I noticed that the ZIP was transferred over <strong>an
+                            encrypted SSH session</strong>. That meant I wouldn’t find the password in plaintext. Time
+                        for a different approach.</p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/12_ssh_communication.png" alt="SSH Communication"
+                            class="medium-style-zoom">
+                        <figcaption>SSH Communication</figcaption>
+                    </figure>
+                    <h3 id="digging-into-malware" style="color: #ffc107;">Digging into the Malware</h3>
+                    <p>I took a detour and checked <strong>File → Export Objects → HTTP</strong> in Wireshark to see if
+                        any interesting files had been transmitted. One stood out: a file simply named
+                        “<code>ff</code>”.</p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/13_ff_elf.png" alt="File Inspection" class="medium-style-zoom">
+                        <figcaption>ff Inspection</figcaption>
+                    </figure>
+                    <p>Curious, I uploaded it to <a href="https://www.virustotal.com/gui/home/upload" target="_blank"
+                            rel="noopener" style="color: #ff2d55;">VirusTotal</a>, where it was flagged as
+                        “<strong>Rekoobe</strong>” — a known backdoor.</p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/14_virustotal.png" alt="Virustotal" class="medium-style-zoom">
+                        <figcaption>Virustotal</figcaption>
+                    </figure>
+                    <p>Even better, someone had linked it to <strong>TinyShell</strong>, with a <a
+                            href="https://github.com/creaktive/tsh/tree/master" target="_blank" rel="noopener"
+                            style="color: #ff2d55;">GitHub</a> repository available for reference. This could be useful.
+                    </p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/15_virustotal.png" alt="Virustotal" class="medium-style-zoom">
+                        <figcaption>Virustotal</figcaption>
+                    </figure>
+                    <p>In particular this is the description of <strong>TinyShell</strong>:</p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/16_tinyshell_github.png" alt="TinyShell Description"
+                            class="medium-style-zoom">
+                        <figcaption>TinyShell Description</figcaption>
+                    </figure>
+                    <p>To understand what I was dealing with, I first checked <strong>Rekoobe</strong> on <a
+                            href="https://malpedia.caad.fkie.fraunhofer.de/" target="_blank" rel="noopener"
+                            style="color: #ff2d55;">MalPedia</a>, where I found some hints suggesting that the malware
+                        <i>might</i> be reversible.
+                    </p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/16_rekoobe_malware.png" alt="Malpedia" class="medium-style-zoom">
+                        <figcaption>Malpedia</figcaption>
+                    </figure>
+                    <p>However, it wasn’t until I found a detailed <a
+                            href="https://intezer.com/blog/research/linux-rekoobe-operating-with-new-undetected-malware-samples/"
+                            target="_blank" rel="noopener" style="color: #ff2d55;">research paper</a> where I discovered
+                        the actual key information. The paper explained how the malware relied on a <strong>hardcoded
+                            secret key</strong> for decryption, which was exactly what I needed.</p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/16_rekoobe_malware_2.png" alt="Research Paper"
+                            class="medium-style-zoom">
+                        <figcaption>Research Paper</figcaption>
+                    </figure>
+                    <p>Armed with this new information, I opened the binary in <strong>Binary Ninja</strong> and
+                        searched for one of the IPs from the initial PCAP (<strong>10.10.103.220</strong>). Sure enough,
+                        I found <strong>hardcoded data</strong>, including the <strong>encryption key</strong> I had
+                        been looking for.</p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/17_supersecret.png" alt="Binary Ninja" class="medium-style-zoom">
+                        <figcaption>Binary Ninja</figcaption>
+                    </figure>
+                    <p>Next, I turned to <strong>Wireshark’s network traffic statistics</strong> (Statistics →
+                        Conversations → TCP), specifically to investigate whether the malware was using any unusual
+                        ports for communication. After filtering through the data, one port stood out:
+                        <strong>9001</strong>.
+                    </p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/18_port_9001.png" alt="Port 9001" class="medium-style-zoom">
+                        <figcaption>Port 9001</figcaption>
+                    </figure>
+                    <p>It wasn’t a standard service port, which immediately made it suspicious. It seemed like a port
+                        the malware could be using for its covert communication.</p>
+                    <p>Filtering for traffic on <strong>port 9001</strong>, I selected all related packets
+                        (<strong>CTRL+A</strong>) and exported them as <strong>9001.pcapng</strong>.</p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/19_port_9001.png" alt="Port 9001 Filtering" class="medium-style-zoom">
+                        <figcaption>Port 9001 Filtering</figcaption>
+                    </figure>
+                    <p>Now, I had everything I needed: the malware’s encryption key and its actual network
+                        communications.</p>
+                    <h3 id="decrypting-communication" style="color: #ffc107;">Decrypting the Communications</h3>
+                    <p>All I needed now was a tool to decrypt the traffic. After some searching, I found one on <a
+                            href="https://github.com/AnvithLobo/rekobee-analyzer" target="_blank" rel="noopener"
+                            style="color: #ff2d55;">GitHub</a> that could do exactly that.</p>
+                    <p>The tool was designed for traffic generated by <strong>ic2kp</strong> (Rekoobe), and it included
+                        everything I needed to decrypt the attacker’s logs.</p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/20_rekoobe_analyzer.png" alt="Rekoobe Analyzer"
+                            class="medium-style-zoom">
+                        <figcaption>Rekoobe Analyzer</figcaption>
+                    </figure>
+                    <p>These were the requirements:</p>
+                    <div class="terminal-block">
+                        <pre><code>pyshark==0.6
+pycryptodome>3.6,<4
+termcolor>=1.0.0
+colorama>=0.3.3</code></pre>
+                    </div>
+                    <p>And this was the actual code:</p>
+                    <div class="terminal-block">
+                        <pre><code>"""Decrypts traffic generated by ic2kp (rekobee).
+
+Created for the HTB challenge (https://app.hackthebox.com/challenges/295). There
+you can find the ic2kp client and a sample capture.
+"""
+
+__help__ = """common problems:
+
+pyshark.tshark.tshark.TSharkNotFoundException : TShark not found
+    Change wireshark (tshark & dumpcap) location in 'config.ini'
+
+verbose levels:
+
+1) -v: extra information;
+2) -vv: packets and advances.
+
+example: analyze.py -c capture.pcap -s secret -vv
+"""
+
+import argparse
+import pyshark
+from pathlib import Path
+
+import core
+import core.utils
+
+
+def get_args():
+    parser = argparse.ArgumentParser(
+        description=__doc__,
+        epilog=__help__,
+        formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    parser.add_argument(
+        "-c",
+        required=True,
+        dest="capture_file",
+        help="path to capture file from wireshark",
+        metavar="CAPTURE",
+        type=Path
+    )
+    parser.add_argument(
+        "-s",
+        required=True,
+        dest="secret",
+        help="ic2kp session shared secret",
+        metavar="SECRET",
+        type=str
+    )
+    parser.add_argument(
+        "-i",
+        default=None,
+        dest="initial",
+        help="initial packet index",
+        metavar="INDEX",
+        type=int
+    )
+    parser.add_argument(
+        "-v",
+        action="count",
+        default=0,
+        dest="verbose",
+        help="everything in detail",
+    )
+    parser.add_argument(
+        "--signature",
+        default="5890ae86f1b91cf6298395711dde580d",
+        dest="signature",
+        help="ic2kp magic hex signature, e.g. 5890...580d",
+        metavar="HEX",
+        type=str
+    )
+    parser.add_argument(
+        "--filter",
+        default="tcp && tcp.len > 0 && !(http or ssh)",
+        dest="filter",
+        help="display filter for tshark",
+        metavar="FILTER",
+        type=str
+    )
+    return parser.parse_args()
+
+
+def filter_capture(options):
+    if options.initial:
+        return options.capture_file
+
+    try:
+        filtered_capture = pyshark.FileCapture(str(options.capture_file), display_filter=args.filter)
+        # get the 0th packet to force tsark to read the file
+        _ = filtered_capture[0]
+
+        return filtered_capture
+    except FileNotFoundError as exp:
+        core.utils.error(f"File '{options.capture_file}' not found.")
+        raise exp
+    except pyshark.capture.capture.TSharkCrashException as exp:
+        core.utils.error("TShark crashed. likely due to invalid filter.")
+        raise exp
+
+
+if __name__ == "__main__":
+    args = get_args()
+    try:
+        core.analyze(capture=filter_capture(args), **vars(args))
+    except Exception as exception:
+        core.utils.error(str(exception))
+        if args.verbose != 0:
+            raise</code></pre>
+                    </div>
+                    <p>After running it on the <strong>9001.pcapng</strong> file, I decrypted the traffic logs from the
+                        attacker’s communication session</p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/21_analyzer.png" alt="Rekoobe Analyzer" class="medium-style-zoom">
+                        <figcaption>Rekoobe Analyzer</figcaption>
+                    </figure>
+                    <p>Among the recovered data was exactly what I was looking for: <strong>the password used to encrypt
+                            the ZIP file</strong>.</p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/22_analize_&_flag.png" alt="Rekoobe Analyzer Output"
+                            class="medium-style-zoom">
+                        <figcaption>Rekoobe Analyzer Output</figcaption>
+                    </figure>
+                    <h3 id="final-answer" style="color: #ffc107;">The Final Answer</h3>
+                    <p>With the password in hand, I extracted the <strong>ZIP file</strong>, which contained a database
+                        dump named <strong>elves.sql</strong>.</p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/23_unzip.png" alt="ZIP Content" class="medium-style-zoom">
+                        <figcaption>ZIP's Content</figcaption>
+                    </figure>
+                    <p>Opening it revealed the final answer: <strong>McSkidy’s stolen database password</strong>.</p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/23_flag4.png" alt="elves.sql Content" class="medium-style-zoom">
+                        <figcaption>elves.sql's Content</figcaption>
+                    </figure>
+                    <p>The hunt was heating up. Tiny Frostbite had left a trail, and I was right behind her.</p>
+            </main>
+
+            <aside class="tag-sidebar">
+                <div class="filter-group active">
+                    <button class="filter-toggle">📑 Table Of Contents</button>
+                    <ul class="filter-options" style="font-size: 0.9em; padding-left: 0; list-style: none;">
+                        <li>
+                            <a class="toc-link" href="#introduction">Intro</a>
+                        </li>
+                        <li>
+                            <a class="toc-link" href="#key-to-hunt">The Key To The Hunt</a>
+                        </li>
+                        <li>
+                            <a class="toc-link" href="#hunt-begins">The Hunt Begins</a>
+                            <ul style="margin-top: 6px; margin-bottom: 6px; margin-left: 16px; list-style: none;">
+                                <li style="margin-bottom: 4px;">
+                                    <a class="toc-link subsection" href="#follow-attack-trail">Attacker Trail</a>
+                                </li>
+                                <li style="margin-bottom: 4px;">
+                                    <a class="toc-link subsection" href="#cracking-zip">Cracking ZIP</a>
+                                </li>
+                                <li style="margin-bottom: 4px;">
+                                    <a class="toc-link subsection" href="#digging-into-malware">Malware Analysis</a>
+                                </li>
+                                <li style="margin-bottom: 4px;">
+                                    <a class="toc-link subsection" href="#decrypting-communication">Decrypting</a>
+                                </li>
+                                <li style="margin-bottom: 4px;">
+                                    <a class="toc-link subsection" href="#final-answer">Final Flag</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <script src="/assets/script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+
+
+
+
+</body>
+
+</html>
