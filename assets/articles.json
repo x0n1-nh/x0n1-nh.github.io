@@ -1,0 +1,24 @@
+[
+    {
+      "title": "[Review] CPTS: Tactics & Survival",
+      "description": "A Field Guide to Face CPTS.",
+      "url": "reviews/certifications/cpts-tactics-and-survival.html",
+      "tags": ["HTB"],
+      "date": "2025-04-06"
+    },
+    {
+      "title": "[Review] HTB: FullHouse Prolab",
+      "description": "A Jackpot-Worthy Pentesting Challenge.",
+      "url": "reviews/labs/fullhouse-prolab.html",
+      "tags": ["HTB"],
+      "date": "2025-03-06"
+    },
+    {
+      "title": "[Writeup] Advent of Cyber 2024 Side Quest 1",
+      "description": "A Wireshark Traffic Analysis Room.",
+      "url": "writeups/tryhackme/aoc-sq-1.html",
+      "tags": ["THM", "Wireshark", "Binary Ninja", "Malware Analysis", "Hard", "Reverse Engineering"],
+      "date": "2025-03-02"
+    }
+  ]
+  
