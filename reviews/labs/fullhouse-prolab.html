@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>x0n1 Dropzone - Labs Reviews</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/style.css">
+    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <style>
+        .typed-terminal::after {
+            content: '_';
+            animation: blink 0.8s infinite step-start;
+            margin-left: 4px;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .active-menu {
+            color: #ff2d55 !important;
+            font-weight: bold;
+        }
+
+        .menu li a .count {
+            font-size: 0.8em;
+            opacity: 0.6;
+            margin-left: 5px;
+        }
+
+        .dropdown-btn::after {
+            content: '▸';
+            float: right;
+            transition: transform 0.3s;
+        }
+
+        .dropdown-btn.open::after {
+            transform: rotate(90deg);
+        }
+
+        .menu li a:hover {
+            background: rgba(255, 45, 85, 0.1);
+            border-left: 4px solid #ff2d55;
+            padding-left: 6px;
+        }
+
+        .menu .dropdown-content {
+            padding-left: 20px;
+            margin-top: 6px;
+            margin-bottom: 10px;
+        }
+
+        .category-banner {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            animation: scrollBanner 10s linear infinite;
+            overflow: hidden;
+        }
+
+        .category-banner span {
+            background-color: #1c1c1e;
+            padding: 4px 10px;
+            border-radius: 4px;
+            color: #ff9f0a;
+        }
+
+        @keyframes scrollBanner {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .breadcrumb {
+            color: #aaa;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .main-content {
+            padding-top: 60px;
+        }
+
+        .tag-sidebar .toc-list {
+            font-size: 0.9em;
+            line-height: 1.6em;
+            padding-left: 0;
+        }
+
+        .tag-sidebar .toc-list li {
+            margin-bottom: 6px;
+            list-style: none;
+        }
+
+        .tag-sidebar .sub-toc-list {
+            margin-top: 5px;
+            margin-bottom: 8px;
+            margin-left: 14px;
+            padding-left: 12px;
+            border-left: 1px solid #444;
+            font-size: 0.88em;
+            color: #999;
+        }
+
+        .tag-sidebar .sub-toc-list li {
+            margin-bottom: 4px;
+        }
+
+        .toc-link:hover {
+            color: #ff9f0a;
+            transform: translateX(2px);
+        }
+
+        .tag-sidebar .filter-options ul {
+            list-style: none;
+            padding-left: 20px;
+            margin-top: 4px;
+        }
+
+        .tag-sidebar .filter-options ul li {
+            margin-left: 8px;
+        }
+
+        .tag-sidebar .filter-options ul li a::before {
+            content: "▶";
+            color: orange;
+            margin-right: 6px;
+        }
+
+        .toc-link.active-toc {
+            font-weight: bold;
+            color: orange !important;
+        }
+
+        .section-block h2 {
+            margin-top: 60px;
+            margin-bottom: 10px;
+            scroll-margin-top: 120px;
+        }
+
+        .section-block h3 {
+            margin-top: 10px;
+            margin-bottom: 6px;
+            scroll-margin-top: 120px;
+        }
+
+        .toc-link:hover .toc-icon {
+            transform: scale(1.15);
+            transition: transform 0.2s ease;
+        }
+
+        .toc-link:hover {
+            background: rgba(255, 157, 10, 0.1);
+            color: #ff9f0a !important;
+            transform: translateX(3px);
+            transition: all 0.2s ease;
+        }
+
+        .section-block p,
+        .section-block ul,
+        .section-block ol {
+            margin-bottom: 20px;
+        }
+
+
+        code,
+        pre {
+            font-family: 'Fira Code', monospace;
+        }
+
+
+        .article-certificate {
+            display: block;
+            margin: 40px auto;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.01);
+            padding: 12px 16px;
+            border: 1px solid rgba(255, 45, 85, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 45, 85, 0.08);
+            width: fit-content;
+        }
+
+
+
+        .article-certificate img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin: 0 auto;
+        }
+
+        .article-certificate figcaption {
+            font-size: 0.75em;
+            color: #ccc;
+            margin-top: 6px;
+            text-align: center;
+            font-family: 'Fira Code', monospace;
+            opacity: 0.6;
+            line-height: 1.2;
+        }
+
+
+        .article-certificate:hover {
+            transform: scale(1.015);
+        }
+
+        .toc-link {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 8px;
+            border-radius: 6px;
+            margin: 2px 0;
+            font-size: 0.82em;
+            transition: background 0.2s, color 0.2s;
+            text-decoration: none;
+            color: #ff2d55;
+            transition: color 0.2s;
+        }
+
+        strong {
+            color: #ff5e7e;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo"><a href="/index.html" style="color: #ff2d55; text-decoration: none;"><span
+                        class="typed-terminal"></span></a></div>
+            <ul class="menu">
+                <li><button class="dropdown-btn open">🖊️ Writeups</button>
+                    <ul class="dropdown-content">
+                        <li><a href="/htb.html">HackTheBox <span class="count">(0)</span></a>
+                            <ul id="submenu-htb" class="dropdown-content"></ul>
+                        </li>
+                        <li><a href="/tryhackme.html">TryHackMe <span class="count">(1)</span></a>
+                            <ul id="submenu-thm" class="dropdown-content"></ul>
+                        </li>
+                        <li><a href="/vulnhub.html">VulnHub <span class="count">(0)</span></a>
+                            <ul id="submenu-vulnhub" class="dropdown-content"></ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><button class="dropdown-btn">🧪 Reviews</button>
+                    <ul class="dropdown-content" style="display: block;">
+                        <li><a href="/exams.html">Certifications <span class="count">(1)</span></a>
+                            <ul id="submenu-exams" class="dropdown-content"></ul>
+                        </li>
+                        <li><a href="/courses.html">Courses <span class="count">(0)</span></a>
+                            <ul id="submenu-courses" class="dropdown-content"></ul>
+                        </li>
+                        <li><a href="/labs.html" class="active-menu">Labs <span class="count">(1)</span></a>
+                            <ul id="submenu-labs" class="dropdown-content"></ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="/articles.html" style="color: #ff2d55; text-decoration: none;">📚 Articles <span
+                            class="count">(0)</span></a></li>
+                <li><a href="/about.html" style="color: #ff2d55; text-decoration: none;">🧐 Whoami</a></li>
+            </ul>
+        </aside>
+
+        <div class="content-area">
+            <main class="main-content">
+                <div class="breadcrumb" data-aos="fade-up">📂 Reviews / Labs / FullHouse Prolab</div>
+                <h1 class="section-title" data-aos="fade-up">HTB: FullHouse Prolab</h1>
+                <div class="section-block" data-aos="fade-up" data-aos-delay="200">
+                    <h2 id="introduction" style="color: orange;">🎰 Introduction</h2>
+                    <p><strong>The FullHouse Pro Lab</strong> by Hack The Box is an engaging, well-structured
+                        penetration testing wrapped
+                        in a casino-themed environment. Your mission? To take control of the entire infrastructure.
+                        Along the way, you’ll encounter various challenges, forcing you to adapt your skills and learn
+                        new techniques in real-time.</p>
+                    <p>But let’s be honest — this isn’t just a casual gamble. FullHouse is not a walk in the park; it’s
+                        a full-fledged cyber heist where your enumeration skills, research abilities, and persistence
+                        will determine whether you leave with the jackpot or end up locked out of the vault.</p>
+                    <h2 id="what-makes-fullhouse-unique" style="color: orange;">🛠️ What Makes FullHouse Unique?</h2>
+                    <p>FullHouse provides a <strong>comprehensive penetration testing experience</strong>. It’s not just
+                        about popping
+                        shells — it’s about <strong>understanding how different technologies interact, learning to pivot
+                            effectively, and solving problems that feel directly pulled from real-world security
+                            engagements</strong>. Here’s what makes it stand out:</p>
+                    <ul>
+                        <li><strong>Source Code Review</strong> — If you hate staring at code for hours, well… brace
+                            yourself. But don’t worry, the solutions are there — you just need to find them.</li>
+                        <li><strong>Web Application Attacks</strong> — From common vulnerabilities to misconfigurations,
+                            FullHouse challenges you to sharpen your web exploitation skills.</li>
+                        <li><strong>Reversing</strong> — Because sometimes, binaries hold the keys to the kingdom.</li>
+                        <li><strong>Windows &amp; AD Exploitation</strong> — Get ready for pivoting, privilege
+                            escalation, and some classic Active Directory hacking.</li>
+                        <li><strong>Blockchain Exploitation</strong> — A rare treat! If you haven’t played around with
+                            blockchain security before, FullHouse gives you the perfect excuse.</li>
+                        <li><strong>AI Bypass &amp; Exploitation</strong> — This is where things get really spicy. Can
+                            you manipulate AI-based security measures? FullHouse wants to see if you can.</li>
+                    </ul>
+                    <h2 id="difficulty-learning-curve" style="color: orange;">🔥 Difficulty &amp; Learning Curve</h2>
+                    <h3 id="the-learning-curve-challenging-but-fair" style="color: #ffc107;">The Learning Curve:
+                        Challenging But Fair</h3>
+                    <p>Make no mistake — this lab is not easy. But that’s what makes it fun.</p>
+                    <p>Every challenge requires <strong>thorough enumeration</strong> and <strong>careful
+                            analysis</strong>. There were moments when I
+                        felt like I hit a dead end, only to realize I had overlooked a crucial detail or a
+                        misconfiguration. And that’s the beauty of it: <strong>FullHouse teaches you patience and
+                            precision</strong>.</p>
+                    <p>Some aspects that particularly stood out:</p>
+                    <ul>
+                        <li><strong>Enumeration is Key</strong>: If you don’t enumerate properly, you’ll struggle. But
+                            if you take the time to dig deep, the lab rewards you.</li>
+                        <li><strong>Information Gathering is Crucial</strong>: You’ll often find yourself researching
+                            unfamiliar topics. Whether it’s blockchain security, obscure Windows exploits, or evading
+                            AI, you’ll learn something new.</li>
+                        <li><strong>Not for the Faint of Heart, But Not Impossible</strong>: While challenging, it never
+                            felt insurmountable. Every roadblock had a logical way forward — you just had to find it.
+                        </li>
+                    </ul>
+                    <p>One of the best aspects of FullHouse is that <strong>you learn as you go</strong>. You’ll
+                        frequently encounter
+                        scenarios where you’ll need to <strong>step outside your comfort zone, do your own research, and
+                            apply
+                            new knowledge</strong>. And that’s exactly what makes it <strong>fun and engaging</strong>.
+                    </p>
+                    <h3 id="favorite-challenges" style="color: #ffc107;">Favorite Challenges</h3>
+                    <p>Without spoiling too much, here are some of my personal highlights:</p>
+                    <ul>
+                        <li><strong>Blockchain Exploitation</strong>: A valuable skill set to develop, especially with
+                            the growing prominence of the crypto space.</li>
+                        <li><strong>AI Bypass</strong>: Who doesn’t want to outsmart an AI? This was one of the funniest
+                            challenges I encountered.</li>
+                        <li><strong>Active Directory Attacks</strong>: No good pentest lab is complete without some
+                            solid Windows exploitation and AD fun.</li>
+                    </ul>
+                    <h2 id="final-verdict" style="color: orange;">📌 Final Verdict: Worth the Time?</h2>
+                    <p>Absolutely. FullHouse is <strong>challenging, rewarding, and packed with valuable
+                            lessons</strong>. It manages to
+                        strike the right balance between <strong>fun and frustration</strong>, keeping you engaged
+                        without making you
+                        want to throw your PC out the window. The <strong>variety of challenges</strong> ensures that
+                        you <strong>never get
+                            bored</strong>, and the satisfaction of solving each piece of the puzzle is rewarding.</p>
+                    <p>If you’re considering taking on FullHouse, here’s my advice:</p>
+                    <ul>
+                        <li>Be patient. Enumeration and research will make or break your experience.</li>
+                        <li>Don’t be afraid to step outside your comfort zone — every new challenge is an opportunity to
+                            grow.</li>
+                        <li>Enjoy the ride. The lab is built to be both fun and educational, and there’s nothing quite
+                            like the satisfaction of getting that final flag.</li>
+                    </ul>
+                    <p>So, if you’re up for the challenge, take your seat at the desk and start hacking — just don’t
+                        forget to cash out your winnings at the end. 🃏💰</p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/fullhouse.webp" alt="FullHouse Certificate" class="medium-style-zoom">
+                        <figcaption>📜 Certificate of Completion — HTB: FullHouse Pro Lab</figcaption>
+                    </figure>
+
+
+            </main>
+
+            <aside class="tag-sidebar">
+                <div class="filter-group active">
+                    <button class="filter-toggle">📑 Table Of Contents</button>
+                    <ul class="filter-options" style="font-size: 0.9em; padding-left: 0; list-style: none;">
+                        <li><a class="toc-link" href="#introduction">Introduction</a></li>
+                        <li><a class="toc-link" href="#what-makes-fullhouse-unique">What Makes FullHouse Unique?</a>
+                        </li>
+                        <li>
+                            <a class="toc-link" href="#difficulty-learning-curve">Difficulty & Learning Curve</a>
+                            <ul style="margin-top: 6px; margin-bottom: 6px; margin-left: 16px; list-style: none;">
+                                <li style="margin-bottom: 4px;">
+                                    <a class="toc-link subsection" href="#the-learning-curve-challenging-but-fair">The
+                                        Learning Curve</a>
+                                </li>
+                                <li>
+                                    <a class="toc-link subsection" href="#favorite-challenges">Favorite Challenges</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a class="toc-link" href="#final-verdict">Final Verdict: Worth the Time?</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+    <script src="/assets/script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+</body>
+
+</html>
