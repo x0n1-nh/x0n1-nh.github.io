@@ -1,0 +1,1931 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>x0n1 Dropzone - Certifications Reviews</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/style.css">
+    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <style>
+        .typed-terminal::after {
+            content: '_';
+            animation: blink 0.8s infinite step-start;
+            margin-left: 4px;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .active-menu {
+            color: #ff2d55 !important;
+            font-weight: bold;
+        }
+
+        .menu li a .count {
+            font-size: 0.8em;
+            opacity: 0.6;
+            margin-left: 5px;
+        }
+
+        .dropdown-btn::after {
+            content: '▸';
+            float: right;
+            transition: transform 0.3s;
+        }
+
+        .dropdown-btn.open::after {
+            transform: rotate(90deg);
+        }
+
+        .menu li a:hover {
+            background: rgba(255, 45, 85, 0.1);
+            border-left: 4px solid #ff2d55;
+            padding-left: 6px;
+        }
+
+        .menu .dropdown-content {
+            padding-left: 20px;
+            margin-top: 6px;
+            margin-bottom: 10px;
+        }
+
+        .category-banner {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            animation: scrollBanner 10s linear infinite;
+            overflow: hidden;
+        }
+
+        .category-banner span {
+            background-color: #1c1c1e;
+            padding: 4px 10px;
+            border-radius: 4px;
+            color: #ff9f0a;
+        }
+
+        @keyframes scrollBanner {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .breadcrumb {
+            color: #aaa;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .main-content {
+            padding-top: 60px;
+        }
+
+        .tag-sidebar .toc-list {
+            font-size: 0.9em;
+            line-height: 1.6em;
+            padding-left: 0;
+        }
+
+        .tag-sidebar .toc-list li {
+            margin-bottom: 6px;
+            list-style: none;
+        }
+
+        .tag-sidebar .sub-toc-list {
+            margin-top: 5px;
+            margin-bottom: 8px;
+            margin-left: 14px;
+            padding-left: 12px;
+            border-left: 1px solid #444;
+            font-size: 0.88em;
+            color: #999;
+        }
+
+        .tag-sidebar .sub-toc-list li {
+            margin-bottom: 4px;
+        }
+
+        .toc-link:hover .toc-icon {
+            transform: scale(1.15);
+            transition: transform 0.2s ease;
+        }
+
+        .toc-link:hover {
+            background: rgba(255, 157, 10, 0.1);
+            color: #ff9f0a !important;
+            transform: translateX(3px);
+            transition: all 0.2s ease;
+        }
+
+        .tag-sidebar .filter-options ul {
+            list-style: none;
+            padding-left: 20px;
+            margin-top: 4px;
+        }
+
+        .tag-sidebar .filter-options ul li {
+            margin-left: 8px;
+        }
+
+        .tag-sidebar .filter-options ul li a::before {
+            content: "▶";
+            color: orange;
+            margin-right: 6px;
+        }
+
+        .toc-link.active-toc {
+            font-weight: bold;
+            color: orange !important;
+        }
+
+        .section-block h2 {
+            margin-top: 60px;
+            margin-bottom: 10px;
+            scroll-margin-top: 120px;
+        }
+
+        .section-block h3 {
+            margin-top: 10px;
+            margin-bottom: 6px;
+            scroll-margin-top: 120px;
+        }
+
+        .section-block p,
+        .section-block ul,
+        .section-block ol {
+            margin-bottom: 20px;
+        }
+
+
+        .article-certificate {
+            display: block;
+            margin: 40px auto;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.01);
+            padding: 12px 16px;
+            border: 1px solid rgba(255, 45, 85, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 45, 85, 0.08);
+            width: fit-content;
+        }
+
+        .article-certificate img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin: 0 auto;
+        }
+
+        .article-certificate figcaption {
+            font-size: 0.75em;
+            color: #ccc;
+            margin-top: 6px;
+            text-align: center;
+            font-family: 'Fira Code', monospace;
+            opacity: 0.6;
+            line-height: 1.2;
+        }
+
+        .article-certificate:hover {
+            transform: scale(1.015);
+        }
+
+        .toc-link {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 8px;
+            border-radius: 6px;
+            margin: 2px 0;
+            font-size: 0.82em;
+            transition: background 0.2s, color 0.2s;
+            text-decoration: none;
+            color: #ff2d55;
+            transition: color 0.2s;
+        }
+
+        blockquote {
+            border-left: 4px solid #ff2d55;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            color: #dddddd;
+            font-family: "Fira Code", monospace;
+            background-color: rgba(255, 255, 255, 0.03);
+        }
+
+        pre code {
+            display: block;
+            padding: 1em 1.5em;
+            background-color: rgba(255, 255, 255, 0.03);
+            color: #f5d787;
+            border-radius: 10px;
+            font-size: 0.9em;
+            white-space: pre;
+            overflow-x: auto;
+            font-family: 'Fira Code', monospace;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        pre.loot-clean {
+            background-color: #1e1e1e;
+            color: #f5d787;
+            padding: 1em;
+            border-radius: 10px;
+            font-size: 0.9em;
+            max-width: 520px;
+            margin: 2em auto 1em;
+            white-space: pre;
+            overflow-x: auto;
+            font-family: 'Fira Code', monospace;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .tag-sidebar {
+            max-height: 100vh;
+            overflow-y: auto;
+            position: sticky;
+            top: 0;
+            padding-right: 6px;
+        }
+
+        .tag-sidebar {
+            min-height: 100vh;
+            background: rgba(18, 18, 18, 0.85);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            overflow-y: auto;
+
+        }
+
+        .tag-sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .tag-sidebar::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        code {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.95em;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #ff9f0a;
+            white-space: break-spaces;
+        }
+
+        strong {
+            color: #ff5e7e;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo"><a href="/index.html" style="color: #ff2d55; text-decoration: none;"><span
+                        class="typed-terminal"></span></a></div>
+            <ul class="menu">
+                <li><button class="dropdown-btn open">🖊️ Writeups</button>
+                    <ul class="dropdown-content">
+                        <li><a href="/htb.html">HackTheBox <span class="count">(0)</span></a>
+                            <ul id="submenu-htb" class="dropdown-content"></ul>
+                        </li>
+                        <li><a href="/tryhackme.html">TryHackMe <span class="count">(1)</span></a>
+                            <ul id="submenu-thm" class="dropdown-content"></ul>
+                        </li>
+                        <li><a href="/vulnhub.html">VulnHub <span class="count">(0)</span></a>
+                            <ul id="submenu-vulnhub" class="dropdown-content"></ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><button class="dropdown-btn">🧪 Reviews</button>
+                    <ul class="dropdown-content" style="display: block;">
+                        <li><a href="/exams.html" class="active-menu">Certifications <span class="count">(1)</span></a>
+                            <ul id="submenu-exams" class="dropdown-content"></ul>
+                        </li>
+                        <li><a href="/courses.html">Courses <span class="count">(0)</span></a>
+                            <ul id="submenu-courses" class="dropdown-content"></ul>
+                        </li>
+                        <li><a href="/labs.html">Labs <span class="count">(1)</span></a>
+                            <ul id="submenu-labs" class="dropdown-content"></ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="/articles.html" style="color: #ff2d55; text-decoration: none;">📚 Articles <span
+                            class="count">(0)</span></a></li>
+                <li><a href="/about.html" style="color: #ff2d55; text-decoration: none;">🧐 Whoami</a></li>
+            </ul>
+        </aside>
+        <div class="content-area">
+            <main class="main-content">
+                <div class="breadcrumb" data-aos="fade-up">📂 Reviews / Certifications / CPTS: Tactics & Survival </div>
+                <h1 class="section-title" data-aos="fade-up">CPTS: Tactics & Survival</h1>
+                <div class="section-block" data-aos="fade-up" data-aos-delay="200">
+                    <figure class="article-certificate">
+                        <img src="/assets/images/cpts_front.webp" alt="Certified Penetration Testing Specialist"
+                            class="medium-style-zoom">
+                        <figcaption>Certified Penetration Testing Specialist</figcaption>
+                    </figure>
+                    <h2 id="introduction" style="color: orange;">📖 Introduction — A Tactical Field Guide to the CPTS
+                        Exam</h2>
+                    <p>I’m not going to sugarcoat it: this exam is tough. Not in the way CTFs are tough, where you’re
+                        trying to guess obscure tricks — but in the way real internal engagements challenge you: with
+                        incomplete information, technical constraints, and the constant need to adapt, pivot, and
+                        prioritize. CPTS is not just about breaking into machines. It’s about doing so with
+                        <strong>intent, structure, and a consultant’s mindset.</strong>
+                    </p>
+                    <p>So, this isn’t just a feel-good writeup or a flag-by-flag retelling. This is a deep, practical
+                        dive into everything I learned, experienced, refined, and struggled with across the entire CPTS
+                        journey — from prep to reporting. Think of this as a <strong>battle-tested field
+                            manual</strong>, shaped by long nights, failed pivots, accidental resets, and that
+                        oh-so-familiar sinking feeling when your last tunnel breaks at 2AM.</p>
+                    <p>I wrote this to document the <strong>real experience</strong> — the technical layers, the
+                        psychological walls, the methodology breakdowns, the flags that almost broke me, and the
+                        workflow that pulled me back on track. It’s part review, part tactical survival guide, and part
+                        mental debrief. It includes tool recommendations, decision-making tips, stuck scenarios,
+                        workflow notes, and everything I wish someone had told me before I clicked “Begin Exam.”</p>
+                    <p>It’s long. It’s dense. It’s personal. And it’s designed to help you not just pass CPTS, but
+                        <strong>own the process</strong>.
+                    </p>
+                    <h2 id="what-is-cpts" style="color: orange;">🧠 What is CPTS, and Why It Matters</h2>
+                    <p>The <strong>Hack The Box Certified Penetration Testing Specialist (CPTS)</strong> exam is, in my
+                        opinion, the closest simulation of a real-world internal penetration test you can get in a
+                        certification.</p>
+                    <p>This isn’t a gamified CTF or a glorified quiz. It’s an <strong>operational simulation</strong>: a
+                        full-scope internal engagement on a segmented corporate-like network, where you’ll be dropped
+                        into a semi-realistic infrastructure, expected to enumerate, exploit, pivot, escalate, and
+                        document your findings — all under pressure, with limited time and no hand-holding.</p>
+                    <p>You’re not just proving you can pwn a box — you’re proving you can:</p>
+                    <ul>
+                        <li>Maintain persistence across hops</li>
+                        <li>Analyze trust relationships</li>
+                        <li>Understand how various machines interact together inside a network</li>
+                        <li>Abuse Active Directory like a professional adversary</li>
+                        <li>Juggle tunneling tools and chain recon flows</li>
+                        <li>Write a <strong>professional-grade report</strong> that would actually land on a client’s
+                            desk</li>
+                    </ul>
+                    <p>CPTS isn’t about being flashy — it’s about being: <strong>methodical, efficient, and
+                            report-ready</strong>. And that’s exactly what makes it so valuable for red teamers,
+                        aspiring internal pentesters, and anyone serious about treating offensive security as more than
+                        just a hobby.</p>
+                    <p style="text-align: center;" class="divider-fancy">✴️ Preparation Starts Here</p>
+                    <h2 id="how-i-prepared" style="color: orange;">⚔️ How I Prepared: Tools and Tactical Notetaking</h2>
+                    <h3 id="academy-path" style="color: #ffc107;">📚 The Academy Path — The Real Deal</h3>
+                    <p>Let’s get this out of the way: the <strong>HTB Academy CPTS path is not filler</strong>.</p>
+                    <p>I went through every module, no skipping. Some modules were fun, some were dry, but every one of
+                        them taught me something that directly applied in the exam — especially when it came to
+                        <strong>methodology under pressure</strong>.
+                    </p>
+                    <p>That’s the key. This path isn’t just teaching you tools; it’s teaching you workflows, lateral
+                        movement logic, post-exploitation thought processes, and ways to turn noisy shells into useful
+                        access.</p>
+                    <p>I took extensive notes while going through the modules — which leads us to the next critical
+                        point.</p>
+                    <h3 id="living-field-manual" style="color: #ffc107;">🗃️ Building a Living Field Manual</h3>
+                    <p>I didn’t just “take notes.” I built a living methodology library.</p>
+                    <ul>
+                        <li>Structured using Obsidian with over <strong>100 Nodes</strong></li>
+                        <li>Organized by phase: Recon → Exploitation → Post-Exploitation → Pivoting → Reporting</li>
+                    </ul>
+                    <p>Each node contained:</p>
+                    <ul>
+                        <li>Use cases</li>
+                        <li>Syntax examples</li>
+                        <li>Command variations</li>
+                        <li>Real-world edge cases</li>
+                        <li>Mistake logs (what went wrong in past tests and why)</li>
+                        <li>Theory related to the technique</li>
+                    </ul>
+                    <p>I created <strong>checklists for Web, Linux, Windows enumeration and exploiting</strong>, mapped
+                        out attack chains (Kerberoasting → Silver Ticket → DCSync), and wrote mental models for how to
+                        approach trust relationships and nested pivots.</p>
+                    <p>During the exam, this field manual was my <strong>only reference</strong>. No Discord, no
+                        guesswork — just me, my notes, and my method.</p>
+                    <h3 id="ippsec" style="color: #ffc107;">🎥 Watching Strategically: IppSec’s CPTS Playlist</h3>
+                    <p>Before the exam, I worked through <a
+                            href="https://www.youtube.com/watch?v=H9FcE_FMZio&list=PLidcsTyj9JXItWpbRtTg6aDEj10_F17x5"
+                            target="_blank" rel="noopener" style="color: #ff2d55;">IppSec’s
+                            unofficial CPTS prep playlist</a>.</p>
+                    <p>But I didn’t just watch passively and followed the walktrough to complete the machine.</p>
+                    <p>For each video, I paused at every pivot and asked myself:</p>
+                    <ul>
+                        <li>“What would I do here?”</li>
+                        <li>“Is my recon too shallow to see this?”</li>
+                        <li>“Did I build my notes to cover this scenario?”</li>
+                    </ul>
+                    <p>This wasn’t about walkthroughs. This was about <strong>auditing my thought process</strong>.</p>
+                    <p>Watching how IppSec builds chains, structures recon, and breaks assumptions helped me spot
+                        <strong>blind spots in my own flow</strong>. And that paid off massively in the exam.
+                    </p>
+                    <h3 id="prolabs" style="color: #ffc107;">🧪 Stress Testing Methodology in ProLabs</h3>
+                    <p>Once I had the theory and tooling down, I turned to <strong>ProLabs</strong> — specifically
+                        <strong>Dante</strong> and <strong>Zephyr</strong> — to test my readiness.
+                    </p>
+                    <p>These environments aren’t designed to teach you new tricks. They’re meant to <strong>break your
+                            workflow</strong> — to introduce noise, distractions, segmentation, and dead-ends. And
+                        that’s exactly why they’re useful.</p>
+                    <p>I practiced like it was the exam:</p>
+                    <ul>
+                        <li>No walkthroughs</li>
+                        <li>Timed sessions</li>
+                        <li>Daily reporting</li>
+                        <li>Obsidian-only for notes</li>
+                    </ul>
+                    <p>And guess what? I got stuck. A lot. But every time I escaped a trap or completed a path, I added
+                        it to my methodology and checklist — which became my lifeline during the actual CPTS exam.</p>
+                    <h3 id="aen" style="color: #ffc107;">🧠 Take AEN Completely Blind</h3>
+                    <p>The <strong>Attacking Enterprise Networks (AEN)</strong> lab is probably the closest training
+                        experience to the actual CPTS exam. It teaches:</p>
+                    <ul>
+                        <li>Multi-domain enumeration</li>
+                        <li>Credential harvesting and chaining</li>
+                        <li>Tunnel configuration under realistic segmentation</li>
+                        <li>Multi-hop lateral movement</li>
+                        <li>Report writing for real-world attack chains</li>
+                    </ul>
+                    <p>Here’s what I did:</p>
+                    <ul>
+                        <li>Took <strong>AEN completely blind</strong> — no hints, no solutions, no Discord</li>
+                        <li>Set a 5-day time cap</li>
+                        <li>Treated it like a live engagement: methodical recon, screenshot management, real
+                            documentation</li>
+                    </ul>
+                    <p>The point isn’t to finish it fast — it’s to simulate the <strong>mental workload</strong> of the
+                        exam.</p>
+                    <p>That said, the CPTS exam is not “AEN Part II.” It’s a <strong>different beast, with different
+                            goals</strong>. AEN teaches you methodology and pacing — but the exam demands consistency,
+                        clarity, and sustained problem-solving across ten days.</p>
+                    <p>One of the biggest mental traps is thinking,</p>
+                    <blockquote>
+                        <p>“This worked in AEN, so why isn’t it working here?”<br>
+                            <em>or</em><br>
+                            “This box feels like that one from AEN — maybe it’s the same vector.”
+                        </p>
+                    </blockquote>
+                    <p>Don’t fall for it. Every flag in CPTS is custom-placed. Treat the exam as a <strong>fresh,
+                            unfamiliar engagement</strong>. The only thing you should bring from AEN is <strong>your
+                            workflow — not your assumptions</strong>.</p>
+                    <p style="text-align: center;" class="divider-fancy">✴️ Methodology Starts Here</p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/methodology.webp" alt="Kill Chain" class="medium-style-zoom">
+                        <figcaption>Kill Chain</figcaption>
+                    </figure>
+                    <h2 id="information-gathering" style="color: orange;">🧭 Information Gathering — Reconnaissance as a
+                        Discipline</h2>
+                    <p>In CPTS, information gathering isn’t something you “do once at the beginning.” It’s an ongoing,
+                        iterative process that evolves as you unlock new pivots, gain new credentials, and expand your
+                        network visibility. If exploitation is the art of action, then information gathering is the
+                        science of visibility — and mastering it is non-negotiable.</p>
+                    <p>Whether you’re facing a hardened external service, a custom web app, or the first glimpse of
+                        Active Directory, your ability to collect, process, and contextualize information defines your
+                        pace and your success.</p>
+                    <p>Let’s break down each dimension of reconnaissance in the CPTS experience.</p>
+                    <h3 id="services-enumeration" style="color: #ffc107;">🔍 Services Enumeration</h3>
+                    <p>This is your first step in every new network segment. Each host you encounter is a potential
+                        goldmine of exposed services, misconfigured ports, or behavioral clues. The exam expects you to
+                        know how to identify and fingerprint common services and draw strategic conclusions from that
+                        information.</p>
+                    <p><strong>Core Techniques:</strong></p>
+                    <ul>
+                        <li><strong>Banner Grabbing</strong>: Manual interaction with services using tools like nc,
+                            telnet, openssl, or nmap -sV to retrieve version info.</li>
+                        <li><strong>Version Inference</strong>: Comparing exposed service behavior or headers to known
+                            fingerprint signatures.</li>
+                        <li><strong>Banner Grabbing:</strong> Manual interaction with services using tools like
+                            <code>nc</code>, <code>telnet</code>, <code>openssl</code>, or <code>nmap -sV</code> to
+                            retrieve version info.
+                        </li>
+                    </ul>
+                    <p><strong>Key Protocols & Services You’ll Likely Encounter:</strong></p>
+                    <ul>
+                        <li>DNS</li>
+                        <li>FTP / TFTP</li>
+                        <li>LDAP</li>
+                        <li>WinRM</li>
+                        <li>WMI</li>
+                        <li>MySQL / MSSQL / Oracle TNS</li>
+                        <li>NFS</li>
+                        <li>SMB / NetBIOS</li>
+                        <li>POP3 / IMAP / SMTP</li>
+                        <li>RDP / SSH / IPMI</li>
+                        <li>Rsync / R-Service</li>
+                        <li>SNMP</li>
+                        <li>Kerberos</li>
+                    </ul>
+                    <p><strong>Go-to Tools</strong>:</p>
+                    <ul>
+                        <li><code>nmap</code> with targeted scripts: e.g., <code>--script smb-enum-shares</code>,
+                            <code>ldap-search</code>, <code>snmp-info</code>
+                        </li>
+                        <li><code>tcpdump</code> or <code>Wireshark</code>: Validate behavior, confirm service
+                            availability, observe broadcast traffic</li>
+                        <li><code>netcat</code> or <code>telnet</code> : Banner grabbing</li>
+                    </ul>
+                    <blockquote>
+                        <p><strong>🧠 CPTS Tip</strong>: Organize your scans by purpose. Start with fast sweeps
+                            (<code>nmap -T4 --top-ports 1000</code>), then expand with full TCP/UDP scans per host based
+                            on significance. Don’t blindly run <code>-A</code> or <code>-p-</code> on everything —
+                            that’s how you get noisy and wasteful.</p>
+                    </blockquote>
+                    <h3 id="web-enumeration" style="color: #ffc107;">🌐 Web Enumeration</h3>
+                    <p>The CPTS exam is packed with web interfaces — some internal, some custom, many deceptive.
+                        Learning to <strong>approach them methodically</strong> and understand their logic is crucial.
+                    </p>
+                    <p><strong>🔎 Active Web Recon<br></strong>
+                        These are the noisy techniques — but essential when used surgically</p>
+                    <ul>
+                        <li><strong>Directory and Page Fuzzing</strong>: Tools like <code>ffuf</code>,
+                            <code>dirsearch</code>, or <code>feroxbuster</code> with custom and general wordlists
+                            (SecLists, robots.txt leaks, known paths from CMSs)
+                        </li>
+                        <li><strong>Parameter and Value Fuzzing</strong>: Great for discovering hidden GET/POST
+                            parameters, testing auth logic or finding vulnerable paths like <code>debug=true</code>.
+                        </li>
+                        <li><strong>VHost Discovery</strong>: Using tools like <code>ffuf -H "Host: FUZZ.target"</code>
+                            with known DNS entries or certificate parsing</li>
+                        <li><strong>Header Analysis</strong>: Look at cookies, server headers, CORS policies, cache
+                            behavior</li>
+                    </ul>
+                    <p><strong>🛡️ Passive Web Recon<br></strong>
+                        Sometimes the best enumeration is silent. Use passive tools <strong>before</strong> active
+                        fuzzing, especially when assessing exposed services.</p>
+                    <ul>
+                        <li><strong>Google Dorks</strong>: Leak detection, repo finds, forgotten staging apps</li>
+                        <li><strong>Technology Stack Analysis</strong>: Tools like <code>wappalyzer</code>,
+                            <code>whatweb</code>, <code>builtwith</code>, or headers via Burp/HTTPx.
+                        </li>
+                        <li><strong>DNS and Certificate Recon</strong>: Using tools like <code>crt.sh</code>,
+                            <code>amass</code>, <code>certspotter</code>, or <code>dnscan</code> to fingerprint internal
+                            infra
+                        </li>
+                    </ul>
+                    <p><strong>Tools You Should Know Well</strong>:</p>
+                    <ul>
+                        <li><code>FinalRecon</code>: Swiss-army knife for passive recon</li>
+                        <li><code>Spiderfoot</code>: Automated passive OSINT (note: requires tweaking to avoid noise)
+                        </li>
+                        <li><code>Recon-ng</code>: Good for linked enumeration and correlating data</li>
+                        <li><code>theHarvester</code>: Simple but great for emails and DNS records</li>
+                        <li><code>Eyewitness</code>: Captures screenshots of web portals across subdomains — great for
+                            internal pivot recon</li>
+                        <li><strong>OSINT Framework</strong>: Reference chart to explore passive enumeration targets
+                        </li>
+                    </ul>
+                    <h3 id="application-fingerprinting" style="color: #ffc107;">🧱 Application Fingerprinting</h3>
+                    <p>Throughout the CPTS exam, you’ll encounter real-world applications: enterprise tools, CMSs,
+                        ticketing systems, or internal dashboards. The key is <strong>recognizing them fast</strong> and
+                        checking for known attack surfaces — but also understanding that sometimes the flaws are
+                        logic-based, not CVE-based.</p>
+                    <p><strong>Recognizable Apps You Should Be Able to Enumerate and Attack:</strong></p>
+                    <ul>
+                        <li><strong>CMSs</strong>: WordPress, Joomla, Drupal, DotNetNuke</li>
+                        <li><strong>DevOps</strong>: Jenkins, GitLab</li>
+                        <li><strong>Monitoring</strong>: PRTG Network Monitor, Nagios XI, Splunk</li>
+                        <li><strong>Web Servers</strong>: Apache Tomcat, ColdFusion, WebSphere, WebLogic, Axis2</li>
+                        <li><strong>Ticketing Systems</strong>: osTicket (especially common), internal CRMs or
+                            dashboards</li>
+                    </ul>
+                    <p>🧠 What you need is not just CVE knowledge, but the ability to recognize:</p>
+                    <ul>
+                        <li>Default credentials or misconfigurations</li>
+                        <li>Hidden admin portals (<code>/admin</code>, <code>/manage</code>, <code>/super</code>)</li>
+                        <li>Debug or backup endpoints (<code>.bak</code>, <code>/debug</code>, <code>?stage=</code>)
+                        </li>
+                    </ul>
+                    <p>If you’re treating every web app like an FFUF target, you’re missing the bigger picture. You need
+                        to start <strong>walking the app manually</strong> and watching how it handles user state,
+                        access control, and misbehavior.</p>
+                    <h3 id="active-directory-enumeration" style="color: #ffc107;">🧠 Active Directory Enumeration
+                        (Initial Stages)</h3>
+                    <p>When you land in a domain-joined machine, enumeration doesn’t start with BloodHound — it starts
+                        with understanding the domain.</p>
+                    <p><strong>What You Should Enumerate First:</strong></p>
+                    <ul>
+                        <li><strong>Domain Structure</strong>: Name, FQDN, SID, Forest/Trust relationships</li>
+                        <li><strong>Users & Groups</strong>: Especially low-priv users with domain-wide access</li>
+                        <li><strong>Privileged Accounts</strong>: DAs, Backup Operators, Print Operators, etc.</li>
+                        <li><strong>ACLs</strong>: Often the key to hidden privilege escalation paths</li>
+                        <li><strong>Password Policies</strong>: Is password spraying viable? Is PASSWD_NOTREQD set?</li>
+                        <li><strong>Security Controls</strong>: Defender, LAPS, GPO-enforced constraints</li>
+                        <li><strong>Shares</strong>: SYSVOL, Netlogon, shared config repos</li>
+                    </ul>
+                    <p>Core Tools You Must Be Fluent With:</p>
+                    <ul>
+                        <li><code>BloodHound</code> / <code>SharpHound</code> (collection, import, edge analysis)</li>
+                        <li><code>PowerView</code> (manual edge validation, group enumeration, ACL analysis)</li>
+                        <li><code>NetExec</code> (mass authentication testing, SMB/LDAP enumeration)</li>
+                        <li><code>ldapsearch</code>, <code>rpcclient</code>, <code>windapsearch</code>,
+                            <code>pingcastle</code>, <code>adidnsdump</code> etc.
+                        </li>
+                    </ul>
+                    <blockquote>
+                        <p><strong>🧠 CPTS Tip</strong>: Create AD Enumeration Trees per box. Track what commands have
+                            been run, what edge was found, and how you validated it.</p>
+                    </blockquote>
+                    <h3 id="summary-1" style="color: #ffc107;">✅ Summary of What This Section Taught Me:</h3>
+                    <ul>
+                        <li><strong>Network Services</strong>: Banner grabbing, targeted scanning, protocol-specific
+                            recon</li>
+                        <li><strong>Web Recon</strong>: Deep fuzzing, session logic analysis, passive fingerprinting
+                        </li>
+                        <li><strong>App Enumeration</strong>: CMS behavior profiling, DevOps tool quirks, admin panel
+                            hunting</li>
+                        <li><strong>AD Initial Recon</strong>: Manual + automated domain intelligence gathering</li>
+                    </ul>
+                    <p>In the CPTS exam, enumeration isn’t just the first step — it’s <strong>half the battle</strong>,
+                        and the part where many people fail simply because they don’t treat recon like a first-class
+                        citizen.</p>
+                    <h2 id="pre-exploitation" style="color: orange;">⚙️ Pre-Exploitation — Weaponization & Gaining
+                        Initial Access</h2>
+                    <p>Pre-exploitation is the often-overlooked bridge between reconnaissance and full exploitation.
+                        It’s where information becomes actionable. In the CPTS exam, this is where you’ll spend a good
+                        chunk of time <strong>validating assumptions, crafting payloads, testing footholds</strong>, and
+                        preparing the foundation for lateral movement.</p>
+                    <p>The exam doesn’t hand you vulnerable boxes with obvious paths. Instead, it expects you to
+                        <strong>assemble the pieces</strong> from recon and translate them into a valid, stable, and
+                        stealthy point of entry. This stage is also critical for <strong>payload delivery, shell
+                            handling, and execution strategies</strong>.
+                    </p>
+                    <p>Let’s break down the mechanics of this phase in the way the exam demands.</p>
+                    <h3 id="shells" style="color: #ffc107;">💣 Shells: From Initial Access to Stable Control</h3>
+                    <p>Before you escalate or move laterally, you need to first <strong>get a working shell</strong> —
+                        and then make sure it’s one you can actually use.</p>
+                    <p><strong>🧱 Shell Types You’ll Work With:</strong></p>
+                    <ul>
+                        <li><strong>Web Shells</strong>:<br>
+                            Often your first access comes from an upload vulnerability (e.g., through a misconfigured
+                            WordPress plugin or a poorly validated LFI-to-RCE). These give you <strong>limited, often
+                                broken access</strong>, but they’re enough to plant something stronger.</li>
+                        <li><strong>Reverse Shells</strong>:<br>
+                            The gold standard for initial access. Most often you’ll trigger these through command
+                            injection, file uploads, or manual execution paths. The key is not just getting the shell —
+                            it’s getting it back through potentially <strong>firewalled, segmented, or non-default
+                                ports</strong>.</li>
+                        <li><strong>Interactive Shells</strong>:<br>
+                            Once you have a shell, stabilize it. Use tools like
+                            <code>python -c 'import pty; pty.spawn("/bin/bash")'</code>, or PowerShell commands to get
+                            an interactive session with <strong>tab completion, environment awareness, and TTY
+                                access</strong>.
+                        </li>
+                    </ul>
+                    <blockquote>
+                        <p><strong>🧠 CPTS Tip</strong>: Always stabilize the shell before moving forward. Broken shells
+                            = missed information = dead-end escalation paths.</p>
+                    </blockquote>
+                    <h3 id="payload-crafting" style="color: #ffc107;">🧪 Payload Crafting & Delivery</h3>
+                    <p>The exam expects you to be comfortable <strong>creating and tweaking your own payloads</strong>,
+                        not just downloading something from ExploitDB.</p>
+                    <p><strong>🛠️ Tools You’ll Need:</strong></p>
+                    <ul>
+                        <li><code>msfvenom</code>: used to generate raw reverse shell payloads for various platforms.
+                        </li>
+                        <li>You should also know how to encode payloads using formats like <code>base64</code>,
+                            <code>hex</code>, or PowerShell-friendly forms to <strong>bypass filters</strong>.
+                        </li>
+                        <li><code>searchsploit</code>: while not always necessary, you might want to identify a CVE with
+                            a known exploit path. But don’t treat <strong>searchsploit</strong> as your crutch. More
+                            often than not, you’ll be chaining a simple misconfig or logic bug into your own crafted
+                            entry point.</li>
+                        <li><strong>Manual Payloads</strong>: CPTS shines when it throws you into custom web apps or
+                            legacy software where Metasploit is useless.</li>
+                    </ul>
+                    <blockquote>
+                        <p><strong>🧠 CPTS Tip</strong>: You’re expected (for example) to know what “file upload
+                            vulnerability” actually means. It’s not about getting a web shell — it’s about understanding
+                            MIME types, extension filtering, directory traversal, file replacement, and execution
+                            context.</p>
+                    </blockquote>
+                    <h3 id="payload-delivery" style="color: #ffc107;">📦 Payload Delivery Tactics</h3>
+                    <p>Depending on the access vector, you’ll need to be fluent in one or more of these delivery
+                        methods:</p>
+                    <ul>
+                        <li><strong>Web Uploads</strong>
+                            <ul>
+                                <li>Upload a payload through a web interface (e.g., a CMS media manager)</li>
+                                <li>Bypass filters (e.g., extension checking, content-type validation)</li>
+                                <li>Abuse directory traversal (<code>../../</code>) to reach executable directories</li>
+                                <li>Drop <code>webshell.php</code>, <code>cmd.jsp</code>, or a one-liner reverse shell
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li><strong>File Inclusion / RFI</strong>
+                            <ul>
+                                <li>Use exposed LFI or RFI to pull your payload from an HTTP server you control</li>
+                                <li>Base64-encode payloads to pass filters, then decode on target</li>
+                            </ul>
+                        </li>
+
+                        <li><strong>SMB Fetch / UNC Paths</strong>
+                            <ul>
+                                <li>On Windows, use UNC paths (<code>\\\\attacker_ip\\share\\file.exe</code>) to pull
+                                    down binaries</li>
+                                <li>SMB servers via <code>impacket-smbserver.py</code> make this trivial</li>
+                            </ul>
+                        </li>
+
+                        <li><strong>PowerShell & Certutil</strong>
+                            <ul>
+                                <li>Encode payloads as base64 and execute via PowerShell</li>
+                                <li>Use <code>certutil -urlcache -split -f</code> to download payloads from your
+                                    controlled HTTP server</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <blockquote>
+                        <p><strong>🧠 CPTS Tip</strong>: You won’t always get GUI upload forms. Often, you’ll find
+                            obscure script paths, API endpoints, or internal logic that lets you write files — or
+                            include external ones.</p>
+                    </blockquote>
+                    <h3 id="setting-the-stage" style="color: #ffc107;">🔐 Setting the Stage for Exploitation</h3>
+                    <p>Once you have access, stabilize and prep. This is where “post-pre-exploitation” begins:</p>
+                    <ul>
+                        <li>Create a working directory on the target (e.g., <code>/tmp/.you/</code> or
+                            <code>C:\Users\Public\</code>)
+                        </li>
+                        <li>Use common recon scripts (e.g., <code>whoami</code>, <code>hostname</code>,
+                            <code>ipconfig /all</code>, <code>netstat</code>)
+                        </li>
+                        <li>Set up your tunnels and forward ports back to your attacker box</li>
+                        <li>Start logging everything — you may only get one chance before the target reboots</li>
+                    </ul>
+                    <p>🔁 Loop this process. Every new access point might require a different shell type or delivery
+                        technique. You will likely repeat this cycle multiple times as you move deeper into the network.
+                    </p>
+                    <h3 id="summary-2" style="color: #ffc107;">✅ Summary of What This Section Taught Me:</h3>
+                    <ul>
+                        <li><strong>Shells</strong>: Stabilization, reverse shell crafting, pty upgrades</li>
+                        <li><strong>Payloads</strong>: Manual crafting, encoding, chaining execution paths</li>
+                        <li><strong>Delivery</strong>: Upload bypasses, RFI/LFI abuse, Linux & Windows file transfer
+                        </li>
+                        <li><strong>Tools</strong>: <code>msfvenom</code>, <code>nc</code>, <code>socat</code>,
+                            <code>impacket</code>, <code>PowerShell loaders</code>
+                        </li>
+                    </ul>
+                    <p>This phase taught me that pre-exploitation isn’t a speed bump — it’s a strategic moment. The
+                        tools you use here will either enable the next ten days of progress… or guarantee ten days of
+                        pain.</p>
+                    <h2 id="exploitation" style="color: orange;">💥 Exploitation — Turning Access Into Leverage</h2>
+                    <p>If <strong>pre-exploitation</strong> is the part where you collect the map and gather your tools,
+                        then <strong>exploitation</strong> is where you begin redrawing the battlefield itself. This
+                        phase isn’t about “getting in” — you’re already in. Now, it’s about <italic>expanding control,
+                            weaponizing misconfigurations, abusing integrations, and dismantling trust structures
+                        </italic>. It’s the phase where knowledge, intuition, and precision collide.</p>
+                    <p>In CPTS, exploitation is not a monolithic step. It spans several parallel domains — Active
+                        Directory, application layers, exposed services, web interfaces, and even binaries left behind
+                        by careless admins. Each domain offers its own set of footholds and escalation vectors, and your
+                        job is to methodically chain them into full compromise.</p>
+                    <p>Let’s break it down and walk through the terrain you’ll master.</p>
+                    <h3 id="active-directory-exploitation" style="color: #ffc107;">🏢 Active Directory Exploitation —
+                        Where Real Engagements Begin</h3>
+                    <p>In the CPTS exam, Active Directory is <strong>not</strong> a beginner’s playground. You’re placed
+                        inside a live, enterprise-like domain where <strong>misconfigurations are layered, trusts are
+                            complex</strong>, and <strong>privilege paths are anything but linear</strong>. You’re not
+                        expected to “pwn AD” in one shot — you’re expected to navigate it intelligently, respecting its
+                        architecture while bending it to your advantage.</p>
+                    <h4 id="enumeration-lays-groundwork" style="color: #ffc107;">🔍 Enumeration Lays the Groundwork</h4>
+                    <p>Before you try to abuse anything, you need to <strong>understand the structure</strong> of what
+                        you’re attacking. Enumeration isn’t optional — it’s foundational.</p>
+                    <p>Use tools like:</p>
+                    <ul>
+                        <li><strong>BloodHound + SharpHound</strong>: Not just for visuals — use targeted queries and
+                            custom filters.</li>
+                        <li><strong>PowerView</strong>: To interrogate AD in real-time. Validate permissions, list GPOs,
+                            enumerate ACLs.</li>
+                        <li><strong>NetExec</strong>: Your go-to for credential spraying, remote command execution, and
+                            quick access validation across the domain.</li>
+                        <li><strong>ldapsearch</strong> / <strong>windapsearch</strong> / <strong>rpcclient</strong>:
+                            For low-noise, targeted extraction of domain information — especially helpful when you don’t
+                            want to run large collectors.</li>
+                    </ul>
+                    <blockquote>
+                        <p><strong>🧠 CPTS Tip</strong>: <strong>BloodHound lies sometimes</strong>. Always confirm
+                            edges with manual checks using PowerView or NetExec. CPTS loves throwing you paths that only
+                            “almost work.”</p>
+                    </blockquote>
+                    <h4 id="high-impact-ad-attacks" style="color: #ffc107;">🎯 High-Impact AD Attacks You’ll Use</h4>
+                    <p>Here are the core techniques that actually make the difference in CPTS — these aren’t optional
+                        fluff.</p>
+                    <ul>
+                        <li><strong>GPP Passwords:</strong>
+                            <ul>
+                                <li>Crawl <code>\\\\domain\\SYSVOL</code> for <code>Groups.xml</code>, then use
+                                    <code>gpp-decrypt</code>. Great early foothold vector.
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li><strong>Kerberoasting / ASREP Roasting:</strong>
+                            <ul>
+                                <li>Use <code>GetUserSPNs.py</code> or Rubeus to extract service tickets.</li>
+                                <li>Crack with hashcat or john.</li>
+                                <li>Know when it’s worth it: long, complex passwords = skip and save time.</li>
+                            </ul>
+                        </li>
+
+                        <li><strong>SYSVOL Pillaging:</strong>
+                            <ul>
+                                <li>Never skip this.</li>
+                                <li>Look for scripts, creds, hidden base64, or unattended install configs.</li>
+                            </ul>
+                        </li>
+
+                        <li><strong>DCSync Attacks:</strong>
+                            <ul>
+                                <li>If a user has <code>Replicate Directory Changes</code>, dump the domain with
+                                    <code>secretsdump.py</code> or <code>mimikatz</code>.
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li><strong>ACL Abuse:</strong>
+                            <ul>
+                                <li>Enumerate users with <code>GenericAll</code>, <code>WriteOwner</code>, or similar
+                                    rights over other principals.</li>
+                                <li>Use PowerView to confirm and abuse (e.g., <code>Add-DomainObjectAcl</code>).</li>
+                            </ul>
+                        </li>
+
+                        <li><strong>Trust Abuse (Interdomain / Cross Forest):</strong>
+                            <ul>
+                                <li><code>noPac</code>: Abuse Resource-Based Constrained Delegation misconfigs.</li>
+                            </ul>
+                        </li>
+
+                        <li><strong>PetitPotam + Relay:</strong>
+                            <ul>
+                                <li>Trigger machine authentication to a relay server, capture hashes, and escalate.</li>
+                            </ul>
+                        </li>
+
+                        <li><strong>PrinterBug:</strong>
+                            <ul>
+                                <li>Still a valid attack path when paired with NTLM relay techniques.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <blockquote>
+                        <p><strong>🧠 CPTS Tip</strong>: Expect to <strong>chain multiple “small” weaknesses</strong>.
+                            Rarely is one attack enough. For example: password reuse → low-priv domain user → ACL abuse
+                            → DCSync.”</p>
+                    </blockquote>
+                    <h4 id="core-toolset" style="color: #ffc107;">🧰 Core Toolset for AD Warfare</h4>
+                    <ul>
+                        <li><strong>BloodHound + SharpHound</strong>: Mapping privilege chains</li>
+                        <li><strong>PowerView</strong>: Deep AD interrogation and ACL validation</li>
+                        <li><strong>NetExec</strong>: Lateral movement, credential testing, command execution</li>
+                        <li><strong>Rubeus</strong>: Ticket management, Kerberoasting</li>
+                        <li><strong>Impacket Suite</strong>: <code>secretsdump</code>, <code>GetUserSPNs</code>,
+                            <code>wmiexec</code>, <code>smbexec</code>, etc.
+                        </li>
+                        <li><strong>ldapsearch</strong> / <strong>windapsearch</strong> / <strong>rpcclient</strong>:
+                            Lightweight enumeration and validation</li>
+                        <li><strong>Mimikatz</strong>: Credential dumping, ticket extraction</li>
+                        <li><strong>ADRecon</strong> / <strong>PingCastle</strong> / <strong>Snaffler</strong> /
+                            <strong>group3r</strong>: Recon of permissions, objects, and policy leaks
+                        </li>
+                    </ul>
+                    <h3 id="application-exploitation" style="color: #ffc107;">🧪 Application Exploitation — Chaining
+                        Real-World Mistakes</h3>
+                    <p>CPTS will challenge your ability to spot and exploit <strong>realistic application
+                            misconfigurations</strong>. These aren’t “fire and forget” CVEs. You’ll face apps where
+                        <strong>the missteps are subtle</strong>: exposed consoles, default creds, token reuse, insecure
+                        deployment pipelines.
+                    </p>
+                    <p>It’s often less about finding a classic vuln and more about <strong>abusing business
+                            logic</strong> or <strong>admin laziness</strong>.</p>
+                    <p><strong>🧱 Applications to Expect (or Variants of Them)</strong></p>
+                    <p>The following is a overview of common vulnerabilities which can be present in these applications,
+                        but remember that there are many others:</p>
+                    <ul>
+                        <li><strong>GitLab</strong>: Secret infos in repos, information disclosure</li>
+                        <li><strong>Jenkins</strong>: Script console access, misconfigured jobs</li>
+                        <li><strong>PRTG</strong> / <strong>Nagios</strong> / <strong>Splunk</strong>: LFI, default
+                            creds, unauthenticated RCE</li>
+                        <li><strong>osTicket</strong>: File upload handling, LFI, information disclosure, or weak auth
+                        </li>
+                        <li><strong>WordPress</strong> / <strong>Joomla</strong> / <strong>Drupal</strong>: Plugin-based
+                            RCE, XML-RPC abuse</li>
+                        <li><strong>Tomcat</strong> / <strong>Axis2</strong> / <strong>WebLogic</strong>: Deployable war
+                            files, default creds</li>
+                        <li><strong>ColdFusion</strong> / <strong>DotNetNuke</strong>: Forgotten panels, insecure
+                            authentication logic</li>
+                    </ul>
+                    <blockquote>
+                        <p><strong>🧠 CPTS Tip</strong>: Test as <strong>anonymous</strong>, <strong>default
+                                user</strong>, and <strong>compromised user</strong>. Many bugs live behind login.</p>
+                    </blockquote>
+                    <h3 id="services-exploitation" style="color: #ffc107;">🧱 Services Exploitation — Don’t Skip the
+                        “Old School” Stuff</h3>
+                    <p>So many candidates skip service-level attacks. Don’t.</p>
+                    <p>In CPTS, classic services like SMB, FTP, MySQL, and WinRM are <strong>deliberate entry
+                            points</strong> or <strong>pivot opportunities</strong>.</p>
+                    <ul>
+                        <li><strong>SMB</strong> / <strong>NFS</strong> / <strong>FTP</strong>: Null sessions, public
+                            shares, writable paths</li>
+                        <li><strong>MySQL</strong> / <strong>MSSQL</strong> / <strong>Oracle TNS</strong>: Unpatched
+                            auth, UDFs, weak user creds</li>
+                        <li><strong>WinRM</strong> / <strong>WMI</strong> / <strong>SSH</strong>: Remote command
+                            execution with harvested creds</li>
+                        <li><strong>TFTP</strong> / <strong>Rsync</strong>: Upload/download anything unauthenticated
+                        </li>
+                        <li><strong>POP3</strong> / <strong>IMAP</strong> / <strong>SMTP</strong>: Banner leaks, relay
+                            abuse, user/password brute-force</li>
+                    </ul>
+                    <blockquote>
+                        <p><strong>🧠 CPTS Tip</strong>: Try every known password on every exposed service. Don’t assume
+                            service A creds won’t work on service B.</p>
+                    </blockquote>
+                    <h3 id="web-exploitation" style="color: #ffc107;">🌐 Web Exploitation — Manual Inspection >
+                        Automated Scanners</h3>
+                    <p>While Burp Suite and ZAP are excellent, CPTS expects you to go <strong>beyond vulnerability
+                            scanning</strong>. You’ll be faced with <strong>authentication flows</strong>,
+                        <strong>session mismanagement</strong>, and <strong>subtle parameter manipulation</strong>.
+                    </p>
+                    <p><strong>Core Techniques:</strong></p>
+                    <ul>
+                        <li><strong>Auth flow dissection</strong>: Understand how sessions are created and maintained.
+                        </li>
+                        <li><strong>Parameter fuzzing</strong>: ffuf, intruder, and Burp extensions.</li>
+                        <li><strong>Privilege escalation</strong>: IDOR, role tampering, cookie manipulation.</li>
+                        <li><strong>Upload abuse</strong>: File validation bypass → RCE via extensions or paths.</li>
+                        <li><strong>Classic bugs</strong>: SQLi, XSS, LFI/RFI, XXE, mass assignment, command injection.
+                        </li>
+                    </ul>
+                    <p><strong>Tooling You’ll Rely On:</strong></p>
+                    <ul>
+                        <li><strong>Burp Suite</strong>: Manual testing, extensions like Logger++, Turbo Intruder.</li>
+                        <li><strong>ffuf</strong>: For directories, vhosts, parameters. Pair with custom wordlists.</li>
+                        <li><strong>Hydra</strong>: Brute force common login portals.</li>
+                        <li><strong>cewl</strong> / <strong>username-anarchy</strong> / <strong>cupp</strong>: Smart
+                            wordlists for target-specific fuzzing.</li>
+                    </ul>
+                    <blockquote>
+                        <p><strong>🧠 CPTS Tip</strong>: Don’t just check for 200 OK. Analyze redirect behavior, error
+                            codes, and timing discrepancies — the real vuln may be in what the app tries to hide.</p>
+                    </blockquote>
+                    <h3 id="binary-dll-analysis" style="color: #ffc107;">🔬 Binary & DLL Analysis (Minimal, But
+                        Tactical)</h3>
+                    <p>You likely won’t face full-on reverse engineering in CPTS, but you will encounter suspicious
+                        binaries — often as part of pillaging or misconfigured services.</p>
+                    <p><strong>Key activities:</strong></p>
+                    <ul>
+                        <li>Extracting hardcoded secrets</li>
+                        <li>Detecting insecure file paths (DLL hijacking)</li>
+                        <li>Uncovering credential files or encoded API keys</li>
+                    </ul>
+                    <p><strong>Helpful tools:</strong></p>
+                    <ul>
+                        <li><code>strings</code>, <code>exiftool</code>, <code>PE-bear</code>, <code>dnSpy</code>,
+                            <code>pestudio</code>, <code>IDA Free</code>
+                        </li>
+                    </ul>
+                    <blockquote>
+                        <p><strong>🧠 CPTS Tip</strong>: Only dig into binaries when you have a reason — don’t burn
+                            hours analyzing dead ends.</p>
+                    </blockquote>
+                    <h3 id="summary-3" style="color: #ffc107;">✅ Summary of What This Section Taught Me:</h3>
+                    <ul>
+                        <li><strong>Active Directory</strong>: How to validate privilege chains and build custom
+                            escalation paths</li>
+                        <li><strong>Apps</strong>: Identify overlooked flaws beyond CVEs — real attacker behavior</li>
+                        <li><strong>Services</strong>: Every protocol has a purpose — and a risk</li>
+                        <li><strong>Web</strong>: Hands-on, logic-based attacks beat automated scans</li>
+                        <li><strong>Tools</strong>: Don’t master every tool — master the right ones</li>
+                    </ul>
+                    <p>CPTS exploitation is not about spraying exploits and hoping one hits. It’s about <strong>linking
+                            weak signals into strong chains</strong>. It’s about being persistent, methodical, and
+                        creative under pressure.</p>
+                    <p>When all those pieces snap into place — and a previously unreachable system becomes your
+                        playground — that moment is unforgettable.</p>
+                    <h2 id="post-exploitation" style="color: orange;">🔍 Post-Exploitation — Dominating the Host</h2>
+                    <p>If exploitation is where you break in, <strong>post-exploitation is where you settle in, map the
+                            valuables, and quietly take control</strong>. CPTS places a strong emphasis on the quality
+                        and completeness of your post-exploitation activities — because in real-life engagements, that’s
+                        where the real value lies for clients (and real risk lies for organizations).</p>
+                    <p>It’s not enough to pop SYSTEM or root and walk away. You need to:</p>
+                    <ul>
+                        <li>Escalate your privileges</li>
+                        <li>Extract meaningful data (creds, tokens, secrets)</li>
+                        <li>Understand what the machine can reach</li>
+                        <li>Prepare for lateral movement, reporting, or persistence</li>
+                    </ul>
+                    <p>This section explores what I learned about <strong>pillaging, privilege escalation, data
+                            extraction, stealthy enumeration, and host-specific tradecraft</strong> on both Linux and
+                        Windows systems.</p>
+                    <h3 id="linux-post-exploitation" style="color: #ffc107;">🐧 Linux Post-Exploitation</h3>
+                    <p>Linux hosts may be easier to interact with compared to Windows, but CPTS makes them anything but
+                        trivial. Most Linux footholds start with limited user access and require creative thinking to
+                        escalate.</p>
+                    <p>Let’s break it down:</p>
+                    <h4 id="linux-pillaging-recon" style="color: #ffc107;">🔎 Pillaging & Recon</h4>
+                    <p>Your first job: figure out where you are and what you have.</p>
+                    <p>Always check:</p>
+                    <ul>
+                        <li><code>/etc/hosts</code>, <code>/etc/passwd</code>, <code>/etc/group</code>,
+                            <code>/etc/shadow</code> (if accessible)
+                        </li>
+                        <li><strong>Bash history</strong>: <code>~/.bash_history</code>,
+                            <code>/user/.bash_history</code>, <code>.zsh_history</code>
+                        </li>
+                        <li><strong>Config files</strong>: <code>/var/www/html/config.php</code>, .env, database
+                            configs, Apache/Nginx settings</li>
+                        <li><strong>Crontabs</strong>: <code>crontab -l</code>, <code>/etc/crontab</code>,
+                            <code>/etc/cron.d/</code>, <code>/etc/cron.daily/</code>
+                        </li>
+                        <li><strong>Docker & container clues</strong>: <code>.dockerenv</code>,
+                            <code>cat /proc/1/cgroup</code>, <code>docker ps</code>
+                        </li>
+                        <li><strong>Secrets</strong>: Look in <code>/home/*/</code>, <code>/opt/</code>, mounted NFS
+                            dirs, <code>.ssh/</code>, <code>.git/</code>, <code>.vscode/</code>, <code>.kube/</code>
+                        </li>
+                    </ul>
+                    <blockquote>
+                        <p><strong>🧠 CPTS Tip</strong>: <code>grep</code> and <code>find</code> and your best friends
+                        </p>
+                    </blockquote>
+                    <h4 id="linux-transfer" style="color: #ffc107;">📦 File Transfer Methods (Low OPSEC)</h4>
+                    <p>Getting tools in/out of a Linux host is a daily requirement. Here are the techniques that worked
+                        reliably under segmented environments:</p>
+                    <ul>
+                        <li><strong>Python HTTP Server + curl/wget</strong></li>
+                        <li><strong>scp</strong> (if SSH is available)</li>
+                        <li><strong>base64 encoding → copy/paste</strong>: Encode on attacker, paste to victim</li>
+                        <li><strong>SMB shares using impacket’s smbserver.py</strong></li>
+                    </ul>
+                    <h4 id="linux-privilege-escalation" style="color: #ffc107;">🧱 Privilege Escalation Techniques</h4>
+                    <p>These are some of the actual techniques I successfully used during CPTS — or saw viable during
+                        enumeration.</p>
+                    <ul>
+                        <li>Sudo Abuse</li>
+                        <li>SUID/SGID</li>
+                        <li>Capabilities</li>
+                        <li>Docker Group</li>
+                        <li>Cron Jobs</li>
+                        <li>PATH Abuse</li>
+                        <li>Kernel Exploits</li>
+                        <li>Python Library Hijacking</li>
+                        <li>Logrotate / Config Misuse</li>
+                        <li>Living Off The Land (GTFOBins)</li>
+                        <li>NFS no_root_squash</li>
+                        <li>Writable Shared Objects</li>
+                        <li>Tmux Hijack</li>
+                        <li>Screen Escalation</li>
+                    </ul>
+                    <p><strong>🛠️ Tools used:</strong></p>
+                    <ul>
+                        <li><code>linpeas.sh</code> (always validate manually after)</li>
+                        <li><code>pspy</code> for runtime job discovery</li>
+                        <li>Custom privesc checklist (keep it host-agnostic and repeatable)</li>
+                    </ul>
+                    <h3 id="windows-post-exploitation" style="color: #ffc107;">🪟 Windows Post-Exploitation</h3>
+                    <p>Windows is a whole different beast. You’re often dealing with:</p>
+                    <ul>
+                        <li>Defender</li>
+                        <li>UAC</li>
+                        <li>Group Policy controls</li>
+                        <li>Legacy software</li>
+                        <li>And a ton of volatile session data</li>
+                    </ul>
+                    <p>Once you have low-priv access, your goals are similar: escalate, pillage, pivot.</p>
+                    <h4 id="windows-pillaging-recon" style="color: #ffc107;">🔎 Pillaging & Recon</h4>
+                    <p>Targets:</p>
+                    <ul>
+                        <li><code>C:\Users\user\AppData\Roaming\</code>: Look for saved creds, config files, session
+                            tokens</li>
+                        <li><strong>mRemoteNG</strong>, <strong>FileZilla</strong>, <strong>WinSCP</strong>: Stored
+                            credentials in config XMLs</li>
+                        <li><code>C:\ProgramData\</code>: Often contains unattended install files or auto-start configs
+                        </li>
+                        <li><strong>Registry</strong>: Autoruns, scheduled tasks, user info</li>
+                        <li><strong>Browser creds</strong>: Chromium-derived browsers save tokens or cookies you can
+                            decrypt with DPAPI</li>
+                        <li><strong>KeePass files</strong>: <code>*.kdbx</code>, look for
+                            <code>KeePass.config.xml</code>
+                        </li>
+                        <li><strong>Outlook or RDP configs</strong>: <code>.rdp</code>, <code>default.rdp</code>, cached
+                            user profiles</li>
+                    </ul>
+                    <p>Use <code>Seatbelt</code>, <code>WinPEAS</code>, and <code>JAWS</code> — but don’t rely blindly.
+                        Manual exploration + targeted registry searches often work better.</p>
+                    <h4 id="windows-transfer" style="color: #ffc107;">📦 File Transfer Methods (Low OPSEC)</h4>
+                    <p>Getting tools onto a Windows target is one of the most common challenges during CPTS — especially
+                        in segmented networks where outbound access is restricted or AV is alert. Here are the low-OPSEC
+                        techniques that worked reliably under pressure:</p>
+                    <ul>
+                        <li><strong>PowerShell + Base64</strong></li>
+                        <li><strong>bitsadmin (native)</strong></li>
+                        <li><strong>certutil (native)</strong></li>
+                        <li><strong>SMB fetch via impacket-smbserver</strong></li>
+                        <li><strong>Evil-WinRM upload</strong></li>
+                    </ul>
+                    <h4 id="windows-privilege-escalation" style="color: #ffc107;">🧱 Privilege Escalation Techniques
+                    </h4>
+                    <ul>
+                        <li>UAC Bypass</li>
+                        <li>AlwaysInstallElevated</li>
+                        <li>DLL Hijacking</li>
+                        <li>Unquoted Service Paths</li>
+                        <li>Weak Service Permissions</li>
+                        <li>Modifiable Registry Autoruns</li>
+                        <li>Citrix Breakouts</li>
+                        <li>Clipboard Attacks</li>
+                        <li>SAM / LSA Secrets</li>
+                        <li>LSASS Dumping</li>
+                        <li>Named Pipe Abuse</li>
+                        <li>Restic Backup Config</li>
+                        <li>Legacy OS Exploits</li>
+                    </ul>
+                    <p><strong>🛠️ Tools used:</strong></p>
+                    <ul>
+                        <li><code>Seatbelt</code></li>
+                        <li><code>WinPEAS</code> for wide collection</li>
+                        <li><code>PowerUp</code> for automated checks</li>
+                        <li><code>SessionGopher</code> for session secrets</li>
+                        <li><code>Watson</code>, <code>Windows-Exploit-Suggester</code> for known vuln scanning</li>
+                        <li><code>Sysinternals</code> suite (especially <code>Autoruns</code>, <code>Procmon</code>,
+                            <code>PsExec</code>)
+                        </li>
+                        <li><code>Lazagne</code> for credentials hunting</li>
+                    </ul>
+                    <blockquote>
+                        <p><strong>🧠 CPTS Tip</strong>: Create a privesc template. Log each finding, tool used, test
+                            attempted, and result. Repeatable methodology is key.</p>
+                    </blockquote>
+                    <h3 id="cross-platform-consideration" style="color: #ffc107;">🧰 Cross-Platform Considerations</h3>
+                    <ul>
+                        <li><strong>Living off the land is king</strong>: CPTS heavily rewards native tool usage. If
+                            you’re dropping random binaries, expect friction.</li>
+                        <li><strong>File Transfer Techniques</strong> should work both ways — exfiltrate configs, logs,
+                            screenshots.</li>
+                        <li><strong>Pillaging is not optional</strong>: Every host should be fully scraped. Most lateral
+                            or escalation paths depend on data <strong>from</strong> the host.</li>
+                    </ul>
+                    <h3 id="organizing-loot" style="color: #ffc107;">🗃️ Organizing Loot</h3>
+                    <p>Every machine should have its own loot directory with:</p>
+                    <pre class="loot-box"><code>/loot
+/host1
+    creds.txt
+    screenshots/
+    shell_history.txt
+    tokens.txt
+/host2
+...
+                      </code></pre>
+                    <p>Structure and documentation is just as important as the hacks themselves. It’ll save you in the
+                        report phase.</p>
+                    <h3 id="summary-4" style="color: #ffc107;">✅ Summary of What This Section Taught Me:</h3>
+                    <ul>
+                        <li><strong>Don’t run WinPEAS</strong> / <strong>linPEAS</strong> first: Do it manually first.
+                            You’ll find more and learn more.</li>
+                        <li><strong>Credentials = Keys</strong>: Every secret you find can unlock the next door. Chain
+                            them.</li>
+                        <li><strong>Privilege Escalation ≠ The End</strong>: It’s just the beginning of pillaging and
+                            lateral movement</li>
+                        <li><strong>File Transfer ≠ Afterthought</strong>: Master it early — it’s essential for
+                            efficiency</li>
+                        <li><strong>Log Everything</strong>: Commands, paths, screenshots, hashes — everything might
+                            matter later</li>
+                    </ul>
+                    <p>Post-exploitation in CPTS is a discipline.<br>
+                        It’s about control, not chaos. Precision, not panic. This is the point in the engagement where
+                        you stop feeling like a CTF player and start thinking like an attacker with objectives.</p>
+                    <h2 id="lateral-movement" style="color: orange;">🔁 Lateral Movement & Pivoting — Expanding Control
+                        Across the Network</h2>
+                    <p>Once you’ve gained an initial foothold and escalated privileges on a box, <strong>you’re not done
+                            — you’re barely getting started</strong>. In CPTS, true mastery comes when you can treat
+                        each host not as an endpoint, but as a jumping-off point. The target network is segmented.
+                        Resources are isolated. And if you want those 12+ flags, <strong>you will have to move</strong>
+                        — often silently, and strategically.</p>
+                    <p>This section covers everything I learned about <strong>pivoting techniques, tunneling tools,
+                            lateral movement through protocols, and navigating segmented AD environments</strong>. It’s
+                        one of the most technically demanding but deeply satisfying parts of the CPTS experience.</p>
+                    <P><strong>🕸️ The Two Sides of Movement</strong></P>
+                    <p>There are two categories of movement in CPTS:</p>
+                    <ul>
+                        <li><strong>Lateral Movement</strong>: Transitioning from one system to another using valid
+                            credentials, tokens, trusts, or abuse of protocol features.</li>
+                        <li><strong>Pivoting</strong>: Creating network-level access paths (tunnels) to reach otherwise
+                            inaccessible hosts or services through compromised assets.</li>
+                    </ul>
+                    <p>You need to excel at both. Let’s tackle them one by one.</p>
+                    <h3 id="ad-lateral-movement" style="color: #ffc107;">🧬 Lateral Movement — AD & Beyond</h3>
+                    <p>Lateral movement in an Active Directory environment is about <strong>abusing trust</strong>, not
+                        exploits. You’re chaining together:</p>
+                    <ul>
+                        <li><strong>Permissions</strong> (admin access or RCE)</li>
+                        <li><strong>Protocols</strong> (SMB, WinRM, MSSQL, RDP)</li>
+                        <li><strong>Authentication</strong> (Kerberos tickets, NTLM hashes, plaintext creds)</li>
+                    </ul>
+                    <p>Here’s what CPTS forced me to master:</p>
+                    <h3 id="windows-lateral-movement" style="color: #ffc107;">🪟 Windows Lateral Movement</h3>
+                    <ul>
+                        <li><strong>Pass-the-Hash (PTH)</strong>: Use NTLM hashes to authenticate to SMB, WinRM,
+                            etc.<br>
+                            🛠️ Tools: <code>impacket</code>, <code>netexec</code></li>
+                        <li><strong>Pass-the-Ticket (PTT)</strong>: Inject Kerberos TGT or TGS to move laterally as a
+                            user.<br>
+                            🛠️ Tools: <code>Rubeus</code>, <code>mimikatz</code></li>
+                        <li><strong>Token Impersonation</strong>: Abuse <code>SeImpersonatePrivilege</code> (e.g. via
+                            Juicy Potato, PrintSpoofer) to impersonate tokens</li>
+                        <li><strong>RDP Reuse</strong> / <strong>Credential Session Reuse</strong>: Connect via RDP if
+                            credentials are known (or <code>mstsc /restrictedadmin</code>)</li>
+                        <li><strong>WinRM Execution</strong>: Silent, scriptable, and powerful once creds are in<br>
+                            🛠️ Tools: <code>Evil-WinRM</code>, <code>NetExec</code>, <code>PowerShell Remoting</code>
+                        </li>
+                        <li><strong>Named Pipe Impersonation</strong>: Local privilege escalation that can lead to
+                            lateral access when chained</li>
+                        <li><strong>MSSQL Trusted Connection</strong>: If <code>xp_cmdshell</code> is enabled and the
+                            SQL user has privileges, use it to move</li>
+                    </ul>
+                    <blockquote>
+                        <p><strong>🧠 CPTS Tip</strong>: CPTS loves WinRM — <strong>get extremely comfortable with
+                                it</strong>. Learn how to run commands, drop files, invoke PowerShell, and tunnel
+                            through it.</p>
+                    </blockquote>
+                    <h3 id="linux-lateral-movement" style="color: #ffc107;">🐧 Linux Lateral Movement</h3>
+                    <p>Less common in CPTS but still relevant in mixed environments.</p>
+                    <ul>
+                        <li><strong>SSH with stolen keys or known passwords</strong>: Look for <code>.ssh/id_rsa</code>,
+                            <code>.bash_history</code>, hardcoded keys
+                        </li>
+                        <li><strong>Kerberos Pass-the-Ticket</strong>: If integrated with AD and you have TGT/TGS (from
+                            <code>Rubeus</code> or <code>mimikatz</code>)
+                        </li>
+                    </ul>
+                    <p>CPTS occasionally gives you these hybrid paths. <strong>Don’t overlook Linux footholds as dead
+                            ends</strong> — check their reach.</p>
+                    <h3 id="pivoting" style="color: #ffc107;">🛰️ Pivoting — Routing Through Firewalls and Segments</h3>
+                    <p>Once you land on a host, you’ll find much of the network <strong>is not directly
+                            accessible</strong>. This is where pivoting shines.</p>
+                    <p><strong>Pivoting Techniques</strong></p>
+                    <ul>
+                        <li><strong>Local Port Forwarding</strong>: Forward local port to remote service (e.g., access
+                            internal web UI)</li>
+                        <li><strong>Remote Port Forwarding</strong>: Make a remote service accessible to your attacking
+                            machine</li>
+                        <li><strong>Dynamic Port Forwarding (SOCKS proxy)</strong>: Route all tool traffic through SOCKS
+                            tunnel</li>
+                        <li><strong>Reverse Port Forwarding</strong>: Useful when you're behind NAT or no inbound
+                            allowed</li>
+                        <li><strong>Proxychains + SOCKS</strong>: Chain tools through SOCKS proxy</li>
+                    </ul>
+                    <blockquote>
+                        <p><strong>🧠 CPTS Tip</strong>: Not all tools respect proxychains natively (like
+                            <code>netexec</code> with WinRM), and also <code>Nmap</code> output sometimes can be
+                            influenced.
+                        </p>
+                    </blockquote>
+                    <p><strong>🔧 Pivoting Tools I Used (And Loved)</strong></p>
+                    <ul>
+                        <li><strong>Ligolo-ng</strong> ✅ <italic>My Favorite</italic>: Lightweight, encrypted, SOCKS5
+                            tunneling. Better than Chisel. No need for proxychains. Easy MTLS setup</li>
+                        <li><strong>Chisel</strong>: Still solid for TCP pivoting. Needs manual stability babysitting
+                        </li>
+                        <li><strong>Proxifier (Windows)</strong>: GUI-based routing of traffic through SOCKS</li>
+                        <li><strong>Ptunnel-ng</strong>: ICMP tunnel when TCP is blocked. Situational</li>
+                        <li><strong>Plink</strong> / <strong>Putty</strong>: Quick SSH tunnels with saved config</li>
+                        <li><strong>rpivot</strong> / <strong>SocksOverRDP</strong>: For when you need pivoting inside
+                            RDP sessions</li>
+                        <li><strong>sshuttle</strong>: For low-friction network-wide tunnel setups</li>
+                        <li><strong>proxychains + tools</strong>: Only works with tools that respect DNS/SOCKS
+                            resolutions</li>
+                        <li><strong>netsh</strong>: For Windows port forwarding and firewall rules manipulation</li>
+                        <li><strong>meterpreter</strong> / <strong>reverse_tcp</strong>: Only for quick PoC or fallback
+                            — not ideal for stealthy ops</li>
+                    </ul>
+                    <blockquote>
+                        <p><strong>🧠 CPTS Tip</strong>: Ligolo-ng became my default tunneling stack by Day 3. Stable,
+                            fast, encrypted, and less prone to dying when pivot boxes rebooted.<br>
+                            <strong>Recommendation</strong>: Use Ligolo-ng from the start. Learn how to automate the
+                            setup, run as service, and keep credentials embedded for stealth relaunches.
+                        </p>
+                    </blockquote>
+                    <h3 id="recon-after-pivot" style="color: #ffc107;">🔁 Recon After Pivot</h3>
+                    <p>This cannot be overstated: <strong>every time you pivot</strong>, redo your entire recon process.
+                    </p>
+                    <p>Checklist:</p>
+                    <ul>
+                        <li><code>nmap</code> scans from the new vantage point</li>
+                        <li>Check for internal-only HTTP/S, MSSQL, WinRM, etc.</li>
+                        <li>Fuzz internal web apps</li>
+                        <li>Run BloodHound collectors if domain-joined</li>
+                        <li>SMB/LDAP/WinRM scans for newly visible hosts</li>
+                        <li>Check routing table to confirm reachability</li>
+                    </ul>
+                    <p>Your world has changed — so should your map.</p>
+                    <h3 id="summary-5" style="color: #ffc107;">✅ Summary of What This Section Taught Me:</h3>
+                    <ul>
+                        <li><strong>Every host is a gateway</strong>: Think of each box as a transit point, not a
+                            destination.</li>
+                        <li><strong>Tunnels fail — plan for resilience</strong>: I had to rebuild Ligolo tunnels 3–4x.
+                            Automate scripts and take notes.</li>
+                        <li><strong>DNS resolution is key</strong>: Use /etc/hosts, resolv.conf, or custom DNS settings
+                            inside tunnels.</li>
+                        <li><strong>Proxychains ≠ magic</strong>: Test your tools under proxy first. Some ignore SOCKS.
+                        </li>
+                        <li><strong>Segmented networks are a feature</strong>: CPTS wants to test your operational
+                            logic. Accept the complexity.</li>
+                        <li><strong>Re-enumeration beats blind testing</strong>: With each new segment, there are hidden
+                            services just waiting to be seen.</li>
+                    </ul>
+                    <p>Lateral movement and pivoting are not “advanced topics” in CPTS.<br>
+                        They’re essential. Without mastering both, you cannot pass.</p>
+                    <p style="text-align: center;" class="divider-fancy">✴️ Reporting Starts Here</p>
+                    <h2 id="reporting" style="color: orange;">📝 Reporting & Documentation — Your Real Deliverable</h2>
+                    <p>Let’s be brutally honest: in the real world, <strong>your report is what clients see</strong>,
+                        not your shells. It doesn’t matter if you compromised domain admin, established multi-hop
+                        tunnels, or pulled secrets from 15 systems — <strong>if you can’t explain it clearly,
+                            professionally, and impactfully, it didn’t happen</strong>.</p>
+                    <p>Hack The Box understands this. That’s why the CPTS exam doesn’t end when you capture the twelfth
+                        flag. It ends when you submit a <strong>structured, professional, client-grade report</strong>.
+                        The report is manually reviewed, and a poor one — even with all the flags — will result in
+                        failure.</p>
+                    <p>This section covers everything I learned about <strong>building, structuring, and writing a
+                            real-world penetration test report under pressure</strong>. I’ll break down the structure I
+                        used, the methodology behind documentation during the exam, the tooling that made life easier,
+                        and the strategies that helped ensure I didn’t panic-write the report on Day 10.</p>
+                    <h3 id="understand-expectations" style="color: #ffc107;">📋 Understand the Expectations</h3>
+                    <p>HTB expects your report to simulate a real-world deliverable, meaning it must:</p>
+                    <ul>
+                        <li>Be clear, concise, and easy to follow</li>
+                        <li>Include <strong>business impact and remediation</strong>, not just tech jargon</li>
+                        <li>Be written in a formal tone appropriate for stakeholders</li>
+                        <li>Stand on its own — <strong>no follow-up explanations allowed</strong></li>
+                        <li>Be fully supported by <strong>evidence</strong> (screenshots, commands, proof)</li>
+                        <li>Use <strong>structured formatting</strong>, not a chaotic walkthrough</li>
+                        <li>Write in <strong>third person</strong> (eg. “the tester did this”), never in first</li>
+                    </ul>
+                    <p>In other words, <strong>this isn’t a write-up, it’s a penetration testing engagement
+                            report.</strong></p>
+                    <h3 id="recommended-structure" style="color: #ffc107;">📐 Recommended Structure</h3>
+                    <p>Here’s the high-level structure I followed and suggest:</p>
+                    <ol>
+                        <li><strong>Executive Summary</strong>
+                            <ul>
+                                <li>Brief description of objectives, timeline, scope</li>
+                                <li>General findings: types of vulnerabilities, lateral movement paths</li>
+                                <li>Risk rating overview</li>
+                            </ul>
+                        </li>
+                        <li><strong>Methodology</strong>
+                            <ul>
+                                <li>Overview of how the test was conducted</li>
+                                <li>Tools used (with justification if non-standard)</li>
+                                <li>Approach: reconnaissance, exploitation, privilege escalation, lateral movement,
+                                    post-exploitation</li>
+                            </ul>
+                        </li>
+                        <li><strong>Internal Network Compromise Walkthrough</strong>
+                            <ul>
+                                <li>Detailed walkthrough of the entire kill chain</li>
+                                <li>Needs to be technical and contain screenshots, commands and techniques used</li>
+                            </ul>
+                        </li>
+                        <li><strong>Remediation Summary</strong>
+                            <ul>
+                                <li>Overview of remediation plan for each finding + some general recommendations</li>
+                                <li>Needs to contain short / medium / long term remediation</li>
+                            </ul>
+                        </li>
+                        <li><strong>Findings (One per Compromise or Vector)</strong>
+                            <ul>
+                                <li><strong>Title</strong>: Clear and short (e.g., “SMB Share with Reused Domain Admin
+                                    Creds”)</li>
+                                <li><strong>Affected Component(s)</strong>: IP, hostname, user or application</li>
+                                <li><strong>Severity</strong>: Critical / High / Medium / Low / Info</li>
+                                <li><strong>Description</strong>: What it is, why it matters, how it works</li>
+                                <li><strong>Impact</strong>: What an attacker could achieve through it (tied to business
+                                    logic if possible)</li>
+                                <li><strong>Reproduction Steps</strong>: Step-by-step, command-by-command guide to
+                                    replicate</li>
+                                <li><strong>Evidence</strong>: Screenshots with alt-text, tool outputs</li>
+                                <li><strong>Remediation</strong>: Practical advice, not “just patch it”</li>
+                                <li><strong>CWE</strong></li>
+                                <li><strong>CVSS</strong></li>
+                            </ul>
+                        </li>
+                        <li><strong>Appendices</strong>
+                            <ul>
+                                <li>Hashes of found flags</li>
+                                <li>Changes / Host cleanup</li>
+                                <li>Compromised users</li>
+                                <li>Exploited hosts</li>
+                                <li>Discovered subdomains</li>
+                                <li>Discovered hosts and services</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p>You can follow the example report provided during the exam.</p>
+                    <h3 id="report-as-you-go" style="color: #ffc107;">🧠 Write the Report as You Go — Not After</h3>
+                    <p>This is non-negotiable.<br>
+                        <strong>If you wait until Day 10 to start writing, you will</strong>:
+                    </p>
+                    <ul>
+                        <li>Forget key steps</li>
+                        <li>Misplace screenshots</li>
+                        <li>Panic over syntax or incomplete evidence</li>
+                        <li>Risk missing required remediation sections</li>
+                    </ul>
+                    <p>Instead, I used a trigger-based workflow.<br>
+                        Every time I:</p>
+                    <ul>
+                        <li>Gained a foothold</li>
+                        <li>Escalated privileges</li>
+                        <li>Pivoted to a new host</li>
+                        <li>Captured a flag</li>
+                        <li>Found a misconfig worth writing up</li>
+                        <li>Compromised a user</li>
+                    </ul>
+                    <p>…I wrote the corresponding report section immediately. Screenshots were dropped into named
+                        folders, commands logged, and notes copied into a markdown structure.<br>
+                        This turned Day 10 into a polishing session, not a writing marathon.</p>
+                    <h3 id="screenshots-command" style="color: #ffc107;">🖥️ Screenshot Hygiene and Command Logging</h3>
+                    <p>This might sound like overkill, but here’s how I maintained evidence discipline:</p>
+                    <p><strong>📸 Screenshots</strong></p>
+                    <ul>
+                        <li>Saved into folders named by IP/hostname (e.g., 192.168.15.23 or DC01)</li>
+                        <li>Named numerically with short labels: <italic>01-login.png</italic>, <italic>
+                                02-foothold-shell.png</italic>, <italic>03-hash-dump.png</italic>
+                        </li>
+                        <li>Used alt-text in the report to describe what’s being shown</li>
+                        <li>Ensured every command or exploit had a corresponding screenshot</li>
+                    </ul>
+                    <p><strong>📜 Commands</strong></p>
+                    <ul>
+                        <li>Logged every step in a plain text file for each host</li>
+                        <li>The exact command</li>
+                        <li>The context (user, host, privilege level)</li>
+                        <li>Notes on what the output meant</li>
+                        <li>Color-coded key outputs in report (with monospace font for clarity)</li>
+                    </ul>
+                    <blockquote>
+                        <p><strong>🧠 CPTS Tip</strong>: Use script or asciinema to record terminal sessions. Even if
+                            you don’t use them directly, they help you backtrack.</p>
+                    </blockquote>
+                    <h3 id="sysreptor" style="color: #ffc107;">🛠️ Tooling: SysReptor (Massive Help)</h3>
+                    <p>I used <a href="https://htb.sysreptor.com/htb/signup" target="_blank" rel="noopener"
+                            style="color: #ff2d55;">SysReptor </a> structure my report. It’s a
+                        free, report-builder that follows professional layouts (Pentest Standard, NIST-like structures,
+                        etc.).<br>
+                        Why it helped:</p>
+                    <ul>
+                        <li>CPTS exam templates with consistent headings</li>
+                        <li>Easy drag-and-drop screenshots with alt-text</li>
+                        <li>Multiple export formats (PDF, Word, Markdown)</li>
+                        <li>“Finding” templates to re-use sections with consistent wording</li>
+                        <li>Risk matrix automation</li>
+                        <li>Don’t need to build all report’s structure</li>
+                    </ul>
+                    <p>You don’t have to use it, but I strongly recommend it over building from scratch or wrestling
+                        with Word at midnight.</p>
+                    <blockquote>
+                        <p><strong>🧠 CPTS Tip</strong>: You can build a basic “boilerplate” report before the exam
+                            begins, with empty sections pre-labeled by host and scenario.</p>
+                    </blockquote>
+                    <h3 id="writing-tips" style="color: #ffc107;">🔍 Writing Style Tips</h3>
+                    <ul>
+                        <li>Use plain English for clarity. Even technical readers appreciate clean writing.</li>
+                        <li>Write for the least technical stakeholder — not the red teamer next to you.</li>
+                        <li>Every finding should answer:<br>
+                            What happened?<br>
+                            Why is it bad?<br>
+                            How can it be fixed?</li>
+                        <li>Don’t assume the reader has terminal access — explain every step</li>
+                    </ul>
+                    <blockquote>
+                        <p><strong>Avoid:</strong><br>
+                            “I ran linPEAS and saw something interesting”<br>
+                            “I used BloodHound and found DA path”<br>
+                            “The hash was cracked and I got in”</p>
+                        <div style="margin-top: 6px;"></div> <!-- 👈 Spazio sottile -->
+                        <p><strong>Instead:</strong><br>
+                            "A misconfigured GPO allowed low-priv users to write to the startup folder of a domain
+                            controller. By dropping a scheduled task script, the tester achieved SYSTEM access and
+                            pivoted into the core domain segment.:</p>
+                    </blockquote>
+                    <h3 id="flags-13-14" style="color: #ffc107;">🚨 Don’t Chase Flags 13 and 14 Until Your Report Is
+                        Rock-Solid</h3>
+                    <p>Once you hit 12 flags — pause. Reassess your report:</p>
+                    <ul>
+                        <li>Are all findings fully documented?</li>
+                        <li>Are there screenshots for every step?</li>
+                        <li>Are you confident a reviewer could follow and verify everything?</li>
+                        <li>Are there missing remediations?</li>
+                        <li>Have you proofread for clarity, structure, and grammar?</li>
+                    </ul>
+                    <p>Only once you’ve locked that down should you even consider going for flags 13 and 14.</p>
+                    <p><strong>🏁 There’s no extra credit for getting all flags if your report is weak.</strong></p>
+                    <h3 id="summary-6" style="color: #ffc107;">✅ Summary of What This Section Taught Me:</h3>
+                    <ul>
+                        <li>Write as you hack: Avoids the Day 10 panic</li>
+                        <li>Screenshots aren’t optional: They’re how you prove things happened</li>
+                        <li>Add commands for easy copy-paste other than screenshots: Reviewers appreciate it</li>
+                        <li>Alt-text and labeling = professionalism: Reviewers appreciate clarity</li>
+                        <li>Remediation isn’t just “update X”: Provide client-viable solutions</li>
+                        <li>SysReptor saves time and sanity: Structured workflow pays off big</li>
+                        <li>Report is 50% of the grade: Many people fail here, even with flags</li>
+                    </ul>
+                    <p style="text-align: center;" class="divider-fancy">✴️ Anti-Stuck Methodology Starts Here</p>
+                    <h2 id="getting-stuck" style="color: orange;">🚧 Getting Stuck: Roadblocks, Mental Loops & Tactical
+                        Recovery</h2>
+                    <p>One of the most under-discussed — but absolutely critical — aspects of the CPTS exam is dealing
+                        with cognitive friction. Getting stuck is not a fluke; it’s part of the challenge.<br>
+                        There will be moments when your usual logic fails, your recon returns noise, or your go-to
+                        exploits don’t work — and the exam starts to feel like a psychological endurance test.<br>
+                        Expect it. Plan for it. This section is here to help you build a mental defense layer for
+                        exactly those moments.</p>
+                    <h3 id="roadblocks" style="color: #ffc107;">🔢 CPTS Roadblocks: Flag 1, 3 and 9</h3>
+                    <p>Some flags in CPTS are technical walls — they require chaining, lateral thinking, or multi-stage
+                        compromises. Others are psychological walls — they’re designed to break your rhythm and inject
+                        doubt into your process. Three flags stand out in both categories:</p>
+                    <p><strong>🧱 Flag 1 — The Cold Start Filter</strong></p>
+                    <p>Flag 1 is where many candidates stall for days. You’ll likely have dozens of services, paths,
+                        domains, and partial leads — but nothing just works.</p>
+                    <p><strong>It tests:</strong></p>
+                    <ul>
+                        <li>How you prioritize weak signals</li>
+                        <li>Your willingness to go deeper, not broader</li>
+                        <li>Your ability to revisit assumptions without spiraling</li>
+                    </ul>
+                    <p><strong>Why it hurts</strong>: You expect the first flag to be quick, a way to build momentum.
+                        Instead, it stops you cold. This triggers self-doubt early in the exam.</p>
+                    <p><strong>🧩 Flag 3 — The Puzzle</strong></p>
+                    <p>By the time you reach Flag 3, you likely have:</p>
+                    <ul>
+                        <li>A shell (or two)</li>
+                        <li>A few creds</li>
+                        <li>A foothold in one segment</li>
+                    </ul>
+                    <p>This flag challenges you to turn that foothold into lateral movement — often through a subtle
+                        privilege escalation vector, hidden share, or re-use of credentials on an unexpected protocol.
+                    </p>
+                    <p><strong>Why it hurts</strong>: You think you’ve done everything right — enumeration, privesc,
+                        loot — but still can’t move forward.</p>
+                    <p><strong>🔥 Flag 9 — The Mental Breaker</strong></p>
+                    <p>This is the exam’s “boss fight.” It’s not just about technical complexity — it’s about fatigue.
+                        If you’ve made it here, you’re likely 20+ hours deep, with tunnel vision creeping in.</p>
+                    <p><strong>Why it hurts</strong>: You’re technically capable of solving it, but your brain is
+                        fogged. You’re emotionally invested, sleep-deprived, and desperate for a win.</p>
+                    <h3 id="think-dumber" style="color: #ffc107;">🧠 Think Dumber: Simplify Before You Complicate</h3>
+                    <p>A common phrase echoed by CPTS veterans — and seen across Discord channels — is “Think dumber.”
+                        It doesn’t mean turning off your brain. It means resisting the urge to over-engineer.</p>
+                    <p><strong>🧩 Why We Overthink</strong></p>
+                    <p>The more technical you are, the more tempted you’ll be to:</p>
+                    <ul>
+                        <li>Invent complex chains out of thin air</li>
+                        <li>Assume everything is hardened unless proven otherwise</li>
+                        <li>Start chaining ideas without testing the fundamentals</li>
+                    </ul>
+                    <p>Often, the solution is dumb — a plaintext password in a config file, an overlooked share, a
+                        forgotten virtual host.</p>
+                    <p><strong>🛠️ Simplify Your Thinking With These Questions</strong></p>
+                    <ul>
+                        <li>What’s the least privileged user I haven’t tested with?</li>
+                        <li>Is there a low-hanging fruit I skipped because it seemed “too easy”?</li>
+                        <li>If this were a real misconfigured network, where would a junior admin mess up?</li>
+                    </ul>
+                    <p>Don’t be afraid to test the obvious:</p>
+                    <ul>
+                        <li>Re-use credentials on RDP or WinRM</li>
+                        <li>Try anonymous SMB</li>
+                        <li>Look for creds in unattend.xml, .git, .env, or settings.php</li>
+                    </ul>
+                    <p>Simplify first. Then escalate complexity.</p>
+                    <h3 id="stuck-toolkit" style="color: #ffc107;">🧰 My “Stuck” Toolkit</h3>
+                    <p>This is the toolkit I used whenever I felt like I had exhausted every option. Think of it as your
+                        “Break Glass in Case of Panic” strategy bank</p>
+                    <p><strong>🔄 Tactical Steps for Reorientation</strong></p>
+                    <ul>
+                        <li><strong>Re-enumerate everything from a new pivot.</strong>
+                            <ul>
+                                <li>New network access means new visibility. That one dead service from earlier? It
+                                    might now be reachable.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Read your notes out loud.</strong>
+                            <ul>
+                                <li>This seems silly, but it activates your verbal processing and can trigger “wait a
+                                    second...” moments.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Search the HTB Academy.</strong>
+                            <ul>
+                                <li>If you’re facing a situation you can’t recall a solution for, chances are the answer
+                                    is somewhere in the path. Use keywords. Read the full content — not just the
+                                    cheatsheets. <strong>All you need is in the Academy.</strong></li>
+                            </ul>
+                        </li>
+                        <li><strong>Sketch the attack surface.</strong>
+                            <ul>
+                                <li>Draw it on paper. VMs, users, IP ranges, trust paths. You’ll often spot missing
+                                    links when you visualize.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Ask these two questions:</strong>
+                            <ul>
+                                <li>“What is this system trying to protect?”</li>
+                                <li>“If I were an admin, where would I hide this misconfiguration?”</li>
+                            </ul>
+                        </li>
+                        <li><strong>Turn off the monitor. Lie down. Walk through the flow mentally.</strong>
+                            <ul>
+                                <li>No distractions. Just you and your memory. This often resets stuck thinking.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Take a shower.</strong>
+                            <ul>
+                                <li>It sounds like meme advice — but I solved more than one flag mid-shampoo.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p><strong>Why This Works</strong></p>
+                    <p>Getting stuck isn’t always a technical problem. It’s a cognitive bottleneck. You’re juggling:</p>
+                    <ul>
+                        <li>Enumerated data</li>
+                        <li>Half-executed ideas</li>
+                        <li>Sleep deprivation</li>
+                        <li>Impostor syndrome</li>
+                    </ul>
+                    <p>Your job is to build routines that reset your mental stack. This toolkit is how you do that.</p>
+                    <h3 id="smart-tools" style="color: #ffc107;">🧠 Smart Tools, Smarter Thinking</h3>
+                    <p>Let’s talk about the elephant in the terminal: <strong>ChatGPT.</strong><br>
+                        Yes, you can use it. No, it’s not cheating. But it’s also not magic, and if you blindly trust it
+                        during the exam, you’ll end up in a recursive loop of bad suggestions and false confidence.</p>
+
+                    <p><strong>✅ When It’s a Life-Saver</strong><br>
+                        ChatGPT shines when used as a:</p>
+                    <ul>
+                        <li>Syntax helper (e.g., “What’s the correct PowerView cmdlet to list domain trusts?”)</li>
+                        <li>Snippet generator (e.g., “Python socket reverse shell that works on Linux?”)</li>
+                        <li>Workflow explainer (e.g., “What’s the standard way to use ldapsearch for users?”)</li>
+                        <li>Alternative thinker (e.g., “List common reasons SQLi fails despite vulnerable parameter”)
+                        </li>
+                    </ul>
+                    <p>Sometimes, just describing your situation in plain English to ChatGPT can help reframe the
+                        problem in your head, even if its response isn’t perfect.</p>
+
+                    <p><strong>❌ When It Can Sabotage You</strong><br>
+                        The model can (and will) hallucinate:</p>
+                    <ul>
+                        <li>Completely fictional command options</li>
+                        <li>Wrong outputs or behaviors for tools like NetExec, Rubeus, or smbclient</li>
+                        <li>Overconfident dismissals of valid ideas (This has happened to me.)</li>
+                    </ul>
+
+                    <p><strong>🧠 How to Use It Effectively</strong><br>
+                        Treat ChatGPT like a well-meaning but unreliable junior analyst:</p>
+                    <ul>
+                        <li>It’s fast.</li>
+                        <li>It’s full of ideas.</li>
+                        <li>It has massive recall of techniques.</li>
+                        <li>But you have to verify <strong>everything</strong>.</li>
+                    </ul>
+
+                    <p><strong>Checklist for safe ChatGPT use:</strong></p>
+                    <ul>
+                        <li>Use it to recall technique names or flags, not to generate critical attack steps.</li>
+                        <li>Cross-check technical outputs (commands, syntax) with man pages or tool help menus.</li>
+                        <li>If it dismisses a technique, verify with a second source before abandoning it.</li>
+                    </ul>
+                    <p style="text-align: center;" class="divider-fancy">✴️ Final Reflections Starts Here</p>
+                    <h2 id="final-reflections" style="color: orange;">🎓 Final Reflections & What’s Next</h2>
+                    <p>Passing the CPTS was never just about getting another badge for my LinkedIn or proving to myself
+                        that I could grind through ten days of pentesting. It was about taking the methodology I had
+                        built over months of preparation, stress-testing it in an unfamiliar, hostile environment, and
+                        seeing if it could hold under real pressure.</p>
+                    <p>The answer? It did — barely at times, gloriously at others. And what I took away from CPTS wasn’t
+                        just technical prowess. It was a profound shift in how I think about offensive security.</p>
+                    <h3 id="think-differently" style="color: #ffc107;">🧠 I Think Differently Now</h3>
+                    <p>Before CPTS, I approached pentesting with a CTF mindset: binary challenges, point-and-shoot
+                        exploits, isolated problems. But CPTS changed that.<br>
+                        Now I see:</p>
+                    <ul>
+                        <li><strong>Infrastructure, not just hosts</strong> — each machine exists within a living
+                            ecosystem</li>
+                        <li><strong>Trust boundaries</strong> — who trusts what, and why, and how that can be abused
+                        </li>
+                        <li><strong>Misalignments between configuration and policy</strong> — where intentions fall
+                            short</li>
+                        <li><strong>Realistic attacker goals</strong> — not getting “root,” but reaching objectives
+                            quietly</li>
+                    </ul>
+                    <p>It’s subtle, but it’s a seismic shift. I no longer see machines as challenges to solve — I see
+                        them as interfaces to the organization’s nervous system.<br>
+                        And that’s what real adversaries do.</p>
+                    <h3 id="tools-built" style="color: #ffc107;">🧰 The Tools I Built Became My Default Stack</h3>
+                    <p>I didn’t just “use” tools during CPTS — I built workflows and habits around them that now form
+                        the backbone of my daily red teaming work.</p>
+                    <ul>
+                        <li><strong>Obsidian</strong>: My entire methodology lives here. Organized, cross-linked,
+                            searchable, and persistent.</li>
+                        <li><strong>SysReptor</strong>: Faster than Word, cleaner than Markdown, and far more scalable
+                            for engagements.</li>
+                        <li><strong>Ligolo-ng</strong>: I don’t bother with Chisel unless I have to. Ligolo-ng is now my
+                            go-to tunneling solution for SOCKS5 chains, dynamic port forwarding, and multi-hop routes.
+                            Fast, stable, encrypted, and scriptable.</li>
+                        <li><strong>NetExec</strong>: The spiritual successor to CrackMapExec, and my constant companion
+                            for sweeping credentials, enumerating shares, and finding low-hanging fruit fast.</li>
+                        <li><strong>PowerView</strong> / <strong>BloodHound</strong>: Still unmatched for AD abuse — but
+                            now I don’t just trust edges, I validate them with PowerView and context-aware recon.</li>
+                    </ul>
+                    <p>These weren’t just “exam tools” — they’re now embedded in my tradecraft.</p>
+                    <h3 id="recommend-cpts" style="color: #ffc107;">💼 Would I Recommend CPTS?</h3>
+                    <p>Yes — emphatically, but with caveats.<br>
+                        CPTS is not for beginners. It assumes:</p>
+                    <ul>
+                        <li>You’ve done at least 30–40 real boxes (HTB, THM, VulnHub)</li>
+                        <li>You know the basics of both Linux and Windows internals</li>
+                        <li>You’ve touched Active Directory before</li>
+                        <li>You understand the difference between a tool and a methodology</li>
+                    </ul>
+                    <p>If you’re past that stage and want to:</p>
+                    <ul>
+                        <li>Learn to think like a real internal attacker</li>
+                        <li>Simulate full-scale AD compromises, privilege chains, and pivot tunnels</li>
+                        <li>Build client-grade reports and deliverables</li>
+                        <li>Move beyond “I got root” and into “this is a business risk”</li>
+                    </ul>
+                    <p>Then CPTS is absolutely worth it.<br>
+                        🧠 And if you’re OSCP-certified? CPTS won’t necessarily be harder — but it will feel far more
+                        realistic. Less CTF. More client. More stress. More reward.</p>
+                    <h3 id="word-of-thanks" style="color: #ffc107;">🙏 A Word of Thanks</h3>
+                    <ul>
+                        <li>To the HTB Academy and exam devs — You nailed it. The CPTS is what I wish more certs were:
+                            realistic, immersive, and brutal in the best way.</li>
+                        <li>To the Discord community — You’re the sanity check, the morale boost, the reminder that
+                            we’re all in this together.</li>
+                        <li>To the folks who wrote their reviews before me — You made this guide possible. I’m paying it
+                            forward here.</li>
+                    </ul>
+                    <h3 id="to-reader" style="color: #ffc107;">🫵 And To You, Reader:</h3>
+                    <p>If you’re still reading this, you’re probably in one of three places:</p>
+                    <ul>
+                        <li>You’re curious about CPTS</li>
+                        <li>You’re preparing for it</li>
+                        <li>You’re deep into the exam and looking for reassurance</li>
+                    </ul>
+                    <p>Here’s what I’ll say to each of you:</p>
+                    <ul>
+                        <li><strong>Curious?</strong> Do it when you’re ready. Not before. Not to prove something. Do it
+                            because you want to level up the right way.</li>
+                        <li><strong>Preparing?</strong> Build your notes like your life depends on them. They kind of
+                            do.</li>
+                        <li><strong>In the exam?</strong> You’re not failing. You’re learning. Take a breath. Reread
+                            your notes. Re-enumerate. Reset your brain. Then go again.</li>
+                    </ul>
+                    <h3 id="back-terminal" style="color: #ffc107;">🎤 Now, Back to the Terminal</h3>
+                    <p>The exam ends, but the work never does. There’s always a host to compromise, a report to write, a
+                        mindset to refine.</p>
+                    <p>So whether you’re walking into your first client engagement, pivoting into a segmented network,
+                        or just rebuilding a tunnel at 3 a.m. — trust your process, trust your notes, and keep
+                        going.<br>
+                        You’ve got this.</p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/cpts.webp" alt="CPTS Certificate" class="medium-style-zoom">
+                        <figcaption>📜 Certificate of Completion — HTB: CPTS</figcaption>
+                    </figure>
+            </main>
+            <aside class="tag-sidebar">
+                <div class="filter-group active">
+                    <button class="filter-toggle">📑 Table Of Contents</button>
+                    <ul class="filter-options"
+                        style="font-size: 0.9em; padding-left: 0; list-style: none; margin-bottom: 64px;">
+                        <li><a class="toc-link" href="#introduction">📖 Introduction</a></li>
+                        <li><a class="toc-link" href="#what-is-cpts">🧠 What is CPTS</a></li>
+                        <li><a class="toc-link" href="#how-i-prepared">⚔️ Preparation</a>
+                            <ul style="margin: 6px 0 6px 16px; list-style: none;">
+                                <li><a class="toc-link subsection" href="#academy-path">📚 Academy Path</a></li>
+                                <li><a class="toc-link subsection" href="#living-field-manual">🗃️ Field Manual</a></li>
+                                <li><a class="toc-link subsection" href="#ippsec">🎥 IppSec Playlist</a></li>
+                                <li><a class="toc-link subsection" href="#prolabs">🧪 ProLabs</a></li>
+                                <li><a class="toc-link subsection" href="#aen">🧠 AEN Blind</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="toc-link" href="#information-gathering">🧭 Info Gathering</a>
+                            <ul style="margin: 6px 0 6px 16px; list-style: none;">
+                                <li><a class="toc-link subsection" href="#services-enumeration">🔍 Services Enum</a>
+                                </li>
+                                <li><a class="toc-link subsection" href="#web-enumeration">🌐 Web Enum</a></li>
+                                <li><a class="toc-link subsection" href="#application-fingerprinting">🧱 App
+                                        Fingerprint</a></li>
+                                <li><a class="toc-link subsection" href="#active-directory-enumeration">🧠 AD Enum</a>
+                                </li>
+                                <li><a class="toc-link subsection" href="#summary-1">✅ Section Summary</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="toc-link" href="#pre-exploitation">⚙️ Pre-Exploitation</a>
+                            <ul style="margin: 6px 0 6px 16px; list-style: none;">
+                                <li><a class="toc-link subsection" href="#shells">💣 Shells</a></li>
+                                <li><a class="toc-link subsection" href="#payload-crafting">🧪 Payloads</a></li>
+                                <li><a class="toc-link subsection" href="#payload-delivery">📦 Delivery</a></li>
+                                <li><a class="toc-link subsection" href="#setting-the-stage">🔐 Setup</a></li>
+                                <li><a class="toc-link subsection" href="#summary-2">✅ Section Summary</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="toc-link" href="#exploitation">💥 Exploitation</a>
+                            <ul style="margin: 6px 0 6px 16px; list-style: none;">
+                                <li><a class="toc-link subsection" href="#active-directory-exploitation">🏢 AD
+                                        Exploitation</a></li>
+                                <li><a class="toc-link subsection" href="#application-exploitation">🧪 App
+                                        Exploitation</a></li>
+                                <li><a class="toc-link subsection" href="#services-exploitation">🧱 Services
+                                        Exploitation</a></li>
+                                <li><a class="toc-link subsection" href="#web-exploitation">🌐 Web Exploitation</a></li>
+                                <li><a class="toc-link subsection" href="#binary-dll-analysis">🔬 Binary & DLL
+                                        Analysis</a></li>
+                                <li><a class="toc-link subsection" href="#summary-3">✅ Summary</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="toc-link" href="#post-exploitation">🔍 Post-Exploitation</a>
+                            <ul style="margin: 6px 0 6px 16px; list-style: none;">
+                                <li><a class="toc-link subsection" href="#linux-post-exploitation">🐧 Linux</a></li>
+                                <li><a class="toc-link subsection" href="#linux-pillaging-recon">🔎 Pillage & Recon</a>
+                                </li>
+                                <li><a class="toc-link subsection" href="#linux-transfer">📦 File Transfer</a></li>
+                                <li><a class="toc-link subsection" href="#linux-privilege-escalation">🧱 Linux
+                                        Privesc</a></li>
+                                <li><a class="toc-link subsection" href="#windows-post-exploitation">🪟 Windows</a></li>
+                                <li><a class="toc-link subsection" href="#windows-pillaging-recon">🔎 Pillage &
+                                        Recon</a></li>
+                                <li><a class="toc-link subsection" href="#windows-transfer">📦 File Transfer</a></li>
+                                <li><a class="toc-link subsection" href="#windows-privilege-escalation">🧱 Windows
+                                        Privesc</a></li>
+                                <li><a class="toc-link subsection" href="#cross-platform-consideration">🧰
+                                        Cross-Platform</a></li>
+                                <li><a class="toc-link subsection" href="#organizing-loot">🗃️ Organize Loot</a></li>
+                                <li><a class="toc-link subsection" href="#summary-4">✅ Summary</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="toc-link" href="#lateral-movement">🔁 Lateral Movement</a>
+                            <ul style="margin: 6px 0 6px 16px; list-style: none;">
+                                <li><a class="toc-link subsection" href="#ad-lateral-movement">🧬 AD Movement</a></li>
+                                <li><a class="toc-link subsection" href="#windows-lateral-movement">🪟 Windows</a></li>
+                                <li><a class="toc-link subsection" href="#linux-lateral-movement">🐧 Linux</a></li>
+                                <li><a class="toc-link subsection" href="#pivoting">🛰️ Pivoting</a></li>
+                                <li><a class="toc-link subsection" href="#recon-after-pivot">🔁 Re-Enum After Pivot</a>
+                                </li>
+                                <li><a class="toc-link subsection" href="#summary-5">✅ Summary</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="toc-link" href="#reporting">📝 Reporting</a>
+                            <ul style="margin: 6px 0 6px 16px; list-style: none;">
+                                <li><a class="toc-link subsection" href="#understand-expectations">📋 Expectations</a>
+                                </li>
+                                <li><a class="toc-link subsection" href="#recommended-structure">📐 Structure</a></li>
+                                <li><a class="toc-link subsection" href="#report-as-you-go">🧠 Write as You Go</a></li>
+                                <li><a class="toc-link subsection" href="#screenshots-command">🖥️ Evidence &
+                                        Logging</a></li>
+                                <li><a class="toc-link subsection" href="#sysreptor">🛠️ SysReptor</a></li>
+                                <li><a class="toc-link subsection" href="#writing-tips">🔍 Writing Tips</a></li>
+                                <li><a class="toc-link subsection" href="#flags-13-14">🚨 Flags 13 & 14</a></li>
+                                <li><a class="toc-link subsection" href="#summary-6">✅ Summary</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="toc-link" href="#getting-stuck">🚧 Getting Stuck</a>
+                            <ul style="margin: 6px 0 6px 16px; list-style: none;">
+                                <li><a class="toc-link subsection" href="#roadblocks">🔢 Flag Roadblocks</a></li>
+                                <li><a class="toc-link subsection" href="#think-dumber">🧠 Think Dumber</a></li>
+                                <li><a class="toc-link subsection" href="#stuck-toolkit">🧰 Stuck Toolkit</a></li>
+                                <li><a class="toc-link subsection" href="#smart-tools">🧠 Smart Tools</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="toc-link" href="#final-reflections">🎓 Final Reflections</a>
+                            <ul style="margin: 6px 0 6px 16px; list-style: none;">
+                                <li><a class="toc-link subsection" href="#think-differently">🧠 Mindset Shift</a></li>
+                                <li><a class="toc-link subsection" href="#tools-built">🧰 Tools Built</a></li>
+                                <li><a class="toc-link subsection" href="#recommend-cpts">💼 Recommend?</a></li>
+                                <li><a class="toc-link subsection" href="#word-of-thanks">🙏 Thanks</a></li>
+                                <li><a class="toc-link subsection" href="#to-reader">🫵 For the Reader</a></li>
+                                <li><a class="toc-link subsection" href="#back-terminal">🎤 Back to Terminal</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+    <script src="/assets/script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+</body>
+
+</html>
