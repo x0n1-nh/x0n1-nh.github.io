@@ -1,0 +1,9 @@
+[
+    {
+      "title": "[Writeup] Blackfield",
+      "description": "Abusing Trust in Active Directory.",
+      "url": "writeups/hackthebox/blackfield.html",
+      "tags": ["HTB", "Nmap", "Bloodhound", "Kerbrute", "GetNPUsers", "Secretsdump", "Pypykatz", "Evil-WinRM", "Diskshadow", "Hashcat", "AS-REP Roast", "Hard", "Active Directory", "Windows"],
+      "date": "2025-04-15"
+    }
+  ]
