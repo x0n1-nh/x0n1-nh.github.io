@@ -191,38 +191,6 @@ document.querySelectorAll(".medium-style-zoom").forEach(img => {
   });
 });
 
-
-function animateTyping(el, text, speed = 40) {
-  let i = 0;
-  const typeChar = () => {
-    if (i < text.length) {
-      el.textContent += text[i];
-      i++;
-      setTimeout(typeChar, speed);
-    }
-  };
-  typeChar();
-}
-
-const observer = new IntersectionObserver((entries, obs) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      const text = el.getAttribute("data-text");
-      if (!el.classList.contains("typed-done")) {
-        animateTyping(el, text);
-        el.classList.add("typed-done");
-      }
-      obs.unobserve(el); 
-    }
-  });
-}, { threshold: 0.5 });
-
-document.querySelectorAll(".typed-terminal-line").forEach(el => {
-  observer.observe(el);
-});
-
-
 const terminalTitle = "x0n1 Dropzone";
 let cursor = 0;
 const speed = 90;
