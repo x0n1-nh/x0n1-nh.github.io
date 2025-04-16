@@ -157,6 +157,15 @@ document.addEventListener("DOMContentLoaded", () => {
           });
 
         filterArticles();
+        setTimeout(() => {
+        const container = document.querySelector(".main-content");
+        if (container) {
+          container.style.display = "none";
+          container.offsetHeight; // forzatura del reflow
+          container.style.display = "";
+        }
+      }, 100);
+
 
       }
     })
