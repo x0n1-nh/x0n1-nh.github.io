@@ -154,17 +154,18 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>
             `;
             container.appendChild(card);
-            setTimeout(() => {
-            const content = document.querySelector(".main-content");
-            if (content) {
-              content.style.height = "auto";
-              content.style.minHeight = "100vh"; // fallback
-              content.scrollTop = 0; // opzionale
   }
 }, 100);
           });
 
         filterArticles(); 
+        setTimeout(() => {
+          if (typeof AOS !== 'undefined' && AOS.refresh) {
+            AOS.refresh();
+          }
+          window.dispatchEvent(new Event('resize'));
+        }, 300);
+        
       }
     })
     .catch(err => console.error("Errore nel caricamento JSON:", err));
