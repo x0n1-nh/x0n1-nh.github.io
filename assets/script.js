@@ -132,35 +132,41 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch(jsonFile)
     .then(response => response.json())
     .then(data => {
-      const container = document.getElementById("articles");
-      if (container) {
-        container.innerHTML = "";
+    const container = document.getElementById("articles");
+    if (container) {
+      container.innerHTML = "";
+  
+      data
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .forEach(article => {
+          const card = document.createElement("div");
+          card.className = "article-card";
+          card.setAttribute("data-tags", article.tags.map(t => t.toLowerCase()).join(","));
+          card.setAttribute("data-aos", "fade-up");  // <--- IMPORTANTE
+          card.innerHTML = `
+            <h3><a href="${article.url}">${article.title}</a></h3>
+            <p>${article.description}</p>
+            <div class="tags">
+              ${article.tags.map(tag => `<span class="tag">${tag}</span>`).join(" ")}
+            </div>
+            <div class="article-meta">
+              <span class="date">📅 ${article.date}</span>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+  
+      filterArticles();
+  
+      // FORZA il re-init e il refresh dell'animazione
+      setTimeout(() => {
+        if (window.AOS && typeof AOS.refreshHard === "function") {
+          AOS.refreshHard(); // Forza AOS a rileggere tutti gli elementi anche se non visibili
+        }
+      }, 500);
+    }
+  });
 
-        data
-          .sort((a, b) => new Date(b.date) - new Date(a.date))
-          .forEach(article => {
-            const card = document.createElement("div");
-            card.className = "article-card";
-            card.setAttribute("data-tags", article.tags.map(t => t.toLowerCase()).join(","));
-
-            card.innerHTML = `
-              <h3><a href="${article.url}">${article.title}</a></h3>
-              <p>${article.description}</p>
-              <div class="tags">
-                ${article.tags.map(tag => `<span class="tag">${tag}</span>`).join(" ")}
-              </div>
-              <div class="article-meta">
-                <span class="date">📅 ${article.date}</span>
-              </div>
-            `;
-            container.appendChild(card);
-          });
-
-        filterArticles();
-      }
-    })
-    .catch(err => console.error("Errore nel caricamento JSON:", err));
-});
 
 document.getElementById("scrollToArticles")?.addEventListener("click", (e) => {
   e.preventDefault();
