@@ -158,17 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
 }, 100);
           });
 
-        filterArticles(); 
-        setTimeout(() => {
-          if (typeof AOS !== 'undefined' && AOS.refresh) {
-            AOS.refresh();
-          }
-          window.dispatchEvent(new Event('resize'));
-        }, 300);
-        
-      }
-    })
-    .catch(err => console.error("Errore nel caricamento JSON:", err));
+        filterArticles();
 });
 
 document.getElementById("scrollToArticles")?.addEventListener("click", (e) => {
