@@ -154,8 +154,6 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>
             `;
             container.appendChild(card);
-  }
-}, 100);
           });
 
         filterArticles(); 
