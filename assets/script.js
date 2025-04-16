@@ -157,17 +157,6 @@ document.addEventListener("DOMContentLoaded", () => {
           });
 
         filterArticles();
-        setTimeout(() => {
-        if (window.AOS && typeof AOS.refreshHard === "function") {
-          AOS.refreshHard();
-        }
-      
-        const section = document.getElementById("articles");
-        if (section && section.offsetHeight < 50) {
-          section.style.minHeight = "1px";
-        }
-      }, 300);
-
 
       }
     })
@@ -218,7 +207,8 @@ function typeTitleRAF() {
 
 window.addEventListener("DOMContentLoaded", () => {
   target.textContent = "";
-  requestAnimationFrame(typeTitleRAF);                        
+  requestAnimationFrame(typeTitleRAF);
+  AOS.init();
 });
 
 document.addEventListener("DOMContentLoaded", () => {
