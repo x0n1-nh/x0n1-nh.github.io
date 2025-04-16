@@ -158,7 +158,10 @@ document.addEventListener("DOMContentLoaded", () => {
 }, 100);
           });
 
-        filterArticles();
+        filterArticles(); 
+      }
+    })
+    .catch(err => console.error("Errore nel caricamento JSON:", err));
 });
 
 document.getElementById("scrollToArticles")?.addEventListener("click", (e) => {
