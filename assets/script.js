@@ -215,8 +215,7 @@ function typeTitleRAF() {
 
 window.addEventListener("DOMContentLoaded", () => {
   target.textContent = "";
-  requestAnimationFrame(typeTitleRAF); 
-  AOS.init();                          
+  requestAnimationFrame(typeTitleRAF);                        
 });
 
 document.addEventListener("DOMContentLoaded", () => {
