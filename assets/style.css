@@ -528,3 +528,14 @@ p.divider-fancy::after {
 .medium-style-zoom {
   cursor: zoom-in;
 }
+.article-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.article-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
