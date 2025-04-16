@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }, 500);
     }
-  });
+  })
 
 
 document.getElementById("scrollToArticles")?.addEventListener("click", (e) => {
