@@ -158,13 +158,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
         filterArticles();
         setTimeout(() => {
-        if (window.AOS && typeof AOS.init === "function") {
-          AOS.init({
-            once: true,
-            duration: 600,
-          });
+        if (window.AOS && typeof AOS.refreshHard === "function") {
+          AOS.refreshHard();
+        }
+      
+        const section = document.getElementById("articles");
+        if (section && section.offsetHeight < 50) {
+          section.style.minHeight = "1px";
         }
       }, 300);
+
 
       }
     })
