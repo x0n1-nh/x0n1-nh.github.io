@@ -154,6 +154,14 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>
             `;
             container.appendChild(card);
+            setTimeout(() => {
+            const content = document.querySelector(".main-content");
+            if (content) {
+              content.style.height = "auto";
+              content.style.minHeight = "100vh"; // fallback
+              content.scrollTop = 0; // opzionale
+  }
+}, 100);
           });
 
         filterArticles(); 
