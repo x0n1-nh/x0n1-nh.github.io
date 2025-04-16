@@ -157,16 +157,6 @@ document.addEventListener("DOMContentLoaded", () => {
           });
 
         filterArticles();
-        setTimeout(() => {
-        if (window.AOS && typeof AOS.refreshHard === "function") {
-          AOS.refreshHard();
-        }
-        const container = document.querySelector(".main-content");
-        if (container) {
-          container.scrollTop += 1;
-          container.scrollTop -= 1;
-        }
-      }, 300);
       }
     })
     .catch(err => console.error("Errore nel caricamento JSON:", err));
@@ -217,7 +207,6 @@ function typeTitleRAF() {
 window.addEventListener("DOMContentLoaded", () => {
   target.textContent = "";
   requestAnimationFrame(typeTitleRAF);
-  AOS.init();
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -302,6 +291,14 @@ document.querySelectorAll(".filter-options > li").forEach(parent => {
       const isOpen = childUl.style.display === "block";
       childUl.style.display = isOpen ? "none" : "block";
       toggle.textContent = isOpen ? "▶" : "▼";
+    });
+  }
+});
+window.addEventListener("load", () => {
+  if (window.AOS && typeof AOS.init === "function") {
+    AOS.init({
+      once: true,
+      duration: 600
     });
   }
 });
