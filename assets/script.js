@@ -156,15 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
             container.appendChild(card);
           });
 
-        
         filterArticles();
-
-        setTimeout(() => {
-          if (window.AOS && typeof AOS.refreshHard === "function") {
-            AOS.refreshHard();
-          }
-        }, 500);
-
       }
     })
     .catch(err => console.error("Errore nel caricamento JSON:", err));
@@ -215,6 +207,7 @@ function typeTitleRAF() {
 window.addEventListener("DOMContentLoaded", () => {
   target.textContent = "";
   requestAnimationFrame(typeTitleRAF);
+  AOS.init();
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -299,14 +292,6 @@ document.querySelectorAll(".filter-options > li").forEach(parent => {
       const isOpen = childUl.style.display === "block";
       childUl.style.display = isOpen ? "none" : "block";
       toggle.textContent = isOpen ? "▶" : "▼";
-    });
-  }
-});
-window.addEventListener("load", () => {
-  if (window.AOS && typeof AOS.init === "function") {
-    AOS.init({
-      once: true,
-      duration: 600
     });
   }
 });
