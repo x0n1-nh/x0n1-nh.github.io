@@ -158,8 +158,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         filterArticles();
         setTimeout(() => {
-          window.dispatchEvent(new Event("resize"));
-        }, 200);
+        if (window.AOS && typeof AOS.init === "function") {
+          AOS.init({
+            once: true,
+            duration: 600,
+          });
+        }
+      }, 300);
 
       }
     })
