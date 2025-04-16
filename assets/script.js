@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>
             `;
             container.appendChild(card);
-            setTimeout(() => card.classList.add("visible"), 50);
+            setTimeout(() => card.classList.add("visible"), 400);
           });
 
         filterArticles();
