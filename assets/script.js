@@ -156,7 +156,11 @@ document.addEventListener("DOMContentLoaded", () => {
             container.appendChild(card);
           });
 
-        filterArticles(); 
+        filterArticles();
+        setTimeout(() => {
+          window.dispatchEvent(new Event("resize"));
+        }, 200);
+
       }
     })
     .catch(err => console.error("Errore nel caricamento JSON:", err));
