@@ -157,6 +157,16 @@ document.addEventListener("DOMContentLoaded", () => {
           });
 
         filterArticles();
+        setTimeout(() => {
+        if (window.AOS && typeof AOS.refreshHard === "function") {
+          AOS.refreshHard();
+        }
+        const container = document.querySelector(".main-content");
+        if (container) {
+          container.scrollTop += 1;
+          container.scrollTop -= 1;
+        }
+      }, 300);
       }
     })
     .catch(err => console.error("Errore nel caricamento JSON:", err));
