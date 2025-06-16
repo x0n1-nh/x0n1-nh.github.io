@@ -1,5 +1,14 @@
 [
     {
+        "title": "[Review] HTB: Offshore Prolab",
+        "description": "Shell Access to the Secrets of Offshore Banking.",
+        "url": "reviews/labs/offshore-prolab.html",
+        "tags": [
+          "HTB"
+        ],
+        "date": "2025-06-16"
+    },
+    {
         "title": "[Review] HTB: FullHouse Prolab",
         "description": "A Jackpot-Worthy Pentesting Challenge.",
         "url": "reviews/labs/fullhouse-prolab.html",
