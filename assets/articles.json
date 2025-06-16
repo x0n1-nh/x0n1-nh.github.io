@@ -1,5 +1,14 @@
 [
   {
+    "title": "[Review] HTB: Offshore Prolab",
+    "description": "Shell Access to the Secrets of Offshore Banking.",
+    "url": "reviews/labs/offshore-prolab.html",
+    "tags": [
+      "HTB"
+    ],
+    "date": "2025-06-16"
+  },
+  {
     "title": "[Writeup] Blackfield",
     "description": "Abusing Trust in Active Directory.",
     "url": "writeups/hackthebox/blackfield.html",
